@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace D2CFL.Data.Interfaces
 {
+    /// <summary>
+    /// Interface of repository for data layer.
+    /// </summary>
+    /// <typeparam name="TEntity">The type of the T entity.</typeparam>
     public interface IRepository<TEntity>
         where TEntity : IEntity
     {
