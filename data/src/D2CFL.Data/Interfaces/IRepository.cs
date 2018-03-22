@@ -13,7 +13,7 @@ namespace D2CFL.Data.Interfaces
         /// <summary>
         /// Gets entity from repository by Id.
         /// </summary>
-         /// <param name="id">The Entity Id</param>
+        /// <param name="id">The Entity Id</param>
         /// <returns><cref>TEntity</cref>.</returns>
         TEntity Get(int id);
 
@@ -41,7 +41,7 @@ namespace D2CFL.Data.Interfaces
         /// </summary>
         /// <param name="entity">The entity.</param>
         /// <returns>TEntity.</returns>
-        TEntity Inser(TEntity entity);
+        TEntity Insert(TEntity entity);
 
         /// <summary>
         /// Asynchronously inserts entity in the repository.
@@ -57,24 +57,10 @@ namespace D2CFL.Data.Interfaces
         /// <returns>TEntity.</returns>
         TEntity Update(TEntity entity);
 
-
-        /// <summary>
-        /// Asynchronously updates entity in the repository.
-        /// </summary>
-        /// <param name="entity">The entity.</param>
-        /// <returns>TEntity.</returns>
-        Task<TEntity> UpdateAsync(TEntity entity);
-
         /// <summary>
         /// Deletes the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
         void Delete(TEntity entity);
-
-        /// <summary>
-        /// Asynchronously deletes the specified entity.
-        /// </summary>
-        /// <param name="entity">The entity.</param>
-        Task DeleteAsync(TEntity entity);
     }
 }
