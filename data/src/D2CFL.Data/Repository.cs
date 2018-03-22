@@ -10,9 +10,7 @@ namespace D2CFL.Data
     /// Repository for data layer
     /// </summary>
     /// <typeparam name="TEntity">The type of the T entity.</typeparam>
-    /// <seealso>
-    ///     <cref>D2CFL.Data.Interfaces.IRepository{TEntity}</cref>
-    /// </seealso>
+    /// <seealso cref ="D2CFL.Data.Interfaces.IRepository{TEntity}" />
     public class Repository<TEntity> : IRepository<TEntity>
         where TEntity :  Entity
     {

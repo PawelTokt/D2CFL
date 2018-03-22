@@ -7,9 +7,7 @@ namespace D2CFL.Data
     /// <summary>
     /// Entity for data layer.
     /// </summary>
-    /// <seealso>
-    ///     <cref>D2CFL.Data.Interfaces.IEntity</cref>
-    /// </seealso>
+    /// <seealso cref="D2CFL.Data.Interfaces.IEntity"/>
     public class Entity : IEntity
     {
         /// <summary>
