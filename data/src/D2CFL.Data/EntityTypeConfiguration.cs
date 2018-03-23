@@ -7,7 +7,7 @@ namespace D2CFL.Data
     /// EntityTypeConfiguration.
     /// </summary>
     /// <typeparam name="TEntity">The type of the T entity.</typeparam>
-    public class EntityTypeConfiguration<TEntity> : IEntityTypeConfiguration<TEntity>
+    public abstract class EntityTypeConfiguration<TEntity> : IEntityTypeConfiguration<TEntity>
         where TEntity : Entity
     {
         /// <summary>
@@ -29,9 +29,6 @@ namespace D2CFL.Data
         /// Configures the specified entity type builder.
         /// </summary>
         /// <param name="entityTypeBuilder">The entity type builder.</param>
-        public void Configure(EntityTypeBuilder<TEntity> entityTypeBuilder)
-        {
-
-        }
+        public abstract void Configure(EntityTypeBuilder<TEntity> entityTypeBuilder);
     }
 }

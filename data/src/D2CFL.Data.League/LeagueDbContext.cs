@@ -1,4 +1,5 @@
 ﻿using D2CFL.Data.League.Entities;
+using D2CFL.Data.League.EntitiesConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace D2CFL.Data.League
@@ -17,7 +18,7 @@ namespace D2CFL.Data.League
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.ApplyConfiguration(new PlayerEntityConfiguration(SchemaName));
         }
     }
 }
