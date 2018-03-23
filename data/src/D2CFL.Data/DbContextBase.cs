@@ -23,5 +23,15 @@ namespace D2CFL.Data
         /// Database schema name
         /// </summary>
         public string SchemaName { get; }
+
+
+        /// <summary>
+        /// Applying the configuration of dbContext entities
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+        }
     }
 }
