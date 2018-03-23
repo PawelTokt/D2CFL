@@ -5,7 +5,7 @@ namespace D2CFL.Data
     /// <summary>
     /// Class DbContextBase.
     /// </summary>
-    /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
+    /// <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
     public class DbContextBase : DbContext
     {
         /// <summary>

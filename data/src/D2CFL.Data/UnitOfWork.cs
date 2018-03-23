@@ -8,7 +8,7 @@ namespace D2CFL.Data
     /// <summary>
     /// UnitOfWork for data layer.
     /// </summary>
-    /// <seealso cref="D2CFL.Data.Interfaces.IUnitOfWork" />
+    /// <seealso cref="T:D2CFL.Data.Interfaces.IUnitOfWork" />
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext _dbContext;

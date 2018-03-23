@@ -6,7 +6,7 @@ namespace D2CFL.Data.Interfaces
     /// <summary>
     /// Interface of UnitOfWork for data layer.
     /// </summary>
-    /// <seealso cref="System.IDisposable" />
+    /// <seealso cref="T:System.IDisposable" />
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
