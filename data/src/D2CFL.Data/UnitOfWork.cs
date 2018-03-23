@@ -14,7 +14,6 @@ namespace D2CFL.Data
         private readonly DbContext _dbContext;
         private bool _isDisposed;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="UnitOfWork"/> class.
         /// </summary>
@@ -74,7 +73,6 @@ namespace D2CFL.Data
             }
 
             // free managed resources 
-
             _isDisposed = true;
             GC.SuppressFinalize(this);
         }
