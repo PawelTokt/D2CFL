@@ -19,6 +19,8 @@ namespace D2CFL.Data.League
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PlayerEntityConfiguration(SchemaName));
+            modelBuilder.ApplyConfiguration(new TeamEntityConfiguration(SchemaName));
+            modelBuilder.ApplyConfiguration(new PositionEntityConfiguration(SchemaName));
         }
     }
 }
