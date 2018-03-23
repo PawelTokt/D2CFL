@@ -1,6 +1,6 @@
 ﻿using D2CFL.Data.League.Entities;
-using D2CFL.Data.League.EntitiesConfigurations;
 using Microsoft.EntityFrameworkCore;
+using D2CFL.Data.League.EntitiesConfigurations;
 
 namespace D2CFL.Data.League
 {

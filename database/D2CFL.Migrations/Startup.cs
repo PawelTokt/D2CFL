@@ -1,4 +1,5 @@
-﻿using D2CFL.Migrations.Context;
+﻿using D2CFL.Data.League;
+using D2CFL.Migrations.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,8 +32,14 @@ namespace D2CFL.Migrations
         /// <param name="services">The services.</param>
         public virtual void ConfigureServices(IServiceCollection services)
         {
-            // have to add this context for base initialize database
             services.AddDbContext<BaseContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<LeagueContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // have to add this because LeagueContext use it
+            services.AddDbContext<LeagueDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
