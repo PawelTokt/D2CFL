@@ -1,11 +1,12 @@
-﻿using D2CFL.Data.League.Entities;
+﻿using D2CFL.Data.Interfaces;
+using D2CFL.Data.League.Entities;
 
 namespace D2CFL.Data.League.Interfaces
 {
     public interface ILeagueUnitOfWork
     {
-        Repository<PlayerEntity> PlayerRepository { get; set; }
-        Repository<TeamEntity> TeamRepository { get; set; }
-        Repository<PositionEntity> PositionRepository { get; set; }
+        IRepository<PlayerEntity> PlayerRepository { get; set; }
+        IRepository<TeamEntity> TeamRepository { get; set; }
+        IRepository<PositionEntity> PositionRepository { get; set; }
     }
 }
