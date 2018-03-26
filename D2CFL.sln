@@ -23,27 +23,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{822B8C45-2B7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C7F0866D-8BC9-4B5B-AB5D-242D9FDA5986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Data", "data\src\D2CFL.Data\D2CFL.Data.csproj", "{4B051489-E947-4827-B08E-53C6C86143A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Data", "data\src\D2CFL.Data\D2CFL.Data.csproj", "{4B051489-E947-4827-B08E-53C6C86143A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Data.League", "data\src\D2CFL.Data.League\D2CFL.Data.League.csproj", "{FFBFAD53-6EFD-4D76-97E2-6154BB3B6BC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Data.League", "data\src\D2CFL.Data.League\D2CFL.Data.League.csproj", "{FFBFAD53-6EFD-4D76-97E2-6154BB3B6BC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Data.News", "data\src\D2CFL.Data.News\D2CFL.Data.News.csproj", "{8B603AFB-B4A4-4B2A-A60E-D21EE6A63603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Data.News", "data\src\D2CFL.Data.News\D2CFL.Data.News.csproj", "{8B603AFB-B4A4-4B2A-A60E-D21EE6A63603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Data.Identity", "data\src\D2CFL.Data.Identity\D2CFL.Data.Identity.csproj", "{159A98F2-7230-4D08-847B-D0CAF406FE42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Data.Identity", "data\src\D2CFL.Data.Identity\D2CFL.Data.Identity.csproj", "{159A98F2-7230-4D08-847B-D0CAF406FE42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Migrations", "database\D2CFL.Migrations\D2CFL.Migrations.csproj", "{CFE33A11-CC5F-433D-B95D-6FD75F57493F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Migrations", "database\D2CFL.Migrations\D2CFL.Migrations.csproj", "{CFE33A11-CC5F-433D-B95D-6FD75F57493F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Business.Identity", "business\src\D2CFL.Business.Identity\D2CFL.Business.Identity.csproj", "{50454CEB-9DF0-469B-9DAE-32EE09F0D76F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Business.Identity", "business\src\D2CFL.Business.Identity\D2CFL.Business.Identity.csproj", "{50454CEB-9DF0-469B-9DAE-32EE09F0D76F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Business.League", "business\src\D2CFL.Business.League\D2CFL.Business.League.csproj", "{750FCDE1-E72E-41CA-80A6-71AB7BFF588C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Business.League", "business\src\D2CFL.Business.League\D2CFL.Business.League.csproj", "{750FCDE1-E72E-41CA-80A6-71AB7BFF588C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.Business.News", "business\src\D2CFL.Business.News\D2CFL.Business.News.csproj", "{E785A219-E8ED-4EFF-B62E-68737FA1EA5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.Business.News", "business\src\D2CFL.Business.News\D2CFL.Business.News.csproj", "{E785A219-E8ED-4EFF-B62E-68737FA1EA5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.WebSite.Main", "website\src\D2CFL.WebSite.Main\D2CFL.WebSite.Main.csproj", "{050E6E4B-AE62-4CFF-911B-6111F0556F8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.WebSite.Main", "website\src\D2CFL.WebSite.Main\D2CFL.WebSite.Main.csproj", "{050E6E4B-AE62-4CFF-911B-6111F0556F8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.WebSite.Admin", "website\src\D2CFL.WebSite.Admin\D2CFL.WebSite.Admin.csproj", "{E5FF05BA-B0AE-43D1-8548-08EAE48FA48C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.WebSite.Admin", "website\src\D2CFL.WebSite.Admin\D2CFL.WebSite.Admin.csproj", "{E5FF05BA-B0AE-43D1-8548-08EAE48FA48C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2CFL.WebSite.Identity", "website\src\D2CFL.WebSite.Identity\D2CFL.WebSite.Identity.csproj", "{AF397FCA-316E-4C05-9C19-BD60CE463C31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2CFL.WebSite.Identity", "website\src\D2CFL.WebSite.Identity\D2CFL.WebSite.Identity.csproj", "{AF397FCA-316E-4C05-9C19-BD60CE463C31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

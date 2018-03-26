@@ -1,21 +1,28 @@
-﻿using D2CFL.Data.Interfaces;
+﻿using System;
+using D2CFL.Data.Interfaces;
 using D2CFL.Data.League.Entities;
 using D2CFL.Data.League.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace D2CFL.Data.League
 {
     public class LeagueUnitOfWork : UnitOfWork, ILeagueUnitOfWork
     {
-        public LeagueUnitOfWork(LeagueDbContext leagueDbContext)
-            : base(leagueDbContext)
+        public LeagueUnitOfWork(
+            Func<DbContext, IRepository<PlayerEntity>> playerRepository,
+            Func<DbContext, IRepository<PositionEntity>> positionRepository,
+            Func<DbContext, IRepository<TeamEntity>> teamRepository,
+            DbContextOptions dbContextOptions,
+            string schemaName)
+            : base(new LeagueDbContext(dbContextOptions, schemaName))
         {
-            PlayerRepository = new Repository<PlayerEntity>(leagueDbContext);
-            TeamRepository = new Repository<TeamEntity>(leagueDbContext);
-            PositionRepository = new Repository<PositionEntity>(leagueDbContext);
+            RegisterRepository(playerRepository(DbContext));
+            RegisterRepository(positionRepository(DbContext));
+            RegisterRepository(teamRepository(DbContext));
         }
 
-        public IRepository<PlayerEntity> PlayerRepository { get; set; }
-        public IRepository<TeamEntity> TeamRepository { get; set; }
-        public IRepository<PositionEntity> PositionRepository { get; set; }
+        public IRepository<PlayerEntity> PlayerRepository => GetRepository<PlayerEntity>();
+        public IRepository<PositionEntity> PositionRepository => GetRepository<PositionEntity>();
+        public IRepository<TeamEntity> TeamRepository => GetRepository<TeamEntity>();
     }
 }

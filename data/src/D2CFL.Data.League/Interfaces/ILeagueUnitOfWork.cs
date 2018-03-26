@@ -5,8 +5,8 @@ namespace D2CFL.Data.League.Interfaces
 {
     public interface ILeagueUnitOfWork
     {
-        IRepository<PlayerEntity> PlayerRepository { get; set; }
-        IRepository<TeamEntity> TeamRepository { get; set; }
-        IRepository<PositionEntity> PositionRepository { get; set; }
+        IRepository<PlayerEntity> PlayerRepository { get; }
+        IRepository<TeamEntity> TeamRepository { get; }
+        IRepository<PositionEntity> PositionRepository { get; }
     }
 }

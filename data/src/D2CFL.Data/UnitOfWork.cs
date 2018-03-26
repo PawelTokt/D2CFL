@@ -1,6 +1,7 @@
 ﻿using System;
 using D2CFL.Data.Interfaces;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace D2CFL.Data
@@ -12,6 +13,7 @@ namespace D2CFL.Data
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext _dbContext;
+        private readonly IList<object> _repositories;
         private bool _isDisposed;
 
         /// <summary>
@@ -21,7 +23,14 @@ namespace D2CFL.Data
         public UnitOfWork(DbContext dbContext)
         {
             _dbContext = dbContext;
+            _repositories = new List<object>();
         }
+
+        /// <summary>
+        /// Gets the database context.
+        /// </summary>
+        /// <value>The database context.</value>
+        protected DbContext DbContext => _dbContext;
 
         /// <summary>
         /// Saves all changes on the DB.
@@ -75,6 +84,28 @@ namespace D2CFL.Data
             // free managed resources 
             _isDisposed = true;
             GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Registers repository instance.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the T entity.</typeparam>
+        /// <param name="repository">The repository.</param>
+        protected void RegisterRepository<TEntity>(IRepository<TEntity> repository)
+            where TEntity : IEntity
+        {
+            _repositories.Add(repository);
+        }
+
+        /// <summary>
+        /// Gets the repository for specified entity type.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the T entity.</typeparam>
+        /// <returns>_repositories.</returns>
+        protected virtual IRepository<TEntity> GetRepository<TEntity>()
+            where TEntity : IEntity
+        {
+            return (IRepository<TEntity>)_repositories;
         }
     }
 }

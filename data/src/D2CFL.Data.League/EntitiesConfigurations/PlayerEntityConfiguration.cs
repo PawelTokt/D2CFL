@@ -16,13 +16,15 @@ namespace D2CFL.Data.League.EntitiesConfigurations
         {
             entityTypeBuilder.ToTable("Players", SchemaName);
 
+            entityTypeBuilder.HasKey(x => x.Id);
+
             entityTypeBuilder.Property(x => x.Name).HasMaxLength(50).IsRequired();
             entityTypeBuilder.Property(x => x.Nickname).HasMaxLength(50).IsRequired();
             entityTypeBuilder.Property(x => x.Surname).HasMaxLength(50).IsRequired();
 
-            entityTypeBuilder.HasOne(p => p.Team).WithMany(x => x.Players);
+            entityTypeBuilder.HasOne(p => p.Team).WithMany(x => x.Players).HasForeignKey(x => x.TeamEntityId);
 
-            entityTypeBuilder.HasOne(p => p.Position).WithMany(x => x.Players);
+            entityTypeBuilder.HasOne(p => p.Position).WithMany(x => x.Players).HasForeignKey(x => x.PositionEntityId);
         }
     }
 }
