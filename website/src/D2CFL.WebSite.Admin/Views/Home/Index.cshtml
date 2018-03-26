@@ -1,39 +1,24 @@
 ﻿@model IEnumerable<PlayerViewModel>
 
 @{
-  ViewBag.Title = "D2CFL.Admin";
+  ViewData["Title"] = "D2CFL.Admin";
 }
 
 <h2>Players</h2>
 
 <table class="table">
   <tr>
-    <th>
-      Name
-    </th>
-    <th>
-      Nickname
-    </th>
-    <th>
-      Surename
-    </th>
-    <th>
-      Position
-    </th>
+    <th>Name</th>
+    <th>Nickname</th>
+    <th>Surename</th>
+    <th>Position</th>
   </tr>
-
   @foreach (var item in Model)
   {
     <tr>
-      <td>
-        @Html.DisplayFor(modelItem => item.Name)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.Nickname)
-      </td>
-      <td>
-        @Html.DisplayFor(modelItem => item.Surname)
-      </td>
+      <td>@item.Name</td>
+      <td>@item.Nickname</td>
+      <td>@item.Surname</td>
     </tr>
   }
 </table>

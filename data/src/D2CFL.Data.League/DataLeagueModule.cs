@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using D2CFL.Data.Interfaces;
-using D2CFL.Data.League.Entities;
+using D2CFL.Data.League.Contract;
 
 namespace D2CFL.Data.League
 {

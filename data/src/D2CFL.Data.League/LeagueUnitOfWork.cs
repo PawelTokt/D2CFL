@@ -1,7 +1,6 @@
 ﻿using System;
 using D2CFL.Data.Interfaces;
-using D2CFL.Data.League.Entities;
-using D2CFL.Data.League.Interfaces;
+using D2CFL.Data.League.Contract;
 using Microsoft.EntityFrameworkCore;
 
 namespace D2CFL.Data.League

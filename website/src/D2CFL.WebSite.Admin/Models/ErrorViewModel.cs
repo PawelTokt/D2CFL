@@ -1,5 +1,3 @@
-using System;
-
 namespace D2CFL.WebSite.Admin.Models
 {
     public class ErrorViewModel

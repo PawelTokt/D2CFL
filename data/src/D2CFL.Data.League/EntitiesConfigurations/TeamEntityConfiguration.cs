@@ -1,4 +1,4 @@
-﻿using D2CFL.Data.League.Entities;
+﻿using D2CFL.Data.League.Contract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

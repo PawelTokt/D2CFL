@@ -1,7 +1,6 @@
 ﻿using D2CFL.Data.Interfaces;
-using D2CFL.Data.League.Entities;
 
-namespace D2CFL.Data.League.Interfaces
+namespace D2CFL.Data.League.Contract
 {
     public interface ILeagueUnitOfWork
     {

@@ -1,4 +1,4 @@
-﻿namespace D2CFL.Data.League.Entities
+﻿namespace D2CFL.Data.League.Contract
 {
     public class PlayerEntity : Entity
     {
