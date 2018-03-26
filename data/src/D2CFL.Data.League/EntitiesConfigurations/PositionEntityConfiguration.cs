@@ -16,10 +16,14 @@ namespace D2CFL.Data.League.EntitiesConfigurations
         {
             entityTypeBuilder.ToTable("Positions", SchemaName);
 
+            entityTypeBuilder.HasKey(x => x.Id);
+
             entityTypeBuilder.Property(x => x.Name).HasMaxLength(50).IsRequired();
             entityTypeBuilder.Property(x => x.KillCoefficient).IsRequired();
             entityTypeBuilder.Property(x => x.DeathCoefficient).IsRequired();
             entityTypeBuilder.Property(x => x.AssistCoefficient).IsRequired();
+
+            entityTypeBuilder.HasMany(x => x.Players);
 
         }
     }
