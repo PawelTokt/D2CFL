@@ -1,5 +1,4 @@
-﻿using D2CFL.Data.League.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using D2CFL.Data.League.EntitiesConfigurations;
 
 namespace D2CFL.Data.League
@@ -11,10 +10,6 @@ namespace D2CFL.Data.League
         {
 
         }
-
-        public DbSet<PlayerEntity> Players { get; set; }
-        public DbSet<TeamEntity> Teams { get; set; }
-        public DbSet<PositionEntity> Positions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

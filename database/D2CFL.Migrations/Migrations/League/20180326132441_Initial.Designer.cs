@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace D2CFL.Migrations.Migrations.League
 {
     [DbContext(typeof(LeagueContext))]
-    [Migration("20180325132348_Initial")]
+    [Migration("20180326132441_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
