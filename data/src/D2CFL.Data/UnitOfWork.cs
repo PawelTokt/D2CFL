@@ -101,7 +101,7 @@ namespace D2CFL.Data
         /// Gets the repository for specified entity type.
         /// </summary>
         /// <typeparam name="TEntity">The type of the T entity.</typeparam>
-        /// <returns>_repositories.</returns>
+        /// <returns>(IRepository{TEntity})_repositories.</returns>
         protected virtual IRepository<TEntity> GetRepository<TEntity>()
             where TEntity : IEntity
         {
