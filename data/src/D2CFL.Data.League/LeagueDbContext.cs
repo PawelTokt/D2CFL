@@ -9,6 +9,7 @@ namespace D2CFL.Data.League
         public LeagueDbContext(DbContextOptions dbContextOptions, string schemaName)
             : base(dbContextOptions, schemaName)
         {
+
         }
 
         public DbSet<PlayerEntity> Players { get; set; }
