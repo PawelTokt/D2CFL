@@ -1,37 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using D2CFL.WebSite.Admin.Models;
+using System.Collections.Generic;
+using D2CFL.Business.League.Contract;
 
 namespace D2CFL.WebSite.Admin.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPlayerSerivice _playerSerivice;
+
+        public HomeController(IPlayerSerivice playerSerivice)
+        {
+            _playerSerivice = playerSerivice;
+        }
+
         public IActionResult Index()
         {
-            return View();
-        }
+            var players = Mapper.Map<IList<PlayerDto>, List<PlayerViewModel>>(_playerSerivice.GetList());
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(players);
         }
     }
 }
