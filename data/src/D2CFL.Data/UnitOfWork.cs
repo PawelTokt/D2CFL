@@ -2,6 +2,7 @@
 using D2CFL.Data.Interfaces;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace D2CFL.Data
@@ -13,7 +14,7 @@ namespace D2CFL.Data
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext _dbContext;
-        private readonly IList<object> _repositories;
+        private readonly IDictionary<Type, object> _repositories;
         private bool _isDisposed;
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace D2CFL.Data
         public UnitOfWork(DbContext dbContext)
         {
             _dbContext = dbContext;
-            _repositories = new List<object>();
+            _repositories = new Dictionary<Type, object>();
         }
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace D2CFL.Data
         protected void RegisterRepository<TEntity>(IRepository<TEntity> repository)
             where TEntity : IEntity
         {
-            _repositories.Add(repository);
+            _repositories[typeof(TEntity)] = repository;
         }
 
         /// <summary>
@@ -105,7 +106,7 @@ namespace D2CFL.Data
         protected virtual IRepository<TEntity> GetRepository<TEntity>()
             where TEntity : IEntity
         {
-            return (IRepository<TEntity>)_repositories;
+            return (IRepository<TEntity>)_repositories[typeof(TEntity)];
         }
     }
 }

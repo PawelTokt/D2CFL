@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,9 +18,14 @@ namespace D2CFL.WebSite.Admin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper();
+            AutoMapper.Startup.ConfigureServices(services);
 
             services.AddMvc();
+        }
+
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            Autofac.Startup.ConfigureContainer(containerBuilder, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
