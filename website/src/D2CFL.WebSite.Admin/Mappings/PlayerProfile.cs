@@ -4,9 +4,9 @@ using D2CFL.Business.League.Contract;
 
 namespace D2CFL.WebSite.Admin.Mappings
 {
-    public class LeagueProfile : Profile
+    public class PlayerProfile : Profile
     {
-        public LeagueProfile()
+        public PlayerProfile()
         {
             CreateMap<PlayerDto, PlayerViewModel>();
         }
