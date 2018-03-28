@@ -4,11 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
+using System;
 
 namespace D2CFL.Migrations.Migrations.League
 {
     [DbContext(typeof(LeagueContext))]
-    [Migration("20180326132441_Initial")]
+    [Migration("20180328182042_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +21,7 @@ namespace D2CFL.Migrations.Migrations.League
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("D2CFL.Data.League.Entities.PlayerEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.League.Contract.PlayerEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -48,7 +51,7 @@ namespace D2CFL.Migrations.Migrations.League
                     b.ToTable("Players","league");
                 });
 
-            modelBuilder.Entity("D2CFL.Data.League.Entities.PositionEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.League.Contract.PositionEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -68,7 +71,7 @@ namespace D2CFL.Migrations.Migrations.League
                     b.ToTable("Positions","league");
                 });
 
-            modelBuilder.Entity("D2CFL.Data.League.Entities.TeamEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.League.Contract.TeamEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -86,13 +89,13 @@ namespace D2CFL.Migrations.Migrations.League
                     b.ToTable("Teams","league");
                 });
 
-            modelBuilder.Entity("D2CFL.Data.League.Entities.PlayerEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.League.Contract.PlayerEntity", b =>
                 {
-                    b.HasOne("D2CFL.Data.League.Entities.PositionEntity", "Position")
+                    b.HasOne("D2CFL.Data.League.Contract.PositionEntity", "Position")
                         .WithMany("Players")
                         .HasForeignKey("PositionEntityId");
 
-                    b.HasOne("D2CFL.Data.League.Entities.TeamEntity", "Team")
+                    b.HasOne("D2CFL.Data.League.Contract.TeamEntity", "Team")
                         .WithMany("Players")
                         .HasForeignKey("TeamEntityId");
                 });
