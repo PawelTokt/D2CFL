@@ -9,20 +9,20 @@
         /// <summary>
         /// Gets or sets the player name.
         /// </summary>
-        /// <value>The position name.</value>
+        /// <value>The player name.</value>
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the player nickname.
         /// </summary>
-        /// <value>The position name.</value>
+        /// <value>The player nickname.</value>
         public string Nickname { get; set; }
 
         /// <summary>
-        /// Gets or sets the player surename.
+        /// Gets or sets the player lastname.
         /// </summary>
-        /// <value>The position name.</value>
-        public string Surname { get; set; }
+        /// <value>The player lastname.</value>
+        public string Lastname { get; set; }
 
         /// <summary>
         /// Gets or sets the position identifier.
@@ -34,18 +34,18 @@
         /// Gets or sets the position.
         /// </summary>
         /// <value>The position.</value>
-        public PositionEntity Position { get; set; }
+        public virtual PositionEntity Position { get; set; }
 
         /// <summary>
         /// Gets or sets the team identifier.
         /// </summary>
         /// <value>The team identifier.</value>
-        public int? TeamEntityId { get; set; }
+        public  int? TeamEntityId { get; set; }
 
         /// <summary>
         /// Gets or sets the team.
         /// </summary>
         /// <value>The team.</value>
-        public TeamEntity Team { get; set; }
+        public virtual TeamEntity Team { get; set; }
     }
 }
