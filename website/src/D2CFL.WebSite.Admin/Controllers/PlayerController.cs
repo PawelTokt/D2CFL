@@ -22,9 +22,34 @@ namespace D2CFL.WebSite.Admin.Controllers
             return View(players);
         }
 
-        public async Task<IActionResult> Update()
+        [HttpGet]
+        public IActionResult Insert()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Insert(PlayerViewModel model)
+        {
+            PlayerDto playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(model);
+            await _playerService.Insert(playerDto);
+            return View(_playerService.Insert(playerDto));
+        }
+
+        [HttpGet]
+        public IActionResult Update(int? id)
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> Update(PlayerViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _playerService.Update(Mapper.Map<PlayerViewModel, PlayerDto>(model));
+            }
+            return View(model);
         }
     }
 }
