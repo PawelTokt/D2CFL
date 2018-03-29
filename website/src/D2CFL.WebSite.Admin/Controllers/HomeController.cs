@@ -9,7 +9,7 @@ namespace D2CFL.WebSite.Admin.Controllers
     public class HomeController : Controller
     {
         private readonly IPlayerSerivice _playerSerivice;
-
+        
         public HomeController(IPlayerSerivice playerSerivice)
         {
             _playerSerivice = playerSerivice;
