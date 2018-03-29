@@ -7,18 +7,21 @@
 <h2>Players</h2>
 
 <table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Nickname</th>
-    <th>Surename</th>
-    <th>Position</th>
-  </tr>
+    <tr>
+        <th>Name</th>
+        <th>Nickname</th>
+        <th>Lastname</th>
+        <th>Position</th>
+        <th>Team</th>
+    </tr>
   @foreach (var item in Model)
   {
-    <tr>
+  <tr>
       <td>@item.Name</td>
       <td>@item.Nickname</td>
-      <td>@item.Surname</td>
-    </tr>
+      <td>@item.Lastname</td>
+      <td>@item.Position</td>
+      <td>@item.Team</td>
+  </tr>
   }
 </table>

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace D2CFL.Data.Interfaces
 {
@@ -27,8 +28,8 @@ namespace D2CFL.Data.Interfaces
         /// <summary>
         /// Gets entities from repository.
         /// </summary>
-        /// <returns><cref>IList{TEntity}</cref>.</returns>
-        IList<TEntity> GetList();
+        /// <returns><cref>IQueryable{TEntity}</cref>.</returns>
+        IQueryable<TEntity> GetList();
 
         /// <summary>
         /// Asynchronously gets entities from repository.

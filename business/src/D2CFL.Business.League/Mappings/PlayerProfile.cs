@@ -8,7 +8,9 @@ namespace D2CFL.Business.League.Mappings
     {
         public PlayerProfile()
         {
-            CreateMap<PlayerEntity, PlayerDto>();
+            CreateMap<PlayerEntity, PlayerDto>()
+                .ForMember(x => x.Team, opt => opt.MapFrom(x => x.Team.Name))
+                .ForMember(x => x.Position, opt => opt.MapFrom(x => x.Position.Name));
         }
     }
 }

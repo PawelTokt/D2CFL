@@ -2,23 +2,23 @@
 using Microsoft.AspNetCore.Mvc;
 using D2CFL.WebSite.Admin.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using D2CFL.Business.League.Contract;
 
 namespace D2CFL.WebSite.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPlayerSerivice _playerSerivice;
+        private readonly IPlayerService _playerService;
         
-        public HomeController(IPlayerSerivice playerSerivice)
+        public HomeController(IPlayerService playerService)
         {
-            _playerSerivice = playerSerivice;
+            _playerService = playerService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var players = Mapper.Map<IList<PlayerDto>, List<PlayerViewModel>>(_playerSerivice.GetList());
-
+            var players = Mapper.Map<IList<PlayerDto>, List<PlayerViewModel>>(await _playerService.GetList());
             return View(players);
         }
     }

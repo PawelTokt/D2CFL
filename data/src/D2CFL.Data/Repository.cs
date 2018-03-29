@@ -58,10 +58,10 @@ namespace D2CFL.Data
         /// <summary>
         /// Gets entities of type T from repository.
         /// </summary>
-        /// <returns><cref>IList{TEntity}</cref>.</returns>
-        public IList<TEntity> GetList()
+        /// <returns><cref>IQueryable{TEntity}</cref>.</returns>
+        public IQueryable<TEntity> GetList()
         {
-            return DbSet.ToList();
+            return DbSet;
         }
 
         /// <summary>
