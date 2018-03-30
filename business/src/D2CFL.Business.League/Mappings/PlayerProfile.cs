@@ -11,6 +11,8 @@ namespace D2CFL.Business.League.Mappings
             CreateMap<PlayerEntity, PlayerDto>()
                 .ForMember(x => x.Team, opt => opt.MapFrom(x => x.Team.Name))
                 .ForMember(x => x.Position, opt => opt.MapFrom(x => x.Position.Name));
+
+            CreateMap<PlayerDto, PlayerEntity>();
         }
     }
 }

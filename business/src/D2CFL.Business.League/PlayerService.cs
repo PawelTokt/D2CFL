@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
+using System.Linq;
 using D2CFL.Data.League.Contract;
 using System.Collections.Generic;
-using System.Linq;
-using D2CFL.Business.League.Contract;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+using D2CFL.Business.League.Contract;
 
 namespace D2CFL.Business.League
 {
@@ -17,35 +16,45 @@ namespace D2CFL.Business.League
             _leagueUnitOfWork = leagueUnitOfWork;
         }
 
-        //public async Task<IList<PlayerDto>> GetList()
-        //{
-        //    return Mapper.Map<IList<PlayerEntity>, List<PlayerDto>>(await _leagueUnitOfWork.PlayerRepository
-        //        .GetList().Include(x => x.Position).Include(x => x.Team).ToListAsync());
-        //}
-
-        public async Task<IList<PlayerDto>> GetList()
+        public IList<PlayerDto> GetList()
         {
-            return Mapper.Map<IList<PlayerEntity>, List<PlayerDto>>(await _leagueUnitOfWork.PlayerRepository.GetListAsync().);
+            return Mapper.Map<IList<PlayerEntity>, List<PlayerDto>>(_leagueUnitOfWork.PlayerRepository.GetList()
+                    .Include(x => x.Position)
+                    .Include(x => x.Team).ToList()
+                );
         }
 
-        public async Task<PlayerDto> Get(int id)
+        public PlayerDto Get(int id)
         {
-            return Mapper.Map<PlayerEntity, PlayerDto>(await _leagueUnitOfWork.PlayerRepository.GetAsync(id));
+            var players = Mapper.Map<IList<PlayerEntity>, List<PlayerDto>>(_leagueUnitOfWork.PlayerRepository.GetList()
+                .Include(x => x.Position)
+                .Include(x => x.Team).ToList()
+            );
+
+            return players.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task Insert(PlayerDto playerDto)
+        public void Insert(PlayerDto playerDto)
         {
-            await _leagueUnitOfWork.PlayerRepository.InsertAsync(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
-            await _leagueUnitOfWork.SaveAsync();
+            _leagueUnitOfWork.PlayerRepository.Insert(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
+
+            _leagueUnitOfWork.Save();
         }
 
-        public async Task Update(PlayerDto playerDto)
+        public void Update(PlayerDto playerDto)
         {
-            var entity = await _leagueUnitOfWork.PlayerRepository.GetAsync(playerDto.Id);
+            var player =  _leagueUnitOfWork.PlayerRepository.Get(playerDto.Id);
+
             _leagueUnitOfWork.PlayerRepository.Update(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
-            await _leagueUnitOfWork.SaveAsync();
+
+            _leagueUnitOfWork.Save();
         }
 
-        //ToDo: Delete
+        public void Delete(PlayerDto playerDto)
+        {
+            _leagueUnitOfWork.PlayerRepository.Delete(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
+
+            _leagueUnitOfWork.Save();
+        }
     }
 }

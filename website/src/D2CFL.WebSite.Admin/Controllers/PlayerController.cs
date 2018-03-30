@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AutoMapper;
-using D2CFL.Business.League.Contract;
-using D2CFL.WebSite.Admin.Models;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using D2CFL.WebSite.Admin.Models;
+using D2CFL.Business.League.Contract;
 
 namespace D2CFL.WebSite.Admin.Controllers
 {
@@ -16,10 +15,18 @@ namespace D2CFL.WebSite.Admin.Controllers
             _playerService = playerService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var players = Mapper.Map<IList<PlayerDto>, List<PlayerViewModel>>(await _playerService.GetList());
+            var players = Mapper.Map<IList<PlayerDto>, List<PlayerViewModel>>(_playerService.GetList());
+
             return View(players);
+        }
+
+        public IActionResult Info(int id)
+        {
+            var player = Mapper.Map<PlayerDto, PlayerViewModel>(_playerService.Get(id));
+
+            return View(player);
         }
 
         [HttpGet]
@@ -30,26 +37,31 @@ namespace D2CFL.WebSite.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Insert(PlayerViewModel model)
+        public IActionResult Insert(PlayerViewModel playerViewModel)
         {
-            var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(model);
-            await _playerService.Insert(playerDto);
+            var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(playerViewModel);
+
+            _playerService.Insert(playerDto);
+
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Update(int? id)
+        public IActionResult Update(int id)
         {
+            var playerViewModel = Mapper.Map<PlayerDto, PlayerViewModel>(_playerService.Get(id));
+
             //ToDo: SelectList teams
-            return View();
+
+            return View(playerViewModel);
         }
         
         [HttpPost]
-        public async Task<IActionResult> Update(PlayerViewModel model)
+        public IActionResult Update(PlayerViewModel model)
         {
             if (ModelState.IsValid)
             {
-                await _playerService.Update(Mapper.Map<PlayerViewModel, PlayerDto>(model));
+                _playerService.Update(Mapper.Map<PlayerViewModel, PlayerDto>(model));
             }
             return View(model);
         }
