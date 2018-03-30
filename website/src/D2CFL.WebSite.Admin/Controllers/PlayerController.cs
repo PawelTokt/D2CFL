@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using D2CFL.WebSite.Admin.Models;
@@ -15,16 +16,16 @@ namespace D2CFL.WebSite.Admin.Controllers
             _playerService = playerService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var players = Mapper.Map<IList<PlayerDto>, List<PlayerViewModel>>(_playerService.GetList());
+            var players = Mapper.Map<IList<PlayerDto>, List<PlayerViewModel>>(await _playerService.GetList());
 
             return View(players);
         }
 
-        public IActionResult Info(int id)
+        public async Task<IActionResult> Info()
         {
-            var player = Mapper.Map<PlayerDto, PlayerViewModel>(_playerService.Get(id));
+            var player = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get());
 
             return View(player);
         }
@@ -49,13 +50,11 @@ namespace D2CFL.WebSite.Admin.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var playerViewModel = Mapper.Map<PlayerDto, PlayerViewModel>(_playerService.Get(id));
-
             //ToDo: SelectList teams
 
-            return View(playerViewModel);
+            return View();
         }
-        
+
         [HttpPost]
         public IActionResult Update(PlayerViewModel model)
         {

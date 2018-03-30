@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace D2CFL.Business.League.Contract
 {
     public interface IPlayerService
     {
-        IList<PlayerDto> GetList();
-        PlayerDto Get(int id);
+        //IList<PlayerDto> GetList();
+        Task<IList<PlayerDto>> GetList();
+        Task<PlayerDto> Get();
         void Insert(PlayerDto playerDto);
         void Update(PlayerDto playerDto);
         void Delete(PlayerDto playerDto);

@@ -36,41 +36,106 @@ namespace D2CFL.Data
         protected DbSet<TEntity> DbSet => DbContext.Set<TEntity>();
 
         /// <summary>
+        /// Gets query of type T for repository.
+        /// </summary>
+        /// <returns><cref>IQueryable{TEntity}</cref>.</returns>
+        protected IQueryable<TEntity> Query()
+        {
+            IQueryable<TEntity> query = DbSet;
+
+            return query;
+        }
+
+        /// <summary>
+        /// Gets query of type T for repository.
+        /// </summary>
+        /// <typeparam name="TModel">The type of the T model.</typeparam>
+        /// <param name="dataMapper">The data mapper.</param>
+        protected IQueryable<TModel> Query<TModel>(IDataMapper dataMapper)
+        {
+            return dataMapper.Map<TModel>(Query());
+        }
+
+        /// <summary>
         /// Gets entity of type T from repository.
         /// </summary>
-        /// <param name="id">The Entity Id</param>
         /// <returns><cref>TEntity</cref>.</returns>
-        public TEntity Get(int id)
+        public TEntity Get()
         {
-            return DbSet.FirstOrDefault(x => x.Id == id);
+            return DbSet.FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets model of type T from repository.
+        /// If no entity is found, then null is returned.
+        /// </summary>
+        /// <typeparam name="TModel">The type of the T model.</typeparam>
+        /// <param name="dataMapper">The data mapper.</param>
+        /// <returns><cref>TModel</cref></returns>
+        public TModel Get<TModel>(IDataMapper dataMapper)
+        {
+            return Query<TModel>(dataMapper).FirstOrDefault();
         }
 
         /// <summary>
         /// Asynchronously gets entity of type T from repository.
         /// </summary>
-        /// <param name="id">The Entity Id</param>
         /// <returns><cref>TEntity</cref>.</returns>
-        public async Task<TEntity> GetAsync(int id)
+        public async Task<TEntity> GetAsync()
         {
-            return await DbSet.FirstOrDefaultAsync(x => x.Id == id);
+            return await DbSet.FirstOrDefaultAsync();
+        }
+
+        /// <summary>
+        /// Asynchronously gets model of type T from repository.
+        /// If no entity is found, then null is returned.
+        /// </summary>
+        /// <typeparam name="TModel">The type of the T model.</typeparam>
+        /// <param name="dataMapper">The data mapper.</param>
+        /// <returns><cref>Task{TModel}</cref>.</returns>
+        public async Task<TModel> GetAsync<TModel>(IDataMapper dataMapper)
+        {
+            return await Query<TModel>(dataMapper).FirstOrDefaultAsync();
         }
 
         /// <summary>
         /// Gets entities of type T from repository.
         /// </summary>
-        /// <returns><cref>IQueryable{TEntity}</cref>.</returns>
-        public IQueryable<TEntity> GetList()
+        /// <returns><cref>IList{TEntity}</cref>.</returns>
+        public IList<TEntity> GetList()
         {
-            return DbSet;
+            return Query().ToList();
+        }
+
+        /// <summary>
+        /// Gets models of type T from repository.
+        /// </summary>
+        /// <typeparam name="TModel">The type of the T model.</typeparam>
+        /// <param name="dataMapper">The data mapper.</param>
+        /// <returns><cref>IList{TModel}</cref>.</returns>
+        public IList<TModel> GetList<TModel>(IDataMapper dataMapper)
+        {
+            return Query<TModel>(dataMapper).ToList();
         }
 
         /// <summary>
         /// Asynchronously gets entities of type T from repository.
         /// </summary>
-        /// <returns><cref>IList{TEntity}</cref>.</returns>
+        /// <returns><cref>Task{IList{TModel}}</cref>.</returns>
         public async Task<IList<TEntity>> GetListAsync()
         {
-            return await DbSet.ToListAsync();
+            return await Query().ToListAsync();
+        }
+
+        /// <summary>
+        /// Asynchronously gets models of type T from repository.
+        /// </summary>
+        /// <typeparam name="TModel">The type of the T model.</typeparam>
+        /// <param name="dataMapper">The data mapper.</param>
+        /// <returns><cref>Task{IList{TModel}}</cref>.</returns>
+        public async Task<IList<TModel>> GetListAsync<TModel>(IDataMapper dataMapper)
+        {
+            return await Query<TModel>(dataMapper).ToListAsync();
         }
 
         /// <summary>
