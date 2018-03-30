@@ -25,20 +25,22 @@ namespace D2CFL.WebSite.Admin.Controllers
         [HttpGet]
         public IActionResult Insert()
         {
+            //ToDo: SelectList teams
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Insert(PlayerViewModel model)
         {
-            PlayerDto playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(model);
+            var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(model);
             await _playerService.Insert(playerDto);
-            return View(_playerService.Insert(playerDto));
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Update(int? id)
         {
+            //ToDo: SelectList teams
             return View();
         }
         
