@@ -8,7 +8,7 @@ namespace D2CFL.Business.League.Contract
         //IList<PlayerDto> GetList();
         Task<IList<PlayerDto>> GetList();
         Task<PlayerDto> Get();
-        void Insert(PlayerDto playerDto);
+        Task Insert(PlayerDto playerDto);
         void Update(PlayerDto playerDto);
         void Delete(PlayerDto playerDto);
     }

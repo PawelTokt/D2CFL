@@ -9,6 +9,8 @@ namespace D2CFL.WebSite.Admin.Mappings
         public PlayerProfile()
         {
             CreateMap<PlayerDto, PlayerViewModel>();
+
+            CreateMap<PlayerViewModel, PlayerDto>();
         }
     }
 }

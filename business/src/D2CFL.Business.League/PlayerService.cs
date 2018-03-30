@@ -3,6 +3,7 @@ using D2CFL.Data.Interfaces;
 using System.Threading.Tasks;
 using D2CFL.Data.League.Contract;
 using System.Collections.Generic;
+using System.Linq;
 using D2CFL.Business.League.Contract;
 
 namespace D2CFL.Business.League
@@ -40,11 +41,11 @@ namespace D2CFL.Business.League
             return await _leagueUnitOfWork.PlayerRepository.GetAsync<PlayerDto>(_dataMapper);
         }
 
-        public void Insert(PlayerDto playerDto)
+        public async Task Insert(PlayerDto playerDto)
         {
             _leagueUnitOfWork.PlayerRepository.Insert(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
 
-            _leagueUnitOfWork.Save();
+            await _leagueUnitOfWork.SaveAsync();
         }
 
         public void Update(PlayerDto playerDto)

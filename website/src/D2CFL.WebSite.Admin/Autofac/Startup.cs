@@ -27,6 +27,10 @@ namespace D2CFL.WebSite.Admin.Autofac
             );
 
             containerBuilder.RegisterType<PlayerService>().As<IPlayerService>().InstancePerLifetimeScope();
+
+            containerBuilder.RegisterType<TeamService>().As<ITeamService>().InstancePerLifetimeScope();
+
+            containerBuilder.RegisterType<PositionService>().As<IPositionService>().InstancePerLifetimeScope();
         }
     }
 }

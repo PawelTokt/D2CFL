@@ -4,16 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using D2CFL.WebSite.Admin.Models;
 using D2CFL.Business.League.Contract;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace D2CFL.WebSite.Admin.Controllers
 {
     public class PlayerController : Controller
     {
         private readonly IPlayerService _playerService;
+        private readonly ITeamService _teamService;
+        private readonly IPositionService _positionService;
 
-        public PlayerController(IPlayerService playerService)
+        public PlayerController(IPlayerService playerService, ITeamService teamService, IPositionService positionService)
         {
             _playerService = playerService;
+            _teamService = teamService;
+            _positionService = positionService;
         }
 
         public async Task<IActionResult> Index()
@@ -31,15 +36,20 @@ namespace D2CFL.WebSite.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult Insert()
+        public async Task<IActionResult> Insert()
         {
-            //ToDo: SelectList teams
+            ViewBag.Teams = new SelectList(await _teamService.GetList(), "Name", "Name");
+
+            ViewBag.Positions = new SelectList(await _positionService.GetList(), "Name", "Name");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Insert(PlayerViewModel playerViewModel)
         {
+            if (!ModelState.IsValid) return View(playerViewModel);
+
             var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(playerViewModel);
 
             _playerService.Insert(playerDto);
