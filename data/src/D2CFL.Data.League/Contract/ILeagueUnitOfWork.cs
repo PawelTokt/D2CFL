@@ -6,7 +6,7 @@ namespace D2CFL.Data.League.Contract
     /// Interface ILeagueUnitOfWork.
     /// </summary>
     /// <seealso cref="T:D2CFL.Data.Interfaces.IUnitOfWork" />
-    public interface ILeagueUnitOfWork
+    public interface ILeagueUnitOfWork : IUnitOfWork
     {
         /// <summary>
         /// Gets the player repository.
