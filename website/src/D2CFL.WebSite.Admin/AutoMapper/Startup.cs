@@ -13,6 +13,7 @@ namespace D2CFL.WebSite.Admin.AutoMapper
                 typeof(Business.League.Mappings.PositionProfile).Assembly,
                 typeof(Business.League.Mappings.TeamProfile).Assembly,
                 typeof(Mappings.PlayerProfile).Assembly,
+                typeof(Mappings.PositionProfile).Assembly,
                 typeof(Mappings.TeamProfile).Assembly
             );
         }

@@ -74,5 +74,30 @@ namespace D2CFL.WebSite.Admin.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var playerModel = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
+
+            if (playerModel != null)
+            {
+                return View(playerModel);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var playerModel = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
+
+            var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(playerModel);
+
+            _playerService.Delete(playerDto);
+
+            return RedirectToAction("Index");
+        }
     }
 }

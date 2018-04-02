@@ -12,6 +12,5 @@ namespace D2CFL.Business.League.Mappings
 
             CreateMap<PositionDto, PositionEntity>();
         }
-
     }
 }
