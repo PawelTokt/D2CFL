@@ -10,7 +10,10 @@ namespace D2CFL.WebSite.Admin.AutoMapper
             services.AddAutoMapper(
                 typeof(Startup).Assembly,
                 typeof(Business.League.Mappings.PlayerProfile).Assembly,
-                typeof(Mappings.PlayerProfile).Assembly
+                typeof(Business.League.Mappings.PositionProfile).Assembly,
+                typeof(Business.League.Mappings.TeamProfile).Assembly,
+                typeof(Mappings.PlayerProfile).Assembly,
+                typeof(Mappings.TeamProfile).Assembly
             );
         }
     }

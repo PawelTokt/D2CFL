@@ -3,7 +3,6 @@ using D2CFL.Data.Interfaces;
 using System.Threading.Tasks;
 using D2CFL.Data.League.Contract;
 using System.Collections.Generic;
-using System.Linq;
 using D2CFL.Business.League.Contract;
 
 namespace D2CFL.Business.League
@@ -19,13 +18,6 @@ namespace D2CFL.Business.League
             _leagueUnitOfWork = leagueUnitOfWork;
         }
 
-        //public IList<PlayerDto> GetList()
-        //{
-        //    return Mapper.Map<IList<PlayerEntity>, List<PlayerDto>>(_leagueUnitOfWork.PlayerRepository.GetList()
-        //            .Include(x => x.Position)
-        //            .Include(x => x.Team).ToList()
-        //        );
-        //}
         public async Task<IList<PlayerDto>> GetList()
         {
             return await _leagueUnitOfWork.PlayerRepository.GetListAsync<PlayerDto>(_dataMapper);
@@ -33,17 +25,12 @@ namespace D2CFL.Business.League
 
         public async Task<PlayerDto> Get()
         {
-            //var players = Mapper.Map<IList<PlayerEntity>, List<PlayerDto>>(_leagueUnitOfWork.PlayerRepository.GetList()
-            //    .Include(x => x.Position)
-            //    .Include(x => x.Team).ToList()
-            //);
-
             return await _leagueUnitOfWork.PlayerRepository.GetAsync<PlayerDto>(_dataMapper);
         }
 
         public async Task Insert(PlayerDto playerDto)
         {
-            _leagueUnitOfWork.PlayerRepository.Insert(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
+            await _leagueUnitOfWork.PlayerRepository.InsertAsync(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
 
             await _leagueUnitOfWork.SaveAsync();
         }

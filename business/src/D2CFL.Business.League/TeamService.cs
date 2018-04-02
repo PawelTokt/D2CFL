@@ -1,4 +1,5 @@
-﻿using D2CFL.Data.Interfaces;
+﻿using AutoMapper;
+using D2CFL.Data.Interfaces;
 using System.Threading.Tasks;
 using D2CFL.Data.League.Contract;
 using System.Collections.Generic;
@@ -28,9 +29,11 @@ namespace D2CFL.Business.League
             return await _leagueUnitOfWork.TeamRepository.GetAsync<TeamDto>(_dataMapper);
         }
 
-        public Task Insert(TeamDto playerDto)
+        public async Task Insert(TeamDto teamDto)
         {
-            throw new System.NotImplementedException();
+            await _leagueUnitOfWork.TeamRepository.InsertAsync(Mapper.Map<TeamDto, TeamEntity>(teamDto));
+
+            await _leagueUnitOfWork.SaveAsync();
         }
 
         public void Update(TeamDto playerDto)
