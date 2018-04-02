@@ -3,6 +3,8 @@ using D2CFL.Data.Interfaces;
 using System.Threading.Tasks;
 using D2CFL.Data.League.Contract;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using D2CFL.Business.League.Contract;
 
 namespace D2CFL.Business.League
@@ -23,9 +25,13 @@ namespace D2CFL.Business.League
             return await _leagueUnitOfWork.PlayerRepository.GetListAsync<PlayerDto>(_dataMapper);
         }
 
-        public async Task<PlayerDto> Get()
+        public async Task<PlayerDto> Get(int id)
         {
-            return await _leagueUnitOfWork.PlayerRepository.GetAsync<PlayerDto>(_dataMapper);
+            var players = await _leagueUnitOfWork.PlayerRepository.GetListAsync<PlayerDto>(_dataMapper);
+
+            return players.FirstOrDefault(x => x.Id == id);
+
+            //return await _leagueUnitOfWork.PlayerRepository.GetAsync<PlayerDto>(_dataMapper);
         }
 
         public async Task Insert(PlayerDto playerDto)

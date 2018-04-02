@@ -28,9 +28,9 @@ namespace D2CFL.WebSite.Admin.Controllers
             return View(players);
         }
 
-        public async Task<IActionResult> Info()
+        public async Task<IActionResult> Info(int id)
         {
-            var player = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get());
+            var player = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
 
             return View(player);
         }
