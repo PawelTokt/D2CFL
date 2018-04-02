@@ -20,14 +20,14 @@
     <input type="text" asp-for="Lastname" class="form-control" />
   </div>
   <div class="form-group">
-    <label asp-for="Position" class="control-label">Position</label>
-    <select asp-for="Position" class="form-control" asp-items="@ViewBag.Positions">
+    <label asp-for="PositionId" class="control-label">Position</label>
+    <select asp-for="PositionId" class="form-control" asp-items="@ViewBag.Positions">
       <option>---Select---</option>
     </select>
   </div>
   <div class="form-group">
-    <label asp-for="Team" class="control-label">Team</label>
-    <select asp-for="Team" class="form-control" asp-items="@ViewBag.Teams">
+    <label asp-for="TeamId" class="control-label">Team</label>
+    <select asp-for="TeamId" class="form-control" asp-items="@ViewBag.Teams">
       <option>---Select---</option>
     </select>
   </div>

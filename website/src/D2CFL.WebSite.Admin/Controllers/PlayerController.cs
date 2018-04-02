@@ -38,9 +38,9 @@ namespace D2CFL.WebSite.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Insert()
         {
-            ViewBag.Teams = new SelectList(await _teamService.GetList(), "Name", "Name");
+            ViewBag.Teams = new SelectList(await _teamService.GetList(), "Id", "Name");
 
-            ViewBag.Positions = new SelectList(await _positionService.GetList(), "Name", "Name");
+            ViewBag.Positions = new SelectList(await _positionService.GetList(), "Id", "Name");
 
             return View();
         }
