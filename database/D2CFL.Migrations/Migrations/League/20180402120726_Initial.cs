@@ -52,22 +52,22 @@ namespace D2CFL.Migrations.Migrations.League
                     Lastname = table.Column<string>(maxLength: 50, nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     Nickname = table.Column<string>(maxLength: 50, nullable: false),
-                    PositionEntityId = table.Column<int>(nullable: true),
-                    TeamEntityId = table.Column<int>(nullable: true)
+                    PositionId = table.Column<int>(nullable: true),
+                    TeamId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Players", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Players_Positions_PositionEntityId",
-                        column: x => x.PositionEntityId,
+                        name: "FK_Players_Positions_PositionId",
+                        column: x => x.PositionId,
                         principalSchema: "league",
                         principalTable: "Positions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Players_Teams_TeamEntityId",
-                        column: x => x.TeamEntityId,
+                        name: "FK_Players_Teams_TeamId",
+                        column: x => x.TeamId,
                         principalSchema: "league",
                         principalTable: "Teams",
                         principalColumn: "Id",
@@ -75,16 +75,16 @@ namespace D2CFL.Migrations.Migrations.League
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Players_PositionEntityId",
+                name: "IX_Players_PositionId",
                 schema: "league",
                 table: "Players",
-                column: "PositionEntityId");
+                column: "PositionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Players_TeamEntityId",
+                name: "IX_Players_TeamId",
                 schema: "league",
                 table: "Players",
-                column: "TeamEntityId");
+                column: "TeamId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

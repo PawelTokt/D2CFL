@@ -3,10 +3,6 @@ using D2CFL.Migrations.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
-using System;
 
 namespace D2CFL.Migrations.Migrations.League
 {
@@ -37,15 +33,15 @@ namespace D2CFL.Migrations.Migrations.League
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int?>("PositionEntityId");
+                    b.Property<int?>("PositionId");
 
-                    b.Property<int?>("TeamEntityId");
+                    b.Property<int?>("TeamId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PositionEntityId");
+                    b.HasIndex("PositionId");
 
-                    b.HasIndex("TeamEntityId");
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Players","league");
                 });
@@ -92,11 +88,11 @@ namespace D2CFL.Migrations.Migrations.League
                 {
                     b.HasOne("D2CFL.Data.League.Contract.PositionEntity", "Position")
                         .WithMany("Players")
-                        .HasForeignKey("PositionEntityId");
+                        .HasForeignKey("PositionId");
 
                     b.HasOne("D2CFL.Data.League.Contract.TeamEntity", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamEntityId");
+                        .HasForeignKey("TeamId");
                 });
 #pragma warning restore 612, 618
         }

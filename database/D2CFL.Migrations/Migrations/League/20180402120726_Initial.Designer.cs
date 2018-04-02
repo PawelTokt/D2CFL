@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace D2CFL.Migrations.Migrations.League
 {
     [DbContext(typeof(LeagueContext))]
-    [Migration("20180329091012_Initial")]
+    [Migration("20180402120726_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,15 +35,15 @@ namespace D2CFL.Migrations.Migrations.League
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int?>("PositionEntityId");
+                    b.Property<int?>("PositionId");
 
-                    b.Property<int?>("TeamEntityId");
+                    b.Property<int?>("TeamId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PositionEntityId");
+                    b.HasIndex("PositionId");
 
-                    b.HasIndex("TeamEntityId");
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Players","league");
                 });
@@ -90,11 +90,11 @@ namespace D2CFL.Migrations.Migrations.League
                 {
                     b.HasOne("D2CFL.Data.League.Contract.PositionEntity", "Position")
                         .WithMany("Players")
-                        .HasForeignKey("PositionEntityId");
+                        .HasForeignKey("PositionId");
 
                     b.HasOne("D2CFL.Data.League.Contract.TeamEntity", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamEntityId");
+                        .HasForeignKey("TeamId");
                 });
 #pragma warning restore 612, 618
         }

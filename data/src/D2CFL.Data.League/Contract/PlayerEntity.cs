@@ -28,7 +28,7 @@
         /// Gets or sets the position identifier.
         /// </summary>
         /// <value>The position identifier.</value>
-        public int? PositionEntityId { get; set; }
+        public int? PositionId { get; set; }
 
         /// <summary>
         /// Gets or sets the position.
@@ -40,7 +40,7 @@
         /// Gets or sets the team identifier.
         /// </summary>
         /// <value>The team identifier.</value>
-        public  int? TeamEntityId { get; set; }
+        public  int? TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets the team.

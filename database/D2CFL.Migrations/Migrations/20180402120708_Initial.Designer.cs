@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace D2CFL.Migrations.Migrations
 {
     [DbContext(typeof(BaseContext))]
-    [Migration("20180329090951_Initial")]
+    [Migration("20180402120708_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
