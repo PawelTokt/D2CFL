@@ -13,7 +13,9 @@
     <dt>Region</dt>
     <dd>@Model.Region</dd>
   </dl>
-  <a asp-action="Update" asp-controller="Team" class="btn btn-default">Update</a>
-  <a asp-action="Ddlete" asp-controller="Team" class="btn btn-default">Delete</a>
-  <a asp-action="Index" asp-controller="Team" class="btn btn-default">Back</a>
+  <div class="btn-group btn-group-justified">
+    <a asp-action="Update" asp-controller="Team" asp-route-id="@Model.Id" class="btn btn-default">Update</a>
+    <a asp-action="Delete" asp-controller="Team" asp-route-id="@Model.Id" class="btn btn-default">Delete</a>
+    <a asp-action="Index" asp-controller="Team" class="btn btn-default">Back</a>
+  </div>
 </div>
