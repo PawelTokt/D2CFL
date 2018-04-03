@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Linq;
 using D2CFL.Data.Interfaces;
 using System.Threading.Tasks;
 using D2CFL.Data.League.Contract;
@@ -24,9 +25,11 @@ namespace D2CFL.Business.League
             return await _leagueUnitOfWork.TeamRepository.GetListAsync<TeamDto>(_dataMapper);
         }
 
-        public async Task<TeamDto> Get()
+        public async Task<TeamDto> Get(int id)
         {
-            return await _leagueUnitOfWork.TeamRepository.GetAsync<TeamDto>(_dataMapper);
+            var teams = await _leagueUnitOfWork.TeamRepository.GetListAsync<TeamDto>(_dataMapper);
+
+            return teams.FirstOrDefault(x => x.Id == id);
         }
 
         public async Task Insert(TeamDto teamDto)
@@ -36,14 +39,18 @@ namespace D2CFL.Business.League
             await _leagueUnitOfWork.SaveAsync();
         }
 
-        public void Update(TeamDto playerDto)
+        public void Update(TeamDto teamDto)
         {
-            throw new System.NotImplementedException();
+            _leagueUnitOfWork.TeamRepository.Update(Mapper.Map<TeamDto, TeamEntity>(teamDto));
+
+            _leagueUnitOfWork.Save();
         }
 
-        public void Delete(TeamDto playerDto)
+        public void Delete(TeamDto teamDto)
         {
-            throw new System.NotImplementedException();
+            _leagueUnitOfWork.TeamRepository.Delete(Mapper.Map<TeamDto, TeamEntity>(teamDto));
+
+            _leagueUnitOfWork.Save();
         }
     }
 }

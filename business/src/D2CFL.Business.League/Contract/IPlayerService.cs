@@ -5,7 +5,6 @@ namespace D2CFL.Business.League.Contract
 {
     public interface IPlayerService
     {
-        //IList<PlayerDto> GetList();
         Task<IList<PlayerDto>> GetList();
         Task<PlayerDto> Get(int id);
         Task Insert(PlayerDto playerDto);
