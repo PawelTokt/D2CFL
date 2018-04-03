@@ -46,13 +46,13 @@ namespace D2CFL.WebSite.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Insert(PlayerViewModel playerViewModel)
+        public async Task<IActionResult> Insert(PlayerViewModel playerViewModel)
         {
             if (!ModelState.IsValid) return View(playerViewModel);
 
             var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(playerViewModel);
 
-            _playerService.Insert(playerDto);
+            await _playerService.Insert(playerDto);
 
             return RedirectToAction("Index");
         }
@@ -82,11 +82,11 @@ namespace D2CFL.WebSite.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var playerModel = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
+            var playerViewModel = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
 
-            if (playerModel != null)
+            if (playerViewModel != null)
             {
-                return View(playerModel);
+                return View(playerViewModel);
             }
 
             return RedirectToAction("Index");
@@ -95,9 +95,9 @@ namespace D2CFL.WebSite.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var playerModel = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
+            var playerViewModel = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
 
-            var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(playerModel);
+            var playerDto = Mapper.Map<PlayerViewModel, PlayerDto>(playerViewModel);
 
             _playerService.Delete(playerDto);
 

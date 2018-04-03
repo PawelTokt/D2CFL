@@ -23,9 +23,9 @@ namespace D2CFL.WebSite.Admin.Controllers
             return View(players);
         }
 
-        public async Task<IActionResult> Info()
+        public async Task<IActionResult> Info(int id)
         {
-            var player = Mapper.Map<TeamDto, TeamViewModel>(await _teamService.Get());
+            var player = Mapper.Map<TeamDto, TeamViewModel>(await _teamService.Get(id));
 
             return View(player);
         }
@@ -37,13 +37,56 @@ namespace D2CFL.WebSite.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Insert(TeamViewModel teamViewModel)
+        public async Task<IActionResult> Insert(TeamViewModel teamViewModel)
         {
             if (!ModelState.IsValid) return View(teamViewModel);
 
             var teamDto = Mapper.Map<TeamViewModel, TeamDto>(teamViewModel);
 
-            _teamService.Insert(teamDto);
+            await _teamService.Insert(teamDto);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            var teamViewModel = Mapper.Map<TeamDto, TeamViewModel>(await _teamService.Get(id));
+
+            return View(teamViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Update(TeamViewModel teamViewModel)
+        {
+            if (!ModelState.IsValid) return View(teamViewModel);
+
+            _teamService.Update(Mapper.Map<TeamViewModel, TeamDto>(teamViewModel));
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var teamViewModel = Mapper.Map<TeamDto, TeamViewModel>(await _teamService.Get(id));
+
+            if (teamViewModel != null)
+            {
+                return View(teamViewModel);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var teamViewModel = Mapper.Map<TeamDto, TeamViewModel>(await _teamService.Get(id));
+
+            var teamDto = Mapper.Map<TeamViewModel, TeamDto>(teamViewModel);
+
+            _teamService.Delete(teamDto);
 
             return RedirectToAction("Index");
         }
