@@ -42,8 +42,6 @@ namespace D2CFL.Business.League
 
         public void Update(PlayerDto playerDto)
         {
-            var player = _leagueUnitOfWork.PlayerRepository.Get();
-
             _leagueUnitOfWork.PlayerRepository.Update(Mapper.Map<PlayerDto, PlayerEntity>(playerDto));
 
             _leagueUnitOfWork.Save();

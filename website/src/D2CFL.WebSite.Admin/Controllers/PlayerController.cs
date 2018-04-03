@@ -58,21 +58,25 @@ namespace D2CFL.WebSite.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
-            //ToDo: SelectList teams
+            var playerViewModel = Mapper.Map<PlayerDto, PlayerViewModel>(await _playerService.Get(id));
 
-            return View();
+            ViewBag.Teams = new SelectList(await _teamService.GetList(), "Id", "Name");
+
+            ViewBag.Positions = new SelectList(await _positionService.GetList(), "Id", "Name");
+
+            return View(playerViewModel);
         }
 
         [HttpPost]
-        public IActionResult Update(PlayerViewModel model)
+        public IActionResult Update(PlayerViewModel playerViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                _playerService.Update(Mapper.Map<PlayerViewModel, PlayerDto>(model));
-            }
-            return View(model);
+            if (!ModelState.IsValid) return View(playerViewModel);
+
+            _playerService.Update(Mapper.Map<PlayerViewModel, PlayerDto>(playerViewModel));
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
