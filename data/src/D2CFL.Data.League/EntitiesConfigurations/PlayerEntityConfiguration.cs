@@ -37,9 +37,9 @@ namespace D2CFL.Data.League.EntitiesConfigurations
             entityTypeBuilder.Property(x => x.Lastname).HasMaxLength(50).IsRequired();
 
             //Relationships
-            entityTypeBuilder.HasOne(p => p.Team).WithMany(x => x.Players).HasForeignKey(x => x.TeamId);
+            entityTypeBuilder.HasOne(p => p.TeamEntity).WithMany(x => x.Players).HasForeignKey(x => x.TeamId);
 
-            entityTypeBuilder.HasOne(p => p.Position).WithMany(x => x.Players).HasForeignKey(x => x.PositionId);
+            entityTypeBuilder.HasOne(p => p.PositionEntity).WithMany(x => x.Players).HasForeignKey(x => x.PositionId);
         }
     }
 }

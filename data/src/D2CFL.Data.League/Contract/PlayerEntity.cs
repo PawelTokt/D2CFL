@@ -34,7 +34,7 @@
         /// Gets or sets the position.
         /// </summary>
         /// <value>The position.</value>
-        public virtual PositionEntity Position { get; set; }
+        public virtual PositionEntity PositionEntity { get; set; }
 
         /// <summary>
         /// Gets or sets the team identifier.
@@ -46,6 +46,6 @@
         /// Gets or sets the team.
         /// </summary>
         /// <value>The team.</value>
-        public virtual TeamEntity Team { get; set; }
+        public virtual TeamEntity TeamEntity { get; set; }
     }
 }

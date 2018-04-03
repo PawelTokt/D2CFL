@@ -6,7 +6,11 @@
 
 <h2>Are you realy want to delete @Model.Name</h2>
 
-@using (Html.BeginForm())
-{
-  <input type="submit" value="Delete" />
-}
+<div class="btn-group btn-group-justified">
+  <form asp-controller="Player" asp-action="Delete" method="post" class="btn-group">
+    <input type="submit" value="Delete" class="btn btn-default"/>
+  </form>
+  <form asp-controller="Player" asp-action="Info/@Model.Id" class="btn-group">
+    <input type="submit" value="Back" class="btn btn-default"/>
+  </form>
+</div>
