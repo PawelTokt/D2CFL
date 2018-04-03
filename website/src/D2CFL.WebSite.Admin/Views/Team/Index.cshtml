@@ -8,7 +8,7 @@
 
 <a asp-action="Insert" asp-controller="Team" class="btn btn-default">Add new Team</a>
 <p></p>
-<table id="playersTable" class="table table-hover" onmouseover="cursor">
+<table id="teamsTable" class="table table-hover" onmouseover="cursor">
   <tr>
     <th>Name</th>
     <th>Region</th>
@@ -25,7 +25,7 @@
 @section Scripts
 {
   <script type="text/javascript">
-    $("#playersTable").css("cursor", "pointer");
+    $("#teamsTable").css("cursor", "pointer");
 
     function viewActivity(itemId) {
       var url = "/Team/Info/" + itemId;
