@@ -19,4 +19,9 @@
     <ProjectReference Include="..\..\..\business\src\D2CFL.Business.League\D2CFL.Business.League.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+
 </Project>
