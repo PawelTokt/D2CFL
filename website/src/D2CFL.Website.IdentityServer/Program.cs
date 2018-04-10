@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace D2CFL.Website.Admin
+namespace D2CFL.Website.IdentityServer
 {
     public class Program
     {

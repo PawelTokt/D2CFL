@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using D2CFL.Website.Main.Models;
+using D2CFL.Website.IdentityServer.Models;
 
-namespace D2CFL.Website.Main.Controllers
+namespace D2CFL.Website.IdentityServer.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,10 +1,13 @@
-﻿using Autofac;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace D2CFL.WebSite.Admin
+namespace D2CFL.Website.Admin
 {
     public class Startup
     {
@@ -18,14 +21,7 @@ namespace D2CFL.WebSite.Admin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            AutoMapper.Startup.ConfigureServices(services);
-
             services.AddMvc();
-        }
-
-        public void ConfigureContainer(ContainerBuilder containerBuilder)
-        {
-            Autofac.Startup.ConfigureContainer(containerBuilder, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
