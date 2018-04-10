@@ -1,6 +1,6 @@
 using System;
 
-namespace D2CFL.Website.Main.Models
+namespace D2CFL.Website.League.Models
 {
     public class ErrorViewModel
     {

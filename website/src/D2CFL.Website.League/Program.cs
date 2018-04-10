@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace D2CFL.Website.Main
+namespace D2CFL.Website.League
 {
     public class Program
     {
