@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aurochses.Data.EntityFrameworkCore" Version="2.0.5" />
+    <PackageReference Include="Aurochses.Data.Extensions.MsSql" Version="2.0.0" />
+    <PackageReference Include="Aurochses.Module.Data.Autofac" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.3" />
+  </ItemGroup>
+
+</Project>
