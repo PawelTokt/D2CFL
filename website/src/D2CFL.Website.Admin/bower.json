@@ -1,8 +1,0 @@
-{
-  "version": "1.0.0",
-  "name": "admin",
-  "private": true,
-  "dependencies": {
-    "jquery-validation-unobtrusive-bootstrap": "2.0.0"
-  }
-}
