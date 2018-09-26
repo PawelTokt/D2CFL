@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -25,6 +26,13 @@ namespace D2CFL.Api.Website.Controllers.Organization
         public async Task<IActionResult> Get()
         {
             return Ok(_mapper.Map<IList<OrganizationModel>>(await _organizationService.GetList()));
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(IList<OrganizationModel>), (int) HttpStatusCode.OK)]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            return Ok(_mapper.Map<OrganizationModel>(await _organizationService.Get(id)));
         }
     }
 }

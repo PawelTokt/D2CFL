@@ -24,12 +24,14 @@ namespace D2CFL.Business.Organization
 
         public async Task<IList<OrganizationDto>> GetList()
         {
-            return await _unitOfWork.OrganizationRepository.GetListAsync<OrganizationDto>(_dataMapper);
+            //return await _unitOfWork.OrganizationRepository.GetListAsync<OrganizationDto>(_dataMapper);
+            return  _mapper.Map<IList<OrganizationEntity>, IList<OrganizationDto>>(await _unitOfWork.OrganizationRepository.GetListAsync());
         }
 
         public async Task<OrganizationDto> Get(Guid id)
         {
-            return await _unitOfWork.OrganizationRepository.GetAsync<OrganizationDto, OrganizationEntity, Guid>(_dataMapper, id);
+            //return await _unitOfWork.OrganizationRepository.GetAsync<OrganizationDto, OrganizationEntity, Guid>(_dataMapper, id);
+            return _mapper.Map<OrganizationEntity, OrganizationDto>(await _unitOfWork.OrganizationRepository.GetAsync(id));
         }
 
         public async Task<OrganizationDto> Add(IOrganizationDto item)
