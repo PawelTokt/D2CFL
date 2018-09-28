@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using System.Collections.Generic;
+using Autofac;
+using D2CFL.Api.Website.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +28,9 @@ namespace D2CFL.Api.Website
 
             // AutoMapper
             App.AutoMapper.Startup.ConfigureServices(services);
+
+            // Applications
+            services.Configure<List<Application>>(Configuration.GetSection("Applications"));
 
             // MVC
             services.AddMvc();
