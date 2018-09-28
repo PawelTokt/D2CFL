@@ -29,10 +29,41 @@ namespace D2CFL.Api.Website.Controllers.Organization
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(IList<OrganizationModel>), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(OrganizationModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get(Guid id)
         {
             return Ok(_mapper.Map<OrganizationModel>(await _organizationService.Get(id)));
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(OrganizationModel), (int) HttpStatusCode.Created)]
+        public async Task<IActionResult> Post([FromBody] OrganizationActionModel model)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var item = await _organizationService.Add(model);
+
+            return Created("", _mapper.Map<OrganizationModel>(item));
+        }
+
+        [HttpPut]
+        [ProducesResponseType((int) HttpStatusCode.OK)]
+        public async Task<IActionResult> Put(Guid id, [FromBody] OrganizationActionModel model)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var item = await _organizationService.Edit(id, _mapper.Map<IOrganizationDto>(model));
+
+            return Ok(_mapper.Map<OrganizationModel>(item));
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType((int) HttpStatusCode.NoContent)]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _organizationService.Delete(id);
+
+            return NoContent();
         }
     }
 }

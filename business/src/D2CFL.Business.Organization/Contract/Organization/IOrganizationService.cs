@@ -9,7 +9,7 @@ namespace D2CFL.Business.Organization.Contract.Organization
         Task<IList<OrganizationDto>> GetList();
         Task<OrganizationDto> Get(Guid id);
         Task<OrganizationDto> Add(IOrganizationDto item);
-        Task Edit(Guid id, IOrganizationDto item);
+        Task<OrganizationDto> Edit(Guid id, IOrganizationDto item);
         Task Delete(Guid id);
     }
 }

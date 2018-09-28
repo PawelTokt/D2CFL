@@ -43,16 +43,18 @@ namespace D2CFL.Business.Organization
             return _mapper.Map<OrganizationDto>(entity);
         }
 
-        public async Task Edit(Guid id, IOrganizationDto item)
+        public async Task<OrganizationDto> Edit(Guid id, IOrganizationDto item)
         {
             var entity = await _unitOfWork.OrganizationRepository.GetAsync(id);
-            if(entity == null) return;
+            if(entity == null) return null;
 
             entity = _mapper.Map(item, entity);
 
             _unitOfWork.OrganizationRepository.Update(entity);
 
             await _unitOfWork.CommitAsync();
+
+            return _mapper.Map<OrganizationDto>(entity);
         }
 
         public async Task Delete(Guid id)
