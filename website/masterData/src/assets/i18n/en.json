@@ -1,0 +1,48 @@
+{
+    "AUR_TEMPLATE": {
+        "TOOLBAR": {
+            "USER": {
+                "SIGN_IN": "Sign In",
+                "SIGN_OUT": "Sign Out"
+            }
+        }
+    },
+    "MENU": {
+        "HOME": "Home",
+        "DASHBOARD": "Dashboard",
+        "ORGANIZATIONS": {
+            "ORGANIZATION": "Organization",
+            "ORGANIZATIONS": "Organizations",
+            "LIST": "List"
+        }
+    },
+    "VALIDATION_MESSAGES": {
+        "REQUIRED": "This field is required",
+        "EMAIL": "Please enter valid email",
+        "PASSWORD_RULE": "Use minimum one special symbol, uppercase symbol, digit",
+        "ONLY_LETTERS": "German letters allowed",
+        "INVALID_SYMBOL": "Invalid symbol used",
+        "NUMERIC": "Value should be a number",
+        "MAX_LENGTH_30": "Maximum length is 30",
+        "MAX_LENGTH_50": "Maximum length is 50",
+        "MAX_LENGTH_255": "Maximum length is 255",
+        "MAX_LENGTH_1000": "Maximum length is 1000",
+        "MIN_LENGTH_8": "Minimum length is 8",
+        "RANGE_0_1": "Range is 0-1",
+        "RANGE_0_99": "Range is 0-99",
+        "RANGE_0_999": "Range is 0-999",
+        "RANGE_0_10000": "Range is 0-10000",
+        "RANGE_0_99000": "Range is 0-99000",
+        "RANGE_0_10000000": "Range is 0-10000000"
+    },
+    "ORGANIZATION": {
+        "TABLE": {
+            "TITLES": {
+                "NAME": "Name",
+                "ABBREVIATION": "Abbreviation",
+                "REGION": "Region",
+                "ORGANIZATION_EDIT": "Organization edit"
+            }
+        }
+    }
+}

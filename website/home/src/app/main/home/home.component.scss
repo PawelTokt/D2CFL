@@ -1,0 +1,23 @@
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+  
+mat-divider {
+  padding-bottom: 1em;
+}
+  
+a {
+  &:hover mat-icon {
+    color: red;
+  }
+  
+  mat-icon {
+    height: auto;
+    width: auto;
+     font-size: 72px;
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "AUR_TEMPLATE": {
+      "TOOLBAR": {
+        "USER": {
+          "SIGN_IN": "Войти",
+          "SIGN_OUT": "Выйти"
+        }
+      }
+    },
+    "MENU": {
+      "HOME": "Главная"
+    },
+    "APPLICATIONS": {
+      "MASTERDATA": "Базы Данных"
+    }
+  }
+  

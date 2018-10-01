@@ -1,0 +1,17 @@
+{
+    "AUR_TEMPLATE": {
+      "TOOLBAR": {
+        "USER": {
+          "SIGN_IN": "Sign In",
+          "SIGN_OUT": "Sign Out"
+        }
+      }
+    },
+    "MENU": {
+      "HOME": "Home"
+    },
+    "APPLICATIONS": {
+      "MASTERDATA": "Master Data"
+    }
+  }
+  
