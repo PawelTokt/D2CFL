@@ -9,7 +9,7 @@
     <PackageReference Include="Aurochses.Data.Extensions.MsSql" Version="2.0.0" />
     <PackageReference Include="Aurochses.Module.Business.Autofac.EntityFrameworkCore" Version="2.0.0" />
     <PackageReference Include="Autofac" Version="4.6.2" />
-    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
