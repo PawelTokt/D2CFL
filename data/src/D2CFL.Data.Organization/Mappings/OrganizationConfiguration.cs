@@ -10,23 +10,23 @@ namespace D2CFL.Data.Organization.Mappings
     public class OrganizationConfiguration : EntityTypeConfiguration<OrganizationEntity, Guid>
     {
         public OrganizationConfiguration(string schemaName)
-            : base(schemaName)
+            :base(schemaName)
         {
 
         }
 
-        public override void Map(EntityTypeBuilder<OrganizationEntity> entityTypeBuilder)
+        public override void Map(EntityTypeBuilder<OrganizationEntity> builder)
         {
-            //Table
-            entityTypeBuilder.ToTable("Organization", SchemaName);
+            // Table
+            builder.ToTable("Organization", SchemaName);
 
             // Primary Key
-            entityTypeBuilder.HasKey(x => x.Id);
+            builder.HasKey(x => x.Id);
 
             // Properties
-            entityTypeBuilder.Property(x => x.Name).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
-            entityTypeBuilder.Property(x => x.Abbreviation).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
-            entityTypeBuilder.Property(x => x.Region).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
+            builder.Property(x => x.Name).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
+            builder.Property(x => x.ShortName).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
+            builder.Property(x => x.Region).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
         }
     }
 }

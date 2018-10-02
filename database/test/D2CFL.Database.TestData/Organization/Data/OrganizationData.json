@@ -3,19 +3,19 @@
     {
       "Id": "00000000-0000-0000-0000-000000000001",
       "Name": "Virtus.pro",
-      "Abbreviation": "VP",
+      "ShortName": "VP",
       "Region": "CIS"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000002",
       "Name": "Team Secret",
-      "Abbreviation": "TS",
+      "ShortName": "TS",
       "Region": "Europe"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000003",
       "Name": "Evil Genius",
-      "Abbreviation": "EG",
+      "ShortName": "EG",
       "Region": "North America"
     }
   ]
