@@ -17,7 +17,7 @@
     {
       "Id": "00000000-0000-0000-0000-000000000003",
       "Name": "Support",
-      "KillCoefficient":3,
+      "KillCoefficient": 3,
       "AssistCoefficient": 1,
       "DeathCoefficient": 1
     }

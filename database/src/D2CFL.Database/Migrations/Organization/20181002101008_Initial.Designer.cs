@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace D2CFL.Database.Migrations.Organization
 {
     [DbContext(typeof(OrganizationContext))]
-    [Migration("20181001152938_AddPositionAndPlayer")]
-    partial class AddPositionAndPlayer
+    [Migration("20181002101008_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,15 +26,15 @@ namespace D2CFL.Database.Migrations.Organization
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Abbreviation")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("ShortName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
@@ -70,9 +71,6 @@ namespace D2CFL.Database.Migrations.Organization
                     b.Property<Guid>("PositionId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Nickname")
-                        .IsUnique();
 
                     b.HasIndex("OrganizationId");
 

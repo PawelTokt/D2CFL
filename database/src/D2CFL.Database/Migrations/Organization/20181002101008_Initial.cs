@@ -3,10 +3,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace D2CFL.Database.Migrations.Organization
 {
-    public partial class AddPositionAndPlayer : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "organization");
+
+            migrationBuilder.CreateTable(
+                name: "Organization",
+                schema: "organization",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    ShortName = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Region = table.Column<string>(type: "nvarchar(50)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Organization", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Position",
                 schema: "organization",
@@ -57,13 +75,6 @@ namespace D2CFL.Database.Migrations.Organization
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Player_Nickname",
-                schema: "organization",
-                table: "Player",
-                column: "Nickname",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Player_OrganizationId",
                 schema: "organization",
                 table: "Player",
@@ -80,6 +91,10 @@ namespace D2CFL.Database.Migrations.Organization
         {
             migrationBuilder.DropTable(
                 name: "Player",
+                schema: "organization");
+
+            migrationBuilder.DropTable(
+                name: "Organization",
                 schema: "organization");
 
             migrationBuilder.DropTable(
