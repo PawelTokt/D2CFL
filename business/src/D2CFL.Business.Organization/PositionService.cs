@@ -50,6 +50,8 @@ namespace D2CFL.Business.Organization
 
             _unitOfWork.PositionRepository.Update(entity);
 
+            await _unitOfWork.CommitAsync();
+
             return _mapper.Map<PositionDto>(entity);
         }
 

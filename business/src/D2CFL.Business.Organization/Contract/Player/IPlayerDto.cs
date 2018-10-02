@@ -1,7 +1,11 @@
-﻿namespace D2CFL.Business.Organization.Contract.Player
+﻿using System;
+
+namespace D2CFL.Business.Organization.Contract.Player
 {
     public interface IPlayerDto
     {
+        Guid OrganizationId { get; set; }
+        Guid PositionId { get; set; }
         string FirstName { get; set; }
         string LastName { get; set; }
         string Nickname { get; set; }

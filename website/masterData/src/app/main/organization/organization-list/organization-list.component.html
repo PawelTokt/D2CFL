@@ -29,7 +29,7 @@
             message="{{'VALIDATION_MESSAGES.INVALID_SYMBOL' | translate}}">
           </dxi-validation-rule>
         </dxi-item>
-        <dxi-item dataField="abbreviation">
+        <dxi-item dataField="shortName">
           <dxi-validation-rule
             type="required"
             message="{{'VALIDATION_MESSAGES.REQUIRED' | translate}">
@@ -67,7 +67,7 @@
       [visible]="true"
       [applyFilter]="currentFilter"></dxo-filter-row>
     <dxi-column dataField="name" caption="{{'ORGANIZATION.TABLE.TITLES.NAME' | translate}}"></dxi-column>
-    <dxi-column dataField="abbreviation" caption="{{'ORGANIZATION.TABLE.TITLES.ABBREVIATION' | translate}}"></dxi-column>
+    <dxi-column dataField="shortName" caption="{{'ORGANIZATION.TABLE.TITLES.ABBREVIATION' | translate}}"></dxi-column>
     <dxi-column dataField="region" caption="{{'ORGANIZATION.TABLE.TITLES.REGION' | translate}}"></dxi-column>
   </dx-data-grid>
   

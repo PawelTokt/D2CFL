@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Autofac;
-using AutoMapper;
 using D2CFL.Api.Website.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,7 +20,15 @@ namespace D2CFL.Api.Website
 
         public void ConfigureServices(IServiceCollection services)
         {
-           
+            // Logging
+            App.Logging.Startup.ConfigureServices(services, Configuration);
+
+            // AutoMapper
+            App.AutoMapper.Startup.ConfigureServices(services);
+
+            // Swagger
+            App.Swagger.Startup.ConfigureServices(services, Configuration);
+
             // Applications
             services.Configure<List<Application>>(Configuration.GetSection("Applications"));
 
@@ -29,9 +36,23 @@ namespace D2CFL.Api.Website
             services.AddMvc();
         }
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void ConfigureContainer(ContainerBuilder builder)
         {
-       
+            // Autofac
+            App.Autofac.Startup.ConfigureContainer(builder, Configuration);
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            // Exception
+            App.ExceptionHandler.Startup.Configure(app, env, Configuration);
+
+            // Cors
+            App.Cors.Startup.Configure(app);
+
+            // Swagger
+            App.Swagger.Startup.Configure(app, Configuration);
+
             // StaticFiles
             app.UseStaticFiles();
 

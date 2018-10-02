@@ -8,8 +8,8 @@ export class OrganizationListModel {
   @Display('Name')
   name = '';
 
-  @Display('Abbreviation')
-  abbreviation = '';
+  @Display('ShortName')
+  shortName = '';
 
   @Display('Region')
   region = '';  
