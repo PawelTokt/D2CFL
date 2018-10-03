@@ -1,6 +1,8 @@
 <dx-data-grid [allowColumnResizing]="true" [columnResizingMode]="'widget'" [dataSource]="gridDataSource" [showBorders]="true" [rowAlternationEnabled]="true">
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 25, 50, 100, 250, 500]" [showInfo]="false"></dxo-pager>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-grouping #expand [autoExpandAll]="true"></dxo-grouping>
     <dxo-editing
       mode="popup"
       [allowAdding]="true"
@@ -69,5 +71,6 @@
     <dxi-column dataField="name" caption="{{'ORGANIZATION.TABLE.TITLES.NAME' | translate}}"></dxi-column>
     <dxi-column dataField="shortName" caption="{{'ORGANIZATION.TABLE.TITLES.ABBREVIATION' | translate}}"></dxi-column>
     <dxi-column dataField="region" caption="{{'ORGANIZATION.TABLE.TITLES.REGION' | translate}}"></dxi-column>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing> 
   </dx-data-grid>
   

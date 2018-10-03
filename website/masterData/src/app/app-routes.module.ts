@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 
 import { OrganizationListComponent } from './main/organization/organization-list/organization-list.component';
+import { PositionListComponent } from './main/position/position-list/position-list.component';
 
 const routes: Routes = [
     {
@@ -18,7 +19,7 @@ const routes: Routes = [
     {
       path: 'organizations',
       data: {
-        icon: 'assignment_ind',
+        icon: 'people',
         title: 'MENU.ORGANIZATIONS.ORGANIZATIONS',
       },
       children: [
@@ -28,6 +29,24 @@ const routes: Routes = [
           data: {
             icon: '',
             title: 'MENU.ORGANIZATIONS.LIST',
+            hideInMenu: true
+          },
+        }
+      ]
+    },
+    {
+      path: 'positions',
+      data: {
+        icon: 'timeline',
+        title: 'MENU.POSITIONS.POSITIONS',
+      },
+      children: [
+        {
+          path: '',
+          component: PositionListComponent,
+          data: {
+            icon: '',
+            title: 'MENU.POSITIONS.LIST',
             hideInMenu: true
           },
         }

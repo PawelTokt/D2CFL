@@ -22,6 +22,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { OrganizationListComponent } from './organization/organization-list/organization-list.component';
+import { PositionListComponent } from './position/position-list/position-list.component';
 
 import { MatDialogModule, MatSelectModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
@@ -30,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     DashboardComponent,
-    OrganizationListComponent   
+    OrganizationListComponent,
+    PositionListComponent   
   ],
   imports: [
     CommonModule,

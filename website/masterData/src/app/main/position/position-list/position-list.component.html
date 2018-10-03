@@ -1,0 +1,75 @@
+<dx-data-grid [allowColumnResizing]="true" [columnResizingMode]="'widget'" [dataSource]="gridDataSource" [showBorders]="true" [rowAlternationEnabled]="true">
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 25, 50, 100, 250, 500]" [showInfo]="false"></dxo-pager>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-grouping #expand [autoExpandAll]="true"></dxo-grouping>
+    <dxo-editing
+      mode="popup"
+      [allowAdding]="true"
+      [allowUpdating]="true"
+      [allowDeleting]="true"
+      [useIcons]="true">
+      <dxo-popup
+        title="{{'POSITION.TABLE.TITLES.POSITION_EDIT' | translate}}"
+        [showTitle]="true"
+        [position]="{ my: 'center', at: 'center', of: 'window' }">
+      </dxo-popup>
+      <dxo-form>
+        <dxi-item dataField="name">
+          <dxi-validation-rule
+            type="required"
+            message="{{'VALIDATION_MESSAGES.REQUIRED' | translate}}">
+          </dxi-validation-rule>
+          <dxi-validation-rule
+            type="stringLength"
+            [max]="50"
+            message="{{'VALIDATION_MESSAGES.MAX_LENGTH_50' | translate}}">
+          </dxi-validation-rule>
+          <dxi-validation-rule
+            type="pattern"
+            [pattern]="patternText"
+            message="{{'VALIDATION_MESSAGES.INVALID_SYMBOL' | translate}}">
+          </dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="killCoefficient">
+          <dxi-validation-rule
+            type="required"
+            message="{{'VALIDATION_MESSAGES.REQUIRED' | translate}}">
+          </dxi-validation-rule>
+          <dxi-validation-rule
+            type="numeric"
+            message="{{'VALIDATION_MESSAGES.NUMERIC' | translate}}">
+          </dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="assistCoefficient">
+            <dxi-validation-rule
+              type="required"
+              message="{{'VALIDATION_MESSAGES.REQUIRED' | translate}}">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="numeric"
+              message="{{'VALIDATION_MESSAGES.NUMERIC' | translate}}">
+            </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item dataField="deathCoefficient">
+            <dxi-validation-rule
+              type="required"
+              message="{{'VALIDATION_MESSAGES.REQUIRED' | translate}}">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="numeric"
+              message="{{'VALIDATION_MESSAGES.NUMERIC' | translate}}">
+            </dxi-validation-rule>
+          </dxi-item>
+      </dxo-form>
+    </dxo-editing>
+    <dxo-filter-row
+      [visible]="true"
+      [applyFilter]="currentFilter"></dxo-filter-row>
+    <dxi-column dataField="name" caption="{{'POSITION.TABLE.TITLES.NAME' | translate}}"></dxi-column>
+    <dxi-column dataField="killCoefficient" caption="{{'POSITION.TABLE.TITLES.KILLCOEFFICIENT' | translate}}" [allowFiltering] = "false"></dxi-column>
+    <dxi-column dataField="assistCoefficient" caption="{{'POSITION.TABLE.TITLES.ASSISTCOEFFICIENT' | translate}}" [allowFiltering] = "false"></dxi-column>
+    <dxi-column dataField="deathCoefficient" caption="{{'POSITION.TABLE.TITLES.DEATHCOEFFICIENT' | translate}}" [allowFiltering] = "false"></dxi-column>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>  
+  </dx-data-grid>
+  

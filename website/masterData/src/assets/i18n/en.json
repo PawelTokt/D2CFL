@@ -14,6 +14,11 @@
             "ORGANIZATION": "Organization",
             "ORGANIZATIONS": "Organizations",
             "LIST": "List"
+        },
+        "POSITIONS": {
+            "POSITION": "Position",
+            "POSITIONS": "Positions",
+            "LIST": "List"
         }
     },
     "VALIDATION_MESSAGES": {
@@ -43,6 +48,27 @@
                 "REGION": "Region",
                 "ORGANIZATION_EDIT": "Organization edit"
             }
+        }
+    },
+    "POSITION": {
+        "TABLE": {
+            "TITLES": {
+                "NAME": "Name",
+                "KILLCOEFFICIENT": "Kill coefficient",
+                "ASSISTCOEFFICIENT": "Assist coefficient",
+                "DEATHCOEFFICIENT": "Death coefficient",
+                "POSITION_EDIT": "Position edit"
+            }
+        }
+    },
+    "MESSAGE": {
+        "EDIT": {
+            "SUCCESS": "Edit successful",
+            "CLOSE": "close"
+        },
+        "DELETE": {
+            "SUCCESS": "Delete successful",
+            "CLOSE": "close"
         }
     }
 }

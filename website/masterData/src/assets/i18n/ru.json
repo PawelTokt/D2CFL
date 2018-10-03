@@ -14,6 +14,11 @@
             "ORGANIZATION": "Организации",
             "ORGANIZATIONS": "Организации",
             "LIST": "Список"
+        },
+        "POSITIONS": {
+            "POSITION": "Позиция",
+            "POSITIONS": "Позиции",
+            "LIST": "Список"
         }
     },
     "VALIDATION_MESSAGES": {
@@ -42,6 +47,27 @@
                 "REGION": "Регион",
                 "ORGANIZATION_EDIT": "Редактирование организации"
             }
+        }
+    },
+    "POSITION": {
+        "TABLE": {
+            "TITLES": {
+                "NAME": "Название",
+                "KILLCOEFFICIENT": "Коэффициент убийства",
+                "ASSISTCOEFFICIENT": "Коэффициент помощи",
+                "DEATHCOEFFICIENT": "Коэффициент смерти",
+                "POSITION": "Редактирование позиции"
+            }
+        }
+    },
+    "MESSAGE": {
+        "EDIT": {
+            "SUCCESS": "Редактирование успешно",
+            "CLOSE": "закрыть"
+        },
+        "DELETE": {
+            "SUCCESS": "Удаленно успешно",
+            "CLOSE": "закрыть"
         }
     }
 }
