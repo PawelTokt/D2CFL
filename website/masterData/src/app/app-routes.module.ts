@@ -5,6 +5,7 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 
 import { OrganizationListComponent } from './main/organization/organization-list/organization-list.component';
 import { PositionListComponent } from './main/position/position-list/position-list.component';
+import { PlayerListComponent } from './main/player/player-list/player-list.component';
 
 const routes: Routes = [
     {
@@ -47,6 +48,24 @@ const routes: Routes = [
           data: {
             icon: '',
             title: 'MENU.POSITIONS.LIST',
+            hideInMenu: true
+          },
+        }
+      ]
+    },
+    {
+      path: 'players',
+      data: {
+        icon: 'person',
+        title: 'MENU.PLAYERS.PLAYERS',
+      },
+      children: [
+        {
+          path: '',
+          component: PlayerListComponent,
+          data: {
+            icon: '',
+            title: 'MENU.PLAYERS.LIST',
             hideInMenu: true
           },
         }

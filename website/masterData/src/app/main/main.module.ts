@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { OrganizationListComponent } from './organization/organization-list/organization-list.component';
 import { PositionListComponent } from './position/position-list/position-list.component';
+import { PlayerListComponent } from './player/player-list/player-list.component';
 
 import { MatDialogModule, MatSelectModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
@@ -32,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     DashboardComponent,
     OrganizationListComponent,
-    PositionListComponent   
+    PositionListComponent,
+    PlayerListComponent   
   ],
   imports: [
     CommonModule,

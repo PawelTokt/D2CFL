@@ -19,6 +19,11 @@
             "POSITION": "Позиция",
             "POSITIONS": "Позиции",
             "LIST": "Список"
+        },
+        "PLAYERS": {
+            "PLAYER": "Игрок",
+            "PLAYERS": "Игроки",
+            "LIST": "Список"
         }
     },
     "VALIDATION_MESSAGES": {
@@ -60,7 +65,25 @@
             }
         }
     },
+    "PLAYER": {
+        "TABLE": {
+            "TITLES": {
+                "FIRST_NAME": "Имя",
+                "LAST_NAME": "Фамилия",
+                "NICKNAME": "Никнейм",
+                "AGE": "Возраст",
+                "COUNTRY": "Страна",
+                "ORGANIZATION": "Организация",
+                "POSITION": "Позиция",
+                "PLAYER_EDIT": "Редактирование игрока"
+            }
+        }
+    },
     "MESSAGE": {
+        "ADD": {
+            "SUCCESS": "Добавление успешно",
+            "CLOSE": "закрыть"
+        },
         "EDIT": {
             "SUCCESS": "Редактирование успешно",
             "CLOSE": "закрыть"

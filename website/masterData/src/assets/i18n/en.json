@@ -19,6 +19,11 @@
             "POSITION": "Position",
             "POSITIONS": "Positions",
             "LIST": "List"
+        },
+        "PLAYERS": {
+            "PLAYER": "Player",
+            "PLAYERS": "Players",
+            "LIST": "List"
         }
     },
     "VALIDATION_MESSAGES": {
@@ -61,7 +66,25 @@
             }
         }
     },
+    "PLAYER": {
+        "TABLE": {
+            "TITLES": {
+                "FIRST_NAME": "Name",
+                "LAST_NAME": "Surname",
+                "NICKNAME": "Nickname",
+                "AGE": "Age",
+                "COUNTRY": "Country",
+                "ORGANIZATION": "Organization",
+                "POSITION": "Position",
+                "PLAYER_EDIT": "Position edit"
+            }
+        }
+    },
     "MESSAGE": {
+        "ADD": {
+            "SUCCESS": "Add successful",
+            "CLOSE": "close"
+        },
         "EDIT": {
             "SUCCESS": "Edit successful",
             "CLOSE": "close"

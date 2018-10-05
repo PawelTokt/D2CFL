@@ -10,7 +10,7 @@ import DataSource from 'devextreme/data/data_source';
   selector: 'organization-list',
   templateUrl: './organization-list.component.html'
 })
-export class OrganizationListComponent {
+export class OrganizationListComponent implements OnInit {
   gridDataSource: any = {};
   currentFilter: any;
   patternText = /^[A-Za-z0-9\s!"#$%&'()*+,\-.\/:;<=>?[\\@^_`\]{|}~ÄäÖöÜüẞß]+$/;
@@ -18,7 +18,11 @@ export class OrganizationListComponent {
   constructor(private apiService: ApiService, private translate: TranslateService, private snackBar: MatSnackBar) {
     this.gridDataSource = new DataSource({
       load: () => this.apiService.getOrganizations().toPromise(),
-      insert: (value) => this.apiService.addOrganization(value).toPromise(),
+      insert: (value) => this.apiService.addOrganization(value).toPromise().then(
+        () => this.translate.get('MESSAGE.ADD.SUCCESS')
+          .subscribe((translation) => this.showAddMessage(translation))
+        , error => this.showAddMessage(error.errorMessage)
+      ),
       update: (key, values) => {
         Object.keys(values).forEach(k => key[k] = values[k]);
         return this.apiService.editOrganization(key.id, key).toPromise().then(
@@ -38,10 +42,19 @@ export class OrganizationListComponent {
   }
 
   ngOnInit() { }
+  
+  private showAddMessage(message: string): void {
+    this.translate.get('MESSAGE.ADD.CLOSE').subscribe((translation) => {
+      const snackBarRef = this.snackBar.open(`${message}`, translation, { duration: 5000 });
+      snackBarRef.onAction().subscribe(() => {
+        snackBarRef.dismiss();
+      });
+    });
+  }
 
   private showEditMessage(message: string): void {
     this.translate.get('MESSAGE.EDIT.CLOSE').subscribe((translation) => {
-      const snackBarRef = this.snackBar.open(`${message}`, translation, { duration: 10000 });
+      const snackBarRef = this.snackBar.open(`${message}`, translation, { duration: 5000 });
       snackBarRef.onAction().subscribe(() => {
         snackBarRef.dismiss();
       });
@@ -50,7 +63,7 @@ export class OrganizationListComponent {
 
   private showDeleteMessage(message: string): void {
     this.translate.get('MESSAGE.DELETE.CLOSE').subscribe((translation) => {
-      const snackBarRef = this.snackBar.open(`${message}`, translation, { duration: 10000 });
+      const snackBarRef = this.snackBar.open(`${message}`, translation, { duration: 5000 });
       snackBarRef.onAction().subscribe(() => {
         snackBarRef.dismiss();
       });

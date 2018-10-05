@@ -32,11 +32,13 @@ namespace D2CFL.Data.Organization.Mappings
             //Relationships
             builder.HasOne(x => x.Organization)
                 .WithMany()
-                .HasForeignKey(x => x.OrganizationId);
+                .HasForeignKey(x => x.OrganizationId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(x => x.Position)
                 .WithMany()
-                .HasForeignKey(x => x.PositionId);
+                .HasForeignKey(x => x.PositionId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

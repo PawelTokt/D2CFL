@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace D2CFL.Database.Migrations.Organization
 {
     [DbContext(typeof(OrganizationContext))]
-    [Migration("20181002101008_Initial")]
+    [Migration("20181005110233_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,9 +66,9 @@ namespace D2CFL.Database.Migrations.Organization
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid>("OrganizationId");
+                    b.Property<Guid?>("OrganizationId");
 
-                    b.Property<Guid>("PositionId");
+                    b.Property<Guid?>("PositionId");
 
                     b.HasKey("Id");
 
@@ -103,13 +103,11 @@ namespace D2CFL.Database.Migrations.Organization
                 {
                     b.HasOne("D2CFL.Data.Organization.Contract.OrganizationEntity", "Organization")
                         .WithMany()
-                        .HasForeignKey("OrganizationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("OrganizationId");
 
                     b.HasOne("D2CFL.Data.Organization.Contract.PositionEntity", "Position")
                         .WithMany()
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PositionId");
                 });
 #pragma warning restore 612, 618
         }

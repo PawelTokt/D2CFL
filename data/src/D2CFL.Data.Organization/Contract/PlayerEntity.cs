@@ -5,8 +5,8 @@ namespace D2CFL.Data.Organization.Contract
 {
     public class PlayerEntity : Entity<Guid>
     {
-        public Guid OrganizationId { get; set; }
-        public Guid PositionId { get; set; }
+        public Guid? OrganizationId { get; set; }
+        public Guid? PositionId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Nickname { get; set; }

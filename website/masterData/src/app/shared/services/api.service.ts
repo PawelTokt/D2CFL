@@ -11,6 +11,9 @@ import { OrganizationEditModel } from '../models/organization/organization-edit.
 import { PositionListModel } from '../models/position/position-list.model';
 import { PositionEditModel } from '../models/position/position-edit.model';
 
+import { PlayerListModel } from '../models/player/player-list.model';
+import { PlayerEditModel } from '../models/player/player-edit.model';
+
 @Injectable()
 export class ApiService {
 
@@ -76,5 +79,23 @@ export class ApiService {
 
     public deletePosition(item: PositionListModel) : any {
         return this.http.delete(`${environment.apiUrl}/api/Positions/${item.id}`);
+    }
+
+    // PLAYER
+
+    public getPlayers(): any {
+        return this.http.get<PlayerListModel[]>(`${environment.apiUrl}/api/Players`);
+    }
+
+    public addPlayer(body): any {
+        return this.http.post(`${environment.apiUrl}/api/Players`, body)
+    }
+
+    public editPlayer(id: string, body: PlayerEditModel) {
+        return this.http.put(`${environment.apiUrl}/api/Players/${id}`, body);
+    }
+
+    public deletePlayer(item: PlayerListModel) : any {
+        return this.http.delete(`${environment.apiUrl}/api/Players/${item.id}`);
     }
 }

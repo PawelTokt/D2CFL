@@ -47,8 +47,8 @@ namespace D2CFL.Database.Migrations.Organization
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    OrganizationId = table.Column<Guid>(nullable: false),
-                    PositionId = table.Column<Guid>(nullable: false),
+                    OrganizationId = table.Column<Guid>(nullable: true),
+                    PositionId = table.Column<Guid>(nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Nickname = table.Column<string>(type: "nvarchar(50)", nullable: false),
@@ -64,14 +64,14 @@ namespace D2CFL.Database.Migrations.Organization
                         principalSchema: "organization",
                         principalTable: "Organization",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Player_Position_PositionId",
                         column: x => x.PositionId,
                         principalSchema: "organization",
                         principalTable: "Position",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
