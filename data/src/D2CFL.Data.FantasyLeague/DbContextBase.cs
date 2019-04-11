@@ -2,8 +2,8 @@
 
 namespace D2CFL.Data.FantasyLeague
 {
-    public class DbContextBase<TClass> : DbContext
-        where TClass : class
+    public class DbContextBase<TChiledClass> : DbContext
+        where TChiledClass : class
     {
         public DbContextBase(DbContextOptions dbContextOptions)
             : base(dbContextOptions)
@@ -11,9 +11,9 @@ namespace D2CFL.Data.FantasyLeague
             SchemaName = SetSchemaName();
         }
 
-        private static string SetSchemaName()
+        private string SetSchemaName()
         {
-            var className = typeof(TClass).Name;
+            var className = typeof(TChiledClass).Name;
 
             var schemaname = className.Replace("Db", "").Replace("Context", "").ToLower();
 
