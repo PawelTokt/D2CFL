@@ -1,18 +1,15 @@
-﻿using Microsoft.AspNetCore;
+﻿//using Aurochses.Database.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace D2CFL.Database
 {
-    public class Program
+    public class Program : ProgramBase
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            Main<Startup, Service>(args);
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) => CreateWebHostBuilder<Startup>(args);
     }
 }

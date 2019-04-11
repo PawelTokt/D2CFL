@@ -9,19 +9,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aurochses.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.0" />
-    <PackageReference Include="Aurochses.Data.AutoMapper" Version="2.0.0" />
+    <PackageReference Include="Aurochses.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Aurochses.Data.AutoMapper" Version="2.2.1" />
     <PackageReference Include="Aurochses.Module.Autofac.EntityFrameworkCore" Version="2.0.0" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="4.0.1" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="2.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="2.3.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\business\src\D2CFL.Business.FantasyLeague\D2CFL.Business.FantasyLeague.csproj" />
     <ProjectReference Include="..\..\..\..\business\src\D2CFL.Business.Organization\D2CFL.Business.Organization.csproj" />
+    <ProjectReference Include="..\..\..\..\database\src\D2CFL.Database\D2CFL.Database.csproj" />
   </ItemGroup>
 
 </Project>

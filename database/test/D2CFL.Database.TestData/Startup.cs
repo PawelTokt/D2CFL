@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using D2CFL.Database.TestData.FantasyLeague;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace D2CFL.Database.TestData
@@ -15,7 +16,8 @@ namespace D2CFL.Database.TestData
         {
             base.ConfigureServices(services);
 
-            services.AddTransient<Organization.OrganizationService>();
+            //services.AddTransient<OrganizationService>();
+            services.AddTransient<FantasyLeagueService>();
 
             services.AddTransient<Service>();
         }

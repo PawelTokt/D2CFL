@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace D2CFL.Api.Website.Controllers.Organization
 {
-    [Route("api/Positions")]
+    //[Route("api/Positions")]
     public class PositionController : Controller
     {
         private readonly IMapper _mapper;

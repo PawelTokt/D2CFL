@@ -1,20 +1,24 @@
-﻿using D2CFL.Database.TestData.Organization;
+﻿using D2CFL.Database.TestData.FantasyLeague;
 
 namespace D2CFL.Database.TestData
 {
     public class Service
     {
-        private readonly OrganizationService _organizationService;
+        private readonly FantasyLeagueService _fantasyLeagueService;
+        //private readonly OrganizationService _organizationService;
 
-        public Service(OrganizationService organizationService)
+        public Service(FantasyLeagueService fantasyLeagueService)
         {
-            _organizationService = organizationService;
+            _fantasyLeagueService = fantasyLeagueService;
         }
 
         public void Run(string environmentName)
         {
+            // Fantasy League
+            _fantasyLeagueService.Run(environmentName);
+
             // Organization
-            _organizationService.Run(environmentName);
+            //_organizationService.Run(environmentName);
         }
     }
 }

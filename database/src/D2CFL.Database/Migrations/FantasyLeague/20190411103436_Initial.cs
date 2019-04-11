@@ -1,21 +1,21 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace D2CFL.Database.Migrations.Organization
+namespace D2CFL.Database.Migrations.FantasyLeague
 {
     public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "organization");
+                name: "fantasyLeague");
 
             migrationBuilder.CreateTable(
                 name: "Organization",
-                schema: "organization",
+                schema: "fantasyLeague",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     ShortName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Region = table.Column<string>(type: "nvarchar(50)", nullable: false)
@@ -27,10 +27,10 @@ namespace D2CFL.Database.Migrations.Organization
 
             migrationBuilder.CreateTable(
                 name: "Position",
-                schema: "organization",
+                schema: "fantasyLeague",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     KillCoefficient = table.Column<int>(nullable: false),
                     AssistCoefficient = table.Column<int>(nullable: false),
@@ -43,10 +43,10 @@ namespace D2CFL.Database.Migrations.Organization
 
             migrationBuilder.CreateTable(
                 name: "Player",
-                schema: "organization",
+                schema: "fantasyLeague",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
                     OrganizationId = table.Column<Guid>(nullable: true),
                     PositionId = table.Column<Guid>(nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(50)", nullable: false),
@@ -61,28 +61,28 @@ namespace D2CFL.Database.Migrations.Organization
                     table.ForeignKey(
                         name: "FK_Player_Organization_OrganizationId",
                         column: x => x.OrganizationId,
-                        principalSchema: "organization",
+                        principalSchema: "fantasyLeague",
                         principalTable: "Organization",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Player_Position_PositionId",
                         column: x => x.PositionId,
-                        principalSchema: "organization",
+                        principalSchema: "fantasyLeague",
                         principalTable: "Position",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Player_OrganizationId",
-                schema: "organization",
+                schema: "fantasyLeague",
                 table: "Player",
                 column: "OrganizationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Player_PositionId",
-                schema: "organization",
+                schema: "fantasyLeague",
                 table: "Player",
                 column: "PositionId");
         }
@@ -91,15 +91,15 @@ namespace D2CFL.Database.Migrations.Organization
         {
             migrationBuilder.DropTable(
                 name: "Player",
-                schema: "organization");
+                schema: "fantasyLeague");
 
             migrationBuilder.DropTable(
                 name: "Organization",
-                schema: "organization");
+                schema: "fantasyLeague");
 
             migrationBuilder.DropTable(
                 name: "Position",
-                schema: "organization");
+                schema: "fantasyLeague");
         }
     }
 }

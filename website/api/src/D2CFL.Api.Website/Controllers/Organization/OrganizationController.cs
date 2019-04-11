@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace D2CFL.Api.Website.Controllers.Organization
 {
-    [Route("api/Organizations")]
+    //[Route("api/Organizations")]
     public class OrganizationController : Controller
     {
         private readonly IMapper _mapper;

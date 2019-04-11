@@ -4,25 +4,28 @@ using D2CFL.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace D2CFL.Database.Migrations.Organization
+namespace D2CFL.Database.Migrations.FantasyLeague
 {
-    [DbContext(typeof(OrganizationContext))]
-    partial class OrganizationContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(FantasyLeagueContext))]
+    [Migration("20190411103436_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("D2CFL.Data.Organization.Contract.OrganizationEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.OrganizationEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("newsequentialid()");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -38,13 +41,14 @@ namespace D2CFL.Database.Migrations.Organization
 
                     b.HasKey("Id");
 
-                    b.ToTable("Organization","organization");
+                    b.ToTable("Organization","fantasyLeague");
                 });
 
-            modelBuilder.Entity("D2CFL.Data.Organization.Contract.PlayerEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("newsequentialid()");
 
                     b.Property<int>("Age");
 
@@ -74,13 +78,14 @@ namespace D2CFL.Database.Migrations.Organization
 
                     b.HasIndex("PositionId");
 
-                    b.ToTable("Player","organization");
+                    b.ToTable("Player","fantasyLeague");
                 });
 
-            modelBuilder.Entity("D2CFL.Data.Organization.Contract.PositionEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PositionEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("newsequentialid()");
 
                     b.Property<int>("AssistCoefficient");
 
@@ -94,17 +99,17 @@ namespace D2CFL.Database.Migrations.Organization
 
                     b.HasKey("Id");
 
-                    b.ToTable("Position","organization");
+                    b.ToTable("Position","fantasyLeague");
                 });
 
-            modelBuilder.Entity("D2CFL.Data.Organization.Contract.PlayerEntity", b =>
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", b =>
                 {
-                    b.HasOne("D2CFL.Data.Organization.Contract.OrganizationEntity", "Organization")
+                    b.HasOne("D2CFL.Data.FantasyLeague.Contract.OrganizationEntity", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("D2CFL.Data.Organization.Contract.PositionEntity", "Position")
+                    b.HasOne("D2CFL.Data.FantasyLeague.Contract.PositionEntity", "Position")
                         .WithMany()
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.SetNull);

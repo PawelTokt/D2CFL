@@ -2,6 +2,8 @@
 {
     public class Configuration
     {
+        public const string FantasyLeagueSchemaName = "fantasyLeague";
+
         public const string OrganizationSchemaName = "organization";
     }
 }

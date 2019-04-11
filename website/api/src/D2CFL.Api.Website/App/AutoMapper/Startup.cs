@@ -9,7 +9,7 @@ namespace D2CFL.Api.Website.App.AutoMapper
         {
             services.AddAutoMapper(
                 typeof(Startup).Assembly,
-                typeof(Business.Organization.BusinessModule).Assembly
+                typeof(Business.FantasyLeague.BusinessModule).Assembly
             );
         }
     }
