@@ -4,12 +4,11 @@ using D2CFL.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace D2CFL.Database.Migrations.FantasyLeague
 {
     [DbContext(typeof(FantasyLeagueContext))]
-    partial class FantasyLeagueContextModelSnapshot : ModelSnapshot
+    class FantasyLeagueContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

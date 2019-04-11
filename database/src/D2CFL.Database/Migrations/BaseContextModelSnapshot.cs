@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 namespace D2CFL.Database.Migrations
 {
     [DbContext(typeof(BaseContext))]
-    partial class BaseContextModelSnapshot : ModelSnapshot
+    class BaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\data\src\D2CFL.Data.FantasyLeague\D2CFL.Data.FantasyLeague.csproj" />
-    <ProjectReference Include="..\..\..\data\src\D2CFL.Data.Organization\D2CFL.Data.Organization.csproj" />
   </ItemGroup>
 
   <ItemGroup>
