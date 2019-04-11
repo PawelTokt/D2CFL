@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace D2CFL.Database.Migrations.FantasyLeague
 {
     [DbContext(typeof(FantasyLeagueContext))]
-    [Migration("20190411103436_Initial")]
+    [Migration("20190411134728_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.HasKey("Id");
 
-                    b.ToTable("Organization","fantasyLeague");
+                    b.ToTable("Organization","fantasyleague");
                 });
 
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", b =>
@@ -78,7 +78,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.HasIndex("PositionId");
 
-                    b.ToTable("Player","fantasyLeague");
+                    b.ToTable("Player","fantasyleague");
                 });
 
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PositionEntity", b =>
@@ -99,7 +99,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.HasKey("Id");
 
-                    b.ToTable("Position","fantasyLeague");
+                    b.ToTable("Position","fantasyleague");
                 });
 
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", b =>

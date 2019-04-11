@@ -1,24 +1,15 @@
-﻿using Aurochses.Data.EntityFrameworkCore;
+﻿//using Aurochses.Data.EntityFrameworkCore;
 using D2CFL.Data.FantasyLeague.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace D2CFL.Data.FantasyLeague
 {
-    public class FantasyLeagueDbContext : DbContextBase
+    public class FantasyLeagueDbContext : DbContextBase<FantasyLeagueDbContext>
     {
         public FantasyLeagueDbContext(DbContextOptions dbContextOptions) 
-            : base(dbContextOptions, SetSchemaName())
+            : base(dbContextOptions)
         {
             
-        }
-
-        public static string SetSchemaName()
-        {
-            var className = typeof(FantasyLeagueDbContext).Name;
-
-            var schemaname = className.Replace("Db", "").Replace("Context", "").ToLower();
-
-            return schemaname;
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

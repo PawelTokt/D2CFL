@@ -4,11 +4,12 @@ using D2CFL.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace D2CFL.Database.Migrations.FantasyLeague
 {
     [DbContext(typeof(FantasyLeagueContext))]
-    class FantasyLeagueContextModelSnapshot : ModelSnapshot
+    partial class FantasyLeagueContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -38,7 +39,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.HasKey("Id");
 
-                    b.ToTable("Organization","fantasyLeague");
+                    b.ToTable("Organization","fantasyleague");
                 });
 
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", b =>
@@ -75,7 +76,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.HasIndex("PositionId");
 
-                    b.ToTable("Player","fantasyLeague");
+                    b.ToTable("Player","fantasyleague");
                 });
 
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PositionEntity", b =>
@@ -96,7 +97,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.HasKey("Id");
 
-                    b.ToTable("Position","fantasyLeague");
+                    b.ToTable("Position","fantasyleague");
                 });
 
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", b =>

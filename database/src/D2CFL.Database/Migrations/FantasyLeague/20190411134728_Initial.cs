@@ -8,11 +8,11 @@ namespace D2CFL.Database.Migrations.FantasyLeague
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "fantasyLeague");
+                name: "fantasyleague");
 
             migrationBuilder.CreateTable(
                 name: "Organization",
-                schema: "fantasyLeague",
+                schema: "fantasyleague",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
@@ -27,7 +27,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
             migrationBuilder.CreateTable(
                 name: "Position",
-                schema: "fantasyLeague",
+                schema: "fantasyleague",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
@@ -43,7 +43,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
             migrationBuilder.CreateTable(
                 name: "Player",
-                schema: "fantasyLeague",
+                schema: "fantasyleague",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
@@ -61,14 +61,14 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                     table.ForeignKey(
                         name: "FK_Player_Organization_OrganizationId",
                         column: x => x.OrganizationId,
-                        principalSchema: "fantasyLeague",
+                        principalSchema: "fantasyleague",
                         principalTable: "Organization",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Player_Position_PositionId",
                         column: x => x.PositionId,
-                        principalSchema: "fantasyLeague",
+                        principalSchema: "fantasyleague",
                         principalTable: "Position",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.SetNull);
@@ -76,13 +76,13 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
             migrationBuilder.CreateIndex(
                 name: "IX_Player_OrganizationId",
-                schema: "fantasyLeague",
+                schema: "fantasyleague",
                 table: "Player",
                 column: "OrganizationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Player_PositionId",
-                schema: "fantasyLeague",
+                schema: "fantasyleague",
                 table: "Player",
                 column: "PositionId");
         }
@@ -91,15 +91,15 @@ namespace D2CFL.Database.Migrations.FantasyLeague
         {
             migrationBuilder.DropTable(
                 name: "Player",
-                schema: "fantasyLeague");
+                schema: "fantasyleague");
 
             migrationBuilder.DropTable(
                 name: "Organization",
-                schema: "fantasyLeague");
+                schema: "fantasyleague");
 
             migrationBuilder.DropTable(
                 name: "Position",
-                schema: "fantasyLeague");
+                schema: "fantasyleague");
         }
     }
 }
