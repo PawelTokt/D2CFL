@@ -1,6 +1,4 @@
-﻿using Aurochses.Data;
-using Aurochses.Data.AutoMapper;
-using Autofac;
+﻿using Autofac;
 using D2CFL.Business.FantasyLeague;
 
 namespace D2CFL.Api.Website.App.Autofac
@@ -10,16 +8,12 @@ namespace D2CFL.Api.Website.App.Autofac
         public static void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new BusinessModule());
-
-            builder.RegisterType<DataMapper>().As<IDataMapper>().InstancePerLifetimeScope();
         }
 
+
+        // OLD SOLUTION
         //public static void ConfigureContainer(ContainerBuilder builder, IConfiguration configuration)
         //{
-        //    // AutoMapper
-        //    builder.RegisterType<DataMapper>().As<IDataMapper>().InstancePerLifetimeScope();
-
-        //    // Organization
         //    builder.RegisterModule(
         //        new OrganizationModule(
         //            new DbContextOptionsBuilder<OrganizationDbContext>()
@@ -28,10 +22,6 @@ namespace D2CFL.Api.Website.App.Autofac
         //            "organization"
         //        )
         //    );
-
-        //    builder.RegisterType<OrganizationService>().As<IOrganizationService>().InstancePerLifetimeScope();
-        //    builder.RegisterType<PositionService>().As<IPositionService>().InstancePerLifetimeScope();
-        //    builder.RegisterType<PlayerService>().As<IPlayerService>().InstancePerLifetimeScope();
         //}
     }
 }

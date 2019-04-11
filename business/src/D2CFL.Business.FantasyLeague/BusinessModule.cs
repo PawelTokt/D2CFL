@@ -14,6 +14,8 @@ namespace D2CFL.Business.FantasyLeague
         {
             builder.RegisterModule(new DataModule());
 
+            builder.RegisterType<DataMapper>().As<IDataMapper>().InstancePerLifetimeScope();
+
             builder.RegisterType<OrganizationService>().As<IOrganizationService>().InstancePerLifetimeScope();
             builder.RegisterType<PlayerService>().As<IPlayerService>().InstancePerLifetimeScope();
             builder.RegisterType<PositionService>().As<IPositionService>().InstancePerLifetimeScope();

@@ -16,7 +16,6 @@ namespace D2CFL.Database.TestData
         {
             base.ConfigureServices(services);
 
-            //services.AddTransient<OrganizationService>();
             services.AddTransient<FantasyLeagueService>();
 
             services.AddTransient<Service>();

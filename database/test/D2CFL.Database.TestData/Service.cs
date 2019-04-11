@@ -5,7 +5,6 @@ namespace D2CFL.Database.TestData
     public class Service
     {
         private readonly FantasyLeagueService _fantasyLeagueService;
-        //private readonly OrganizationService _organizationService;
 
         public Service(FantasyLeagueService fantasyLeagueService)
         {
@@ -16,9 +15,6 @@ namespace D2CFL.Database.TestData
         {
             // Fantasy League
             _fantasyLeagueService.Run(environmentName);
-
-            // Organization
-            //_organizationService.Run(environmentName);
         }
     }
 }

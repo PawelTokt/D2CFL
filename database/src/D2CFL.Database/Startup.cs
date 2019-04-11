@@ -26,12 +26,6 @@ namespace D2CFL.Database
 
             services.AddDbContext<FantasyLeagueDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            //services.AddDbContext<OrganizationContext>(
-            //    options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            //services.AddDbContext<OrganizationDbContext>(
-            //    options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         public override void Configure(IApplicationBuilder app)
