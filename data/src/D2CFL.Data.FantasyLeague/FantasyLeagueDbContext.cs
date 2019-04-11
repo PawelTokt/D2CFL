@@ -6,12 +6,19 @@ namespace D2CFL.Data.FantasyLeague
 {
     public class FantasyLeagueDbContext : DbContextBase
     {
-        private const string schemaName = "fantasyLeague";
-
         public FantasyLeagueDbContext(DbContextOptions dbContextOptions) 
-            : base(dbContextOptions, schemaName)
+            : base(dbContextOptions, SetSchemaName())
         {
             
+        }
+
+        public static string SetSchemaName()
+        {
+            var className = typeof(FantasyLeagueDbContext).Name;
+
+            var schemaname = className.Replace("Db", "").Replace("Context", "").ToLower();
+
+            return schemaname;
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
