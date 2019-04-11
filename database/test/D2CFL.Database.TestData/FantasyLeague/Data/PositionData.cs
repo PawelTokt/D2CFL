@@ -8,7 +8,7 @@ namespace D2CFL.Database.TestData.FantasyLeague.Data
     {
         public static IEnumerable<PositionEntity> GetList(string environmentName)
         {
-            var configuration = Program.BuildConfiguration(@"Organization\Data", nameof(PositionData), environmentName);
+            var configuration = Program.BuildConfiguration(@"FantasyLeague\Data", nameof(PositionData), environmentName);
 
             return configuration.GetSection("Data").Get<IList<PositionEntity>>();
         }

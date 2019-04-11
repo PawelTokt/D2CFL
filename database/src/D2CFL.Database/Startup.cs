@@ -1,5 +1,5 @@
 ﻿using D2CFL.Database.Context;
-//using Aurochses.Database.EntityFrameworkCore;
+using Aurochses.Database.EntityFrameworkCore;
 using D2CFL.Data.FantasyLeague;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -26,14 +26,6 @@ namespace D2CFL.Database
 
             services.AddDbContext<FantasyLeagueDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-        }
-
-        public override void Configure(IApplicationBuilder app)
-        {
-            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                scope.ServiceProvider.GetRequiredService<FantasyLeagueContext>().Database.Migrate();
-            }
         }
     }
 }

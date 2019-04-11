@@ -1,4 +1,4 @@
-﻿//using Aurochses.Database.EntityFrameworkCore;
+﻿using Aurochses.Database.EntityFrameworkCore;
 using D2CFL.Database.Context;
 
 namespace D2CFL.Database

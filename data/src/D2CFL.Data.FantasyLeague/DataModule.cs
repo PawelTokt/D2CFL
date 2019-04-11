@@ -15,9 +15,6 @@ namespace D2CFL.Data.FantasyLeague
             builder.RegisterType<Repository<OrganizationEntity, Guid>>().As<IRepository<OrganizationEntity, Guid>>().InstancePerLifetimeScope();
             builder.RegisterType<Repository<PositionEntity, Guid>>().As<IRepository<PositionEntity, Guid>>().InstancePerLifetimeScope();
             builder.RegisterType<Repository<PlayerEntity, Guid>>().As<IRepository<PlayerEntity, Guid>>().InstancePerLifetimeScope();
-
-            // UnitOfWork
-            builder.RegisterType<FantasyLeagueUnitOfWork>().As<IFantasyLeagueUnitOfWork>().InstancePerLifetimeScope();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿//using Aurochses.Database.EntityFrameworkCore;
+﻿using Aurochses.Database.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace D2CFL.Database

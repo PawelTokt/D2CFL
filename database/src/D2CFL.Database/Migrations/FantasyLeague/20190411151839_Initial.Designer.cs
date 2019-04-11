@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace D2CFL.Database.Migrations.FantasyLeague
 {
     [DbContext(typeof(FantasyLeagueContext))]
-    [Migration("20190411134728_Initial")]
+    [Migration("20190411151839_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

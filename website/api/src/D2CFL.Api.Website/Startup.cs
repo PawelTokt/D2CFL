@@ -11,21 +11,16 @@ namespace D2CFL.Api.Website
 {
     public class Startup
     {
-        private Database.Startup _databaseStartup;
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _databaseStartup = new Database.Startup(Configuration);
         }
 
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // Database
-            _databaseStartup.ConfigureServices(services);
-
             // Logging
             App.Logging.Startup.ConfigureServices(services, Configuration);
 
@@ -61,14 +56,11 @@ namespace D2CFL.Api.Website
         {
             // Autofac
             //App.Autofac.Startup.ConfigureContainer(builder, Configuration);
-            App.Autofac.Startup.ConfigureContainer(builder);
+            App.Autofac.Startup.ConfigureContainer(builder, Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            // Database
-            _databaseStartup.Configure(app);
-
             // Exception
             App.ExceptionHandler.Startup.Configure(app, env, Configuration);
 

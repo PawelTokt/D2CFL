@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\business\src\D2CFL.Business.FantasyLeague\D2CFL.Business.FantasyLeague.csproj" />
-    <ProjectReference Include="..\..\..\..\database\src\D2CFL.Database\D2CFL.Database.csproj" />
+    <ProjectReference Include="..\..\..\..\data\src\D2CFL.Data.FantasyLeague\D2CFL.Data.FantasyLeague.csproj" />
   </ItemGroup>
 
 </Project>
