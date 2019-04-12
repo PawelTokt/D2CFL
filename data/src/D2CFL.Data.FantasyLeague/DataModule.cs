@@ -3,7 +3,6 @@ using Aurochses.Data;
 using Aurochses.Data.EntityFrameworkCore;
 using Autofac;
 using D2CFL.Data.FantasyLeague.Contract;
-using D2CFL.Data.FantasyLeague.Interfaces;
 
 namespace D2CFL.Data.FantasyLeague
 {

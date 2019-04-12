@@ -6,7 +6,7 @@ namespace D2CFL.Database.Context
     public class FantasyLeagueContext : FantasyLeagueDbContext
     {
         public FantasyLeagueContext(DbContextOptions<FantasyLeagueDbContext> dbContextOptions)
-            : base(dbContextOptions)
+            : base(dbContextOptions, null)
         {
 
         }

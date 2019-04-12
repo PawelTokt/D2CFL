@@ -28,7 +28,8 @@ namespace D2CFL.Business.FantasyLeague
                    .WithParameters(
                        new List<Parameter>
                        {
-                           new NamedParameter(DbContextOptionsParameter, DbContextOptions)
+                           new NamedParameter(DbContextOptionsParameter, DbContextOptions),
+                           new NamedParameter(SchemaNameParameter, SchemaName)
                        })
                    .InstancePerLifetimeScope();
 

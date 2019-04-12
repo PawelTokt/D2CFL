@@ -13,8 +13,9 @@ namespace D2CFL.Data.FantasyLeague
             Func<DbContext, IRepository<OrganizationEntity, Guid>> organizationRepository,
             Func<DbContext, IRepository<PositionEntity, Guid>> positionRepository,
             Func<DbContext, IRepository<PlayerEntity, Guid>> playerRepository,
-            DbContextOptions dbContextOptions
-            ) : base(new FantasyLeagueDbContext(dbContextOptions)) {
+            DbContextOptions dbContextOptions, 
+            string schemaName
+            ) : base(new FantasyLeagueDbContext(dbContextOptions, schemaName)) {
             RegisterRepository(organizationRepository(DbContext));
             RegisterRepository(positionRepository(DbContext));
             RegisterRepository(playerRepository(DbContext));
