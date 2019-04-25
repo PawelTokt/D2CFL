@@ -5,7 +5,8 @@ using D2CFL.Data.FantasyLeague.Contract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace D2CFL.Data.FantasyLeague.EntityConfigurations {
+namespace D2CFL.Data.FantasyLeague.EntityConfigurations
+{
     public class PositionConfiguration : EntityTypeConfiguration<PositionEntity, Guid>
     {
         public PositionConfiguration(string schemaName)
@@ -23,7 +24,6 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations {
             builder.HasKey(x => x.Id);
 
             // Properties
-            builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
             builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
             builder.Property(x => x.Name).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
         }

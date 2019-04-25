@@ -9,7 +9,8 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
 {
     public class TournamentConfiguration : EntityTypeConfiguration<TournamentEntity, Guid>
     {
-        public TournamentConfiguration(string schemaName) : base(schemaName)
+        public TournamentConfiguration(string schemaName)
+            : base(schemaName)
         {
             
         }
@@ -17,7 +18,7 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
         public override void Configure(EntityTypeBuilder<TournamentEntity> builder)
         {
             // Table
-            builder.ToTable("Match", SchemaName);
+            builder.ToTable("Tournament", SchemaName);
 
             // Primary Key
             builder.HasKey(x => x.Id);
@@ -25,6 +26,8 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
             // Properties
             builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
             builder.Property(x => x.Name).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
+            builder.Property(x => x.StartDate).HasColumnType(ColumnTypes.Date).IsRequired();
+            builder.Property(x => x.EndDate).HasColumnType(ColumnTypes.Date).IsRequired();
         }
     }
 }

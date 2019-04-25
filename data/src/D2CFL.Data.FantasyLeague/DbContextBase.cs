@@ -13,8 +13,8 @@ namespace D2CFL.Data.FantasyLeague
 
         private string SetSchemaName(string schemaName)
         {
-            if(schemaName != null) {
-
+            if(schemaName != null)
+            {
                 return schemaName;
             }
 

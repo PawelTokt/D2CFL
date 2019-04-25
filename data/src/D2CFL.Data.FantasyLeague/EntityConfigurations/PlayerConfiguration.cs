@@ -29,17 +29,18 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
             builder.Property(x => x.LastName).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
             builder.Property(x => x.Nickname).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
             builder.Property(x => x.Country).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
+            builder.Property(x => x.MatchesPlayed).HasDefaultValue(0);
 
             //Relationships
             builder.HasOne(x => x.Organization)
                    .WithMany()
                    .HasForeignKey(x => x.OrganizationId)
-                   .OnDelete(DeleteBehavior.SetNull);
+                   .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Position)
                    .WithMany()
                    .HasForeignKey(x => x.PositionId)
-                   .OnDelete(DeleteBehavior.SetNull);
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

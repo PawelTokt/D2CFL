@@ -1,9 +1,8 @@
 ﻿using System;
-using Aurochses.Data.EntityFrameworkCore;
 
-namespace D2CFL.Data.FantasyLeague.Contract
+namespace D2CFL.Api.Website.Models.FantasyLeague.Tournament
 {
-    public class TournamentEntity : Entity<Guid>
+    public class TournamentModel
     {
         public string Name { get; set; }
         public DateTime StartDate { get; set; }

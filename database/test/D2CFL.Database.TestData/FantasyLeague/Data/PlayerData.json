@@ -4,41 +4,111 @@
       "Id": "00000000-0000-0000-0000-000000000001",
       "OrganizationId": "00000000-0000-0000-0000-000000000001",
       "PositionId": "00000000-0000-0000-0000-000000000001",
+      "FirstName": "Roman",
+      "LastName": "Kushnarev",
+      "Nickname": "RAMZES666",
+      "Age": 19,
+      "Country": "Russia",
+      "MatchesPlayed": 1
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000002",
+      "OrganizationId": "00000000-0000-0000-0000-000000000001",
+      "PositionId": "00000000-0000-0000-0000-000000000001",
       "FirstName": "Vladimir",
       "LastName": "Minenko",
       "Nickname": "No[o]ne",
       "Age": 21,
-      "Country": "Ukraine"
+      "Country": "Ukraine",
+      "MatchesPlayed": 1
     },
     {
-      "Id": "00000000-0000-0000-0000-000000000002",
+      "Id": "00000000-0000-0000-0000-000000000003",
       "OrganizationId": "00000000-0000-0000-0000-000000000001",
       "PositionId": "00000000-0000-0000-0000-000000000002",
       "FirstName": "Pavel",
       "LastName": "Khvastunov",
       "Nickname": "9Pasha",
       "Age": 26,
-      "Country": "Russia"
+      "Country": "Russia",
+      "MatchesPlayed": 1
     },
     {
-      "Id": "00000000-0000-0000-0000-000000000003",
+      "Id": "00000000-0000-0000-0000-000000000004",
+      "OrganizationId": "00000000-0000-0000-0000-000000000001",
+      "PositionId": "00000000-0000-0000-0000-000000000003",
+      "FirstName": "Vladimir",
+      "LastName": "Nikogosyan",
+      "Nickname": "RodjER",
+      "Age": 25,
+      "Country": "Russia",
+      "MatchesPlayed": 1
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000005",
       "OrganizationId": "00000000-0000-0000-0000-000000000001",
       "PositionId": "00000000-0000-0000-0000-000000000003",
       "FirstName": "Alexei",
       "LastName": "Berezin",
       "Nickname": "Solo",
       "Age": 28,
-      "Country": "Russia"
+      "Country": "Russia",
+      "MatchesPlayed": 1
     },
     {
-      "Id": "00000000-0000-0000-0000-000000000004",
-      "OrganizationId": "00000000-0000-0000-0000-000000000003",
-      "PositionId": "00000000-0000-0000-0000-000000000003",
-      "FirstName": "Andreas",
-      "LastName": "Nielsen",
-      "Nickname": "Cr1t",
+      "Id": "00000000-0000-0000-0000-000000000006",
+      "OrganizationId": "00000000-0000-0000-0000-000000000002",
+      "PositionId": "00000000-0000-0000-0000-000000000001",
+      "FirstName": "Michal",
+      "LastName": "Jankowski",
+      "Nickname": "Nisha",
+      "Age": 18,
+      "Country": "Poland",
+      "MatchesPlayed": 1
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000007",
+      "OrganizationId": "00000000-0000-0000-0000-000000000002",
+      "PositionId": "00000000-0000-0000-0000-000000000001",
+      "FirstName": "Yeik Nai",
+      "LastName": "Zheng",
+      "Nickname": "MidOne",
       "Age": 22,
-      "Country": "Denmark"
+      "Country": "Malaysia",
+      "MatchesPlayed": 1
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000008",
+      "OrganizationId": "00000000-0000-0000-0000-000000000002",
+      "PositionId": "00000000-0000-0000-0000-000000000002",
+      "FirstName": "Ludwig",
+      "LastName": "Wahlberg",
+      "Nickname": "zai",
+      "Age": 21,
+      "Country": "Sweden",
+      "MatchesPlayed": 1
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000009",
+      "OrganizationId": "00000000-0000-0000-0000-000000000002",
+      "PositionId": "00000000-0000-0000-0000-000000000003",
+      "FirstName": "Yazied",
+      "LastName": "Jaradat",
+      "Nickname": "YapzOr",
+      "Age": 24,
+      "Country": "Jordan",
+      "MatchesPlayed": 1
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000010",
+      "OrganizationId": "00000000-0000-0000-0000-000000000002",
+      "PositionId": "00000000-0000-0000-0000-000000000003",
+      "FirstName": "Clement",
+      "LastName": "Ivanov",
+      "Nickname": "Puppey",
+      "Age": 29,
+      "Country": "Estonia",
+      "MatchesPlayed": 1
     }
   ]
 }

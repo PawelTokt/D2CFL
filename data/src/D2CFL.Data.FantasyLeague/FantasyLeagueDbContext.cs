@@ -1,4 +1,5 @@
 ﻿//using Aurochses.Data.EntityFrameworkCore;
+
 using D2CFL.Data.FantasyLeague.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace D2CFL.Data.FantasyLeague
 {
     public class FantasyLeagueDbContext : DbContextBase<FantasyLeagueDbContext>
     {
-        public FantasyLeagueDbContext(DbContextOptions dbContextOptions, string schemaName) 
+        public FantasyLeagueDbContext(DbContextOptions dbContextOptions, string schemaName)
             : base(dbContextOptions, schemaName)
         {
             

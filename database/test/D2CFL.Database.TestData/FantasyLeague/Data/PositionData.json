@@ -3,7 +3,7 @@
     {
       "Id": "00000000-0000-0000-0000-000000000001",
       "Name": "Core",
-      "KillCoefficient": 1,
+      "KillCoefficient": 2,
       "AssistCoefficient": 2,
       "DeathCoefficient": 3
     },
@@ -17,8 +17,8 @@
     {
       "Id": "00000000-0000-0000-0000-000000000003",
       "Name": "Support",
-      "KillCoefficient": 3,
-      "AssistCoefficient": 1,
+      "KillCoefficient": 1,
+      "AssistCoefficient": 3,
       "DeathCoefficient": 1
     }
   ]

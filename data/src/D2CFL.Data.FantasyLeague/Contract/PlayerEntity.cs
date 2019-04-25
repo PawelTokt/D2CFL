@@ -12,6 +12,7 @@ namespace D2CFL.Data.FantasyLeague.Contract
         public string Nickname { get; set; }
         public int Age { get; set; }
         public string Country { get; set; }
+        public int MatchesPlayed { get; set; }
 
         public virtual OrganizationEntity Organization { get; set; }
         public virtual PositionEntity Position { get; set; }

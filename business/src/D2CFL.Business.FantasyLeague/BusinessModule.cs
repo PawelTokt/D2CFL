@@ -2,9 +2,12 @@
 using Aurochses.Data.Autofac.EntityFrameworkCore;
 using Autofac;
 using Autofac.Core;
+using D2CFL.Business.FantasyLeague.Contract.Match;
 using D2CFL.Business.FantasyLeague.Contract.Organization;
 using D2CFL.Business.FantasyLeague.Contract.Player;
+using D2CFL.Business.FantasyLeague.Contract.PlayerStats;
 using D2CFL.Business.FantasyLeague.Contract.Position;
+using D2CFL.Business.FantasyLeague.Contract.Tournament;
 using D2CFL.Data.FantasyLeague;
 using D2CFL.Data.FantasyLeague.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -34,10 +37,12 @@ namespace D2CFL.Business.FantasyLeague
                    .InstancePerLifetimeScope();
 
             // Services
+            builder.RegisterType<MatchService>().As<IMatchService>().InstancePerLifetimeScope();
             builder.RegisterType<OrganizationService>().As<IOrganizationService>().InstancePerLifetimeScope();
             builder.RegisterType<PlayerService>().As<IPlayerService>().InstancePerLifetimeScope();
+            builder.RegisterType<PlayerStatsService>().As<IPlayerStatsService>().InstancePerLifetimeScope();
             builder.RegisterType<PositionService>().As<IPositionService>().InstancePerLifetimeScope();
+            builder.RegisterType<TournamentService>().As<ITournamentService>().InstancePerLifetimeScope();
         }
-
     }
 }

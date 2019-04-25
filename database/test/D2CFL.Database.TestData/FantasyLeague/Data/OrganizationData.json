@@ -11,12 +11,6 @@
       "Name": "Team Secret",
       "ShortName": "TS",
       "Region": "Europe"
-    },
-    {
-      "Id": "00000000-0000-0000-0000-000000000003",
-      "Name": "Evil Genius",
-      "ShortName": "EG",
-      "Region": "North America"
     }
   ]
 }

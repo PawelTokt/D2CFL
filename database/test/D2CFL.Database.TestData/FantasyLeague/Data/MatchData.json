@@ -3,31 +3,9 @@
     {
       "Id": "00000000-0000-0000-0000-000000000001",
       "TournamentId": "00000000-0000-0000-0000-000000000001",
-      "OrganizationOneId": "00000000-0000-0000-0000-000000000001",
-      "OrganizationTwoId": "00000000-0000-0000-0000-000000000003",
       "Name": "Game 1",
-      "OrganizationOneScore": 33,
-      "OrganizationTwoScore": 21,
-      "Date": "2019-01-01"
-    },
-    {
-      "Id": "00000000-0000-0000-0000-000000000001",
-      "TournamentId": "00000000-0000-0000-0000-000000000001",
-      "OrganizationOneId": "00000000-0000-0000-0000-000000000001",
-      "OrganizationTwoId": "00000000-0000-0000-0000-000000000003",
-      "Name": "Game 2",
-      "OrganizationOneScore": 12,
-      "OrganizationTwoScore": 24,
-      "Date": "2019-01-01"
-    },
-    {
-      "Id": "00000000-0000-0000-0000-000000000001",
-      "TournamentId": "00000000-0000-0000-0000-000000000001",
-      "OrganizationOneId": "00000000-0000-0000-0000-000000000001",
-      "OrganizationTwoId": "00000000-0000-0000-0000-000000000003",
-      "Name": "Game 3",
-      "OrganizationOneScore": 27,
-      "OrganizationTwoScore": 16,
+      "FirstOrganizationScore": 25,
+      "SecondOrganizationScore": 18,
       "Date": "2019-01-01"
     }
   ]

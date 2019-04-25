@@ -9,7 +9,8 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
 {
     public class MatchConfiguration : EntityTypeConfiguration<MatchEntity, Guid>
     {
-        public MatchConfiguration(string schemaName) : base(schemaName)
+        public MatchConfiguration(string schemaName)
+            : base(schemaName)
         {
             
         }
@@ -25,22 +26,21 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
             // Properties
             builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
             builder.Property(x => x.Name).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).IsRequired();
-            builder.Property(x => x.Date).HasColumnType(ColumnTypes.DateTime).IsRequired();
+            builder.Property(x => x.Date).HasColumnType(ColumnTypes.Date).IsRequired();
 
             //Relationships
-            builder.HasOne(x => x.Organization)
-                   .WithMany()
-                   .HasForeignKey(x => x.OrganizationOneId)
-                   .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(x => x.Organization)
-                   .WithMany()
-                   .HasForeignKey(x => x.OrganizationTwoId)
-                   .OnDelete(DeleteBehavior.Restrict);
-
             builder.HasOne(x => x.Tournament)
                    .WithMany()
-                   .HasForeignKey(x => x.TournamentId)
+                   .HasForeignKey(x => x.TournamentId);
+
+            builder.HasOne(x => x.FirstOrganization)
+                   .WithMany()
+                   .HasForeignKey(x => x.FirstOrganizationId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.SecondOrganization)
+                   .WithMany()
+                   .HasForeignKey(x => x.SecondOrganizationId)
                    .OnDelete(DeleteBehavior.Restrict);
         }
     }

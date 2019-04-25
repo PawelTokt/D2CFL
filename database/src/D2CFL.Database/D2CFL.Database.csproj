@@ -18,8 +18,4 @@
     <ProjectReference Include="..\..\..\data\src\D2CFL.Data.FantasyLeague\D2CFL.Data.FantasyLeague.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

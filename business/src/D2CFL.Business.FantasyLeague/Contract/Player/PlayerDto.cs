@@ -14,5 +14,6 @@ namespace D2CFL.Business.FantasyLeague.Contract.Player
         public string Nickname { get; set; }
         public int Age { get; set; }
         public string Country { get; set; }
+        public int MatchesPlayed { get; set; }
     }
 }

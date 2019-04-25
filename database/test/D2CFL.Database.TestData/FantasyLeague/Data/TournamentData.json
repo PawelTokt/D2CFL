@@ -2,7 +2,9 @@
   "Data": [
     {
       "Id": "00000000-0000-0000-0000-000000000001",
-      "Name": "ESL One Catowice"
+      "Name": "ESL One Catowice",
+      "StartDate": "2019-01-01",
+      "EndDate": "2019-01-10"
     }
   ]
 }
