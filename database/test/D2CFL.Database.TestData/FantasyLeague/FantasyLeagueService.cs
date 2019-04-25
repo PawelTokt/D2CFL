@@ -17,9 +17,9 @@ namespace D2CFL.Database.TestData.FantasyLeague
         public void Run(string enviromentName)
         {
             // Organization
-            foreach (var item in OrganizationData.GetList(enviromentName))
+            foreach(var item in OrganizationData.GetList(enviromentName))
             {
-                if (_context.Set<OrganizationEntity>().Any(x => x.Id == item.Id))
+                if(_context.Set<OrganizationEntity>().Any(x => x.Id == item.Id))
                 {
                     _context.Set<OrganizationEntity>().Update(item);
                 }
@@ -32,9 +32,9 @@ namespace D2CFL.Database.TestData.FantasyLeague
             _context.SaveChanges();
 
             // Position
-            foreach (var item in PositionData.GetList(enviromentName))
+            foreach(var item in PositionData.GetList(enviromentName))
             {
-                if (_context.Set<PositionEntity>().Any(x => x.Id == item.Id))
+                if(_context.Set<PositionEntity>().Any(x => x.Id == item.Id))
                 {
                     _context.Set<PositionEntity>().Update(item);
                 }
@@ -45,22 +45,7 @@ namespace D2CFL.Database.TestData.FantasyLeague
             }
 
             _context.SaveChanges();
-
-            // Player
-            foreach (var item in PlayerData.GetList(enviromentName))
-            {
-                if (_context.Set<PlayerEntity>().Any(x => x.Id == item.Id))
-                {
-                    _context.Set<PlayerEntity>().Update(item);
-                }
-                else
-                {
-                    _context.Set<PlayerEntity>().Add(item);
-                }
-            }
-
-            _context.SaveChanges();
-
+            
             // Tournament
             foreach (var item in TournamentData.GetList(enviromentName))
             {
@@ -76,10 +61,25 @@ namespace D2CFL.Database.TestData.FantasyLeague
 
             _context.SaveChanges();
 
-            // Match
-            foreach (var item in MatchData.GetList(enviromentName))
+            // Player
+            foreach (var item in PlayerData.GetList(enviromentName))
             {
-                if (_context.Set<MatchEntity>().Any(x => x.Id == item.Id))
+                if(_context.Set<PlayerEntity>().Any(x => x.Id == item.Id))
+                {
+                    _context.Set<PlayerEntity>().Update(item);
+                }
+                else
+                {
+                    _context.Set<PlayerEntity>().Add(item);
+                }
+            }
+
+            _context.SaveChanges();
+
+            // Match
+            foreach(var item in MatchData.GetList(enviromentName))
+            {
+                if(_context.Set<MatchEntity>().Any(x => x.Id == item.Id))
                 {
                     _context.Set<MatchEntity>().Update(item);
                 }
@@ -92,9 +92,9 @@ namespace D2CFL.Database.TestData.FantasyLeague
             _context.SaveChanges();
 
             // PlayersStats
-            foreach (var item in PlayerStatsData.GetList(enviromentName))
+            foreach(var item in PlayerStatsData.GetList(enviromentName))
             {
-                if (_context.Set<PlayerStatsEntity>().Any(x => x.Id == item.Id))
+                if(_context.Set<PlayerStatsEntity>().Any(x => x.Id == item.Id))
                 {
                     _context.Set<PlayerStatsEntity>().Update(item);
                 }
