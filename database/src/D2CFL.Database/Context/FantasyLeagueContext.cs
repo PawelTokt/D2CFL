@@ -8,7 +8,7 @@ namespace D2CFL.Database.Context
         public FantasyLeagueContext(DbContextOptions<FantasyLeagueDbContext> dbContextOptions)
             : base(dbContextOptions, null)
         {
-
+            
         }
     }
 }

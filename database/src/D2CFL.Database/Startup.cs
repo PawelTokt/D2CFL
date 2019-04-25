@@ -1,7 +1,6 @@
 ﻿using D2CFL.Database.Context;
 using Aurochses.Database.EntityFrameworkCore;
 using D2CFL.Data.FantasyLeague;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +12,7 @@ namespace D2CFL.Database
         public Startup(IConfiguration configuration)
             : base(configuration)
         {
-
+            
         }
 
         public override void ConfigureServices(IServiceCollection services)
