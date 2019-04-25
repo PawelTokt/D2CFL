@@ -44,7 +44,7 @@ namespace D2CFL.Business.FantasyLeague
         public async Task<OrganizationDto> Edit(Guid id, IOrganizationDto item)
         {
             var entity = await _unitOfWork.OrganizationRepository.GetAsync(id);
-            if (entity == null) return null;
+            if(entity == null) return null;
 
             entity = _mapper.Map(item, entity);
 

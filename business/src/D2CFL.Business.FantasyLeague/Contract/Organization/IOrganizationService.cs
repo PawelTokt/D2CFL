@@ -7,9 +7,13 @@ namespace D2CFL.Business.FantasyLeague.Contract.Organization
     public interface IOrganizationService
     {
         Task<IList<OrganizationDto>> GetList();
+
         Task<OrganizationDto> Get(Guid id);
+
         Task<OrganizationDto> Add(IOrganizationDto item);
+
         Task<OrganizationDto> Edit(Guid id, IOrganizationDto item);
+
         Task Delete(Guid id);
     }
 }

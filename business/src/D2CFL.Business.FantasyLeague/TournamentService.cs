@@ -9,8 +9,7 @@ using D2CFL.Data.FantasyLeague.Interfaces;
 
 namespace D2CFL.Business.FantasyLeague
 {
-    public class TournamentService : ITournamentService
-    {
+    public class TournamentService : ITournamentService {
         private readonly IMapper _mapper;
         private readonly IDataMapper _dataMapper;
         private readonly IFantasyLeagueUnitOfWork _unitOfWork;
@@ -44,7 +43,7 @@ namespace D2CFL.Business.FantasyLeague
         public async Task<TournamentDto> Edit(Guid id, ITournamentDto item)
         {
             var entity = await _unitOfWork.TournamentRepository.GetAsync(id);
-            if (entity == null) return null;
+            if(entity == null) return null;
 
             entity = _mapper.Map(item, entity);
 

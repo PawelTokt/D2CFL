@@ -44,7 +44,7 @@ namespace D2CFL.Business.FantasyLeague
         public async Task<PlayerDto> Edit(Guid id, IPlayerDto item)
         {
             var entity = await _unitOfWork.PlayerRepository.GetAsync(id);
-            if (entity == null) return null;
+            if(entity == null) return null;
 
             entity = _mapper.Map(item, entity);
 
