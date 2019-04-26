@@ -9,7 +9,8 @@ using D2CFL.Data.FantasyLeague.Interfaces;
 
 namespace D2CFL.Business.FantasyLeague
 {
-    public class TournamentService : ITournamentService {
+    public class TournamentService : ITournamentService
+    {
         private readonly IMapper _mapper;
         private readonly IDataMapper _dataMapper;
         private readonly IFantasyLeagueUnitOfWork _unitOfWork;

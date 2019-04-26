@@ -45,9 +45,9 @@ namespace D2CFL.Database.TestData.FantasyLeague
             }
 
             _context.SaveChanges();
-            
+
             // Player
-            foreach (var item in PlayerData.GetList(enviromentName))
+            foreach(var item in PlayerData.GetList(enviromentName))
             {
                 if(_context.Set<PlayerEntity>().Any(x => x.Id == item.Id))
                 {

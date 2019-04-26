@@ -5,7 +5,8 @@ using D2CFL.Data.FantasyLeague.Contract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace D2CFL.Data.FantasyLeague.EntityConfigurations {
+namespace D2CFL.Data.FantasyLeague.EntityConfigurations
+{
     public class PlayerStatsConfiguration : EntityTypeConfiguration<PlayerStatsEntity, Guid>
     {
         public PlayerStatsConfiguration(string schemaName)

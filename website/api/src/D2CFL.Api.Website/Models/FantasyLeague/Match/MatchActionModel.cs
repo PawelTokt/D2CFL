@@ -6,7 +6,7 @@ namespace D2CFL.Api.Website.Models.FantasyLeague.Match
     public class MatchActionModel : IMatchDto
     {
         public Guid TournamentId { get; set; }
-       public string Name { get; set; }
+        public string Name { get; set; }
         public int FirstOrganizationScore { get; set; }
         public int SecondOrganizationScore { get; set; }
         public DateTime Date { get; set; }
