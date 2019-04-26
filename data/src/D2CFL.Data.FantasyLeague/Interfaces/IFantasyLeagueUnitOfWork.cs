@@ -8,6 +8,7 @@ namespace D2CFL.Data.FantasyLeague.Interfaces
     {
         IRepository<MatchEntity, Guid> MatchRepository { get; }
         IRepository<OrganizationEntity, Guid> OrganizationRepository { get; }
+        IRepository<ParticipantEntity, Guid> ParticipantRepository { get; }
         IRepository<PlayerEntity, Guid> PlayerRepository { get; }
         IRepository<PlayerStatsEntity, Guid> PlayerStatsRepository { get; }
         IRepository<PositionEntity, Guid> PositionRepository { get; }

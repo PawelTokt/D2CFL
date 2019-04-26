@@ -13,6 +13,7 @@ namespace D2CFL.Data.FantasyLeague
             // Repositoeis
             builder.RegisterType<Repository<MatchEntity, Guid>>().As<IRepository<MatchEntity, Guid>>().InstancePerLifetimeScope();
             builder.RegisterType<Repository<OrganizationEntity, Guid>>().As<IRepository<OrganizationEntity, Guid>>().InstancePerLifetimeScope();
+            builder.RegisterType<Repository<ParticipantEntity, Guid>>().As<IRepository<ParticipantEntity, Guid>>().InstancePerLifetimeScope();
             builder.RegisterType<Repository<PlayerEntity, Guid>>().As<IRepository<PlayerEntity, Guid>>().InstancePerLifetimeScope();
             builder.RegisterType<Repository<PlayerStatsEntity, Guid>>().As<IRepository<PlayerStatsEntity, Guid>>().InstancePerLifetimeScope();
             builder.RegisterType<Repository<PositionEntity, Guid>>().As<IRepository<PositionEntity, Guid>>().InstancePerLifetimeScope();

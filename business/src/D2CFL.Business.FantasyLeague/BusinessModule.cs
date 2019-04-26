@@ -4,6 +4,7 @@ using Autofac;
 using Autofac.Core;
 using D2CFL.Business.FantasyLeague.Contract.Match;
 using D2CFL.Business.FantasyLeague.Contract.Organization;
+using D2CFL.Business.FantasyLeague.Contract.Participant;
 using D2CFL.Business.FantasyLeague.Contract.Player;
 using D2CFL.Business.FantasyLeague.Contract.PlayerStats;
 using D2CFL.Business.FantasyLeague.Contract.Position;
@@ -39,6 +40,7 @@ namespace D2CFL.Business.FantasyLeague
             // Services
             builder.RegisterType<MatchService>().As<IMatchService>().InstancePerLifetimeScope();
             builder.RegisterType<OrganizationService>().As<IOrganizationService>().InstancePerLifetimeScope();
+            builder.RegisterType<ParticipantService>().As<IParticipantService>().InstancePerLifetimeScope();
             builder.RegisterType<PlayerService>().As<IPlayerService>().InstancePerLifetimeScope();
             builder.RegisterType<PlayerStatsService>().As<IPlayerStatsService>().InstancePerLifetimeScope();
             builder.RegisterType<PositionService>().As<IPositionService>().InstancePerLifetimeScope();

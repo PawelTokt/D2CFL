@@ -9,6 +9,7 @@ namespace D2CFL.Business.FantasyLeague.Mappings
         public PositionProfile()
         {
             CreateMap<PositionEntity, PositionDto>();
+
             CreateMap<IPositionDto, PositionEntity>();
         }
     }

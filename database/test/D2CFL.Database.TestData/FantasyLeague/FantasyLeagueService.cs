@@ -61,35 +61,50 @@ namespace D2CFL.Database.TestData.FantasyLeague
 
             _context.SaveChanges();
 
-            //// Tournament
-            //foreach (var item in TournamentData.GetList(enviromentName))
-            //{
-            //    if (_context.Set<TournamentEntity>().Any(x => x.Id == item.Id))
-            //    {
-            //        _context.Set<TournamentEntity>().Update(item);
-            //    }
-            //    else
-            //    {
-            //        _context.Set<TournamentEntity>().Add(item);
-            //    }
-            //}
+            // Tournament
+            foreach (var item in TournamentData.GetList(enviromentName))
+            {
+                if (_context.Set<TournamentEntity>().Any(x => x.Id == item.Id))
+                {
+                    _context.Set<TournamentEntity>().Update(item);
+                }
+                else
+                {
+                    _context.Set<TournamentEntity>().Add(item);
+                }
+            }
 
-            //_context.SaveChanges();
+            _context.SaveChanges();
 
-            //// Match
-            //foreach(var item in MatchData.GetList(enviromentName))
-            //{
-            //    if(_context.Set<MatchEntity>().Any(x => x.Id == item.Id))
-            //    {
-            //        _context.Set<MatchEntity>().Update(item);
-            //    }
-            //    else
-            //    {
-            //        _context.Set<MatchEntity>().Add(item);
-            //    }
-            //}
+            // Match
+            foreach (var item in MatchData.GetList(enviromentName))
+            {
+                if (_context.Set<MatchEntity>().Any(x => x.Id == item.Id))
+                {
+                    _context.Set<MatchEntity>().Update(item);
+                }
+                else
+                {
+                    _context.Set<MatchEntity>().Add(item);
+                }
+            }
 
-            //_context.SaveChanges();
+            _context.SaveChanges();
+
+            // Participant
+            foreach (var item in ParticipantData.GetList(enviromentName))
+            {
+                if (_context.Set<ParticipantEntity>().Any(x => x.Id == item.Id))
+                {
+                    _context.Set<ParticipantEntity>().Update(item);
+                }
+                else
+                {
+                    _context.Set<ParticipantEntity>().Add(item);
+                }
+            }
+
+            _context.SaveChanges();
 
             //// PlayersStats
             //foreach (var item in PlayerStatsData.GetList(enviromentName))

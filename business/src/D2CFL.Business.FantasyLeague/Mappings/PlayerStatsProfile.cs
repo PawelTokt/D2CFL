@@ -11,6 +11,7 @@ namespace D2CFL.Business.FantasyLeague.Mappings
             CreateMap<PlayerStatsEntity, PlayerStatsDto>()
                 .ForMember(x => x.MathcName, opts => opts.MapFrom(src => src.Match.Name))
                 .ForMember(x => x.PlayerNickName, opts => opts.MapFrom(src => src.Player.Nickname));
+
             CreateMap<IPlayerStatsDto, PlayerStatsEntity>();
         }
     }

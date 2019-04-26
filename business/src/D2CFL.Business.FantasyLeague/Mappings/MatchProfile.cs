@@ -10,6 +10,7 @@ namespace D2CFL.Business.FantasyLeague.Mappings
         {
             CreateMap<MatchEntity, MatchDto>()
                 .ForMember(x => x.TournamentName, opts => opts.MapFrom(src => src.Tournament.Name));
+
             CreateMap<IMatchDto, MatchEntity>();
         }
     }

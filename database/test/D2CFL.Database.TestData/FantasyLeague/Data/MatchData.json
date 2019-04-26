@@ -3,11 +3,7 @@
     {
       "Id": "00000000-0000-0000-0000-000000000001",
       "TournamentId": "00000000-0000-0000-0000-000000000001",
-      "FirstOrganizationId": "00000000-0000-0000-0000-000000000001",
-      "SecondOrganizationId": "00000000-0000-0000-0000-000000000002",
       "Name": "Game 1",
-      "FirstOrganizationScore": 25,
-      "SecondOrganizationScore": 18,
       "Date": "2019-01-01"
     }
   ]

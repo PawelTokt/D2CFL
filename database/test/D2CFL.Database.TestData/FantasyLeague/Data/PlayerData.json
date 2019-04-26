@@ -8,8 +8,7 @@
       "LastName": "Kushnarev",
       "Nickname": "RAMZES666",
       "Age": 19,
-      "Country": "Russia",
-      "MatchesPlayed": 1
+      "Country": "Russia"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000002",
@@ -19,8 +18,7 @@
       "LastName": "Minenko",
       "Nickname": "No[o]ne",
       "Age": 21,
-      "Country": "Ukraine",
-      "MatchesPlayed": 1
+      "Country": "Ukraine"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000003",
@@ -30,8 +28,7 @@
       "LastName": "Khvastunov",
       "Nickname": "9Pasha",
       "Age": 26,
-      "Country": "Russia",
-      "MatchesPlayed": 1
+      "Country": "Russia"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000004",
@@ -41,8 +38,7 @@
       "LastName": "Nikogosyan",
       "Nickname": "RodjER",
       "Age": 25,
-      "Country": "Russia",
-      "MatchesPlayed": 1
+      "Country": "Russia"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000005",
@@ -52,8 +48,7 @@
       "LastName": "Berezin",
       "Nickname": "Solo",
       "Age": 28,
-      "Country": "Russia",
-      "MatchesPlayed": 1
+      "Country": "Russia"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000006",
@@ -63,8 +58,7 @@
       "LastName": "Jankowski",
       "Nickname": "Nisha",
       "Age": 18,
-      "Country": "Poland",
-      "MatchesPlayed": 1
+      "Country": "Poland"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000007",
@@ -74,8 +68,7 @@
       "LastName": "Zheng",
       "Nickname": "MidOne",
       "Age": 22,
-      "Country": "Malaysia",
-      "MatchesPlayed": 1
+      "Country": "Malaysia"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000008",
@@ -85,8 +78,7 @@
       "LastName": "Wahlberg",
       "Nickname": "zai",
       "Age": 21,
-      "Country": "Sweden",
-      "MatchesPlayed": 1
+      "Country": "Sweden"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000009",
@@ -96,8 +88,7 @@
       "LastName": "Jaradat",
       "Nickname": "YapzOr",
       "Age": 24,
-      "Country": "Jordan",
-      "MatchesPlayed": 1
+      "Country": "Jordan"
     },
     {
       "Id": "00000000-0000-0000-0000-000000000010",
@@ -107,8 +98,7 @@
       "LastName": "Ivanov",
       "Nickname": "Puppey",
       "Age": 29,
-      "Country": "Estonia",
-      "MatchesPlayed": 1
+      "Country": "Estonia"
     }
   ]
 }

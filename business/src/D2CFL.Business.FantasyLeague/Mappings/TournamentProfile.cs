@@ -9,6 +9,7 @@ namespace D2CFL.Business.FantasyLeague.Mappings
         public TournamentProfile()
         {
             CreateMap<TournamentEntity, TournamentDto>();
+
             CreateMap<ITournamentDto, TournamentEntity>();
         }
     }
