@@ -12,7 +12,7 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
         public ParticipantConfiguration(string schemaName)
             : base(schemaName)
         {
-
+            
         }
 
         public override void Configure(EntityTypeBuilder<ParticipantEntity> builder)

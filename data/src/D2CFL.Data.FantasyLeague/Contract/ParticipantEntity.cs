@@ -10,7 +10,7 @@ namespace D2CFL.Data.FantasyLeague.Contract
         public int Score { get; set; }
         public string Name { get; set; }
 
-        public virtual OrganizationEntity Organization { get ; set; }
+        public virtual OrganizationEntity Organization { get; set; }
         public virtual MatchEntity Match { get; set; }
     }
 }
