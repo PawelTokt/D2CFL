@@ -7,7 +7,8 @@ using Microsoft.Extensions.Configuration;
 
 namespace D2CFL.Api.Website.App.Autofac
 {
-    public static class Startup {
+    public static class Startup
+    {
         public static void ConfigureContainer(ContainerBuilder builder, IConfiguration configuration)
         {
             // AutoMapper

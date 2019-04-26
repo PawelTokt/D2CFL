@@ -12,6 +12,6 @@ namespace D2CFL.Api.Website.Models.FantasyLeague.PlayerStats
         public int Kill { get; set; }
         public int Assist { get; set; }
         public int Death { get; set; }
-        public double Points { get; set; }
+        public int Points { get; set; }
     }
 }

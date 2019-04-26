@@ -39,7 +39,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(TournamentModel), (int)HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] TournamentActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _tournamentService.Add(model);
 
@@ -50,7 +50,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(TournamentModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] TournamentActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _tournamentService.Edit(id, model);
 

@@ -35,12 +35,12 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
             builder.HasOne(x => x.Organization)
                    .WithMany()
                    .HasForeignKey(x => x.OrganizationId)
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(x => x.Position)
                    .WithMany()
                    .HasForeignKey(x => x.PositionId)
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

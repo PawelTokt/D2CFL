@@ -13,8 +13,8 @@ namespace D2CFL.Api.Website
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureServices(services => services.AddAutofac())
-                .UseStartup<Startup>()
-                .Build();
+                   .ConfigureServices(services => services.AddAutofac())
+                   .UseStartup<Startup>()
+                   .Build();
     }
 }

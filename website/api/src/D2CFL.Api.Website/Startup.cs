@@ -11,7 +11,6 @@ namespace D2CFL.Api.Website
 {
     public class Startup
     {
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

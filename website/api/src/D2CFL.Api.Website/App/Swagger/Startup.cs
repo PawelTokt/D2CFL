@@ -11,7 +11,7 @@ namespace D2CFL.Api.Website.App.Swagger
         {
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(
-                options =>
+                options => 
                 {
                     options.SwaggerDoc(
                         configuration.GetValue<string>("Swagger:Version"),
@@ -44,7 +44,8 @@ namespace D2CFL.Api.Website.App.Swagger
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(options => options.SwaggerEndpoint($"/swagger/{configuration.GetValue<string>("Swagger:Version")}/swagger.json", configuration.GetValue<string>("Swagger:Description")));
+            app.UseSwaggerUI(options => options.SwaggerEndpoint($"/swagger/{configuration.GetValue<string>("Swagger:Version")}/swagger.json",
+                configuration.GetValue<string>("Swagger:Description")));
         }
     }
 }

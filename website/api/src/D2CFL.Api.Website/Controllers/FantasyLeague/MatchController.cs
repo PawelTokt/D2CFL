@@ -39,7 +39,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(MatchModel), (int)HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] MatchActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _matchService.Add(model);
 
@@ -50,7 +50,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(MatchModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] MatchActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _matchService.Edit(id, model);
 

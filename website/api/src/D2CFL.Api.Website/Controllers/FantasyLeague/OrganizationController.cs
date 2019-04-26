@@ -39,7 +39,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(OrganizationModel), (int)HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] OrganizationActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _organizationService.Add(model);
 
@@ -50,7 +50,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(OrganizationModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] OrganizationActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _organizationService.Edit(id, model);
 

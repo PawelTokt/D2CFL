@@ -8,7 +8,7 @@ namespace D2CFL.Api.Website.App.Cors
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(
-                options =>
+                options => 
                 {
                     options.AddPolicy(
                         "AllowContentDisposition",
