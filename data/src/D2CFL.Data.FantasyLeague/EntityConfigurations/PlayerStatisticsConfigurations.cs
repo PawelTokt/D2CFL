@@ -29,7 +29,7 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
             //Relationships
             builder.HasOne(x => x.Player)
                    .WithOne(x => x.PlayerStatistics)
-                   .HasForeignKey<PlayerEntity>(x => x.Id);
+                   .HasForeignKey<PlayerStatisticsEntity>(x => x.PlayerId);
         }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace D2CFL.Database.Migrations.FantasyLeague
 {
     [DbContext(typeof(FantasyLeagueContext))]
-    [Migration("20190426152325_Initial")]
+    [Migration("20190429145537_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,6 +127,40 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                     b.ToTable("Player","fantasyleague");
                 });
 
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("newsequentialid()");
+
+                    b.Property<double>("AverageAssists");
+
+                    b.Property<double>("AverageDeaths");
+
+                    b.Property<double>("AverageKills");
+
+                    b.Property<double>("AveragePoints");
+
+                    b.Property<int>("MatchesPlayed");
+
+                    b.Property<Guid>("PlayerId");
+
+                    b.Property<int>("TotalAssists");
+
+                    b.Property<int>("TotalDeaths");
+
+                    b.Property<int>("TotalKills");
+
+                    b.Property<int>("TotalPoints");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("PlayerStatistics","fantasyleague");
+                });
+
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PositionEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -201,6 +235,14 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                         .WithMany()
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsEntity", b =>
+                {
+                    b.HasOne("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", "Player")
+                        .WithOne("PlayerStatistics")
+                        .HasForeignKey("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsEntity", "PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

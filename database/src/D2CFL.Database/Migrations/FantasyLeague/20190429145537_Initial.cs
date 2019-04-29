@@ -112,6 +112,35 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                 });
 
             migrationBuilder.CreateTable(
+                name: "PlayerStatistics",
+                schema: "fantasyleague",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
+                    PlayerId = table.Column<Guid>(nullable: false),
+                    MatchesPlayed = table.Column<int>(nullable: false),
+                    TotalKills = table.Column<int>(nullable: false),
+                    TotalAssists = table.Column<int>(nullable: false),
+                    TotalDeaths = table.Column<int>(nullable: false),
+                    TotalPoints = table.Column<int>(nullable: false),
+                    AverageKills = table.Column<double>(nullable: false),
+                    AverageAssists = table.Column<double>(nullable: false),
+                    AverageDeaths = table.Column<double>(nullable: false),
+                    AveragePoints = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlayerStatistics", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PlayerStatistics_Player_PlayerId",
+                        column: x => x.PlayerId,
+                        principalSchema: "fantasyleague",
+                        principalTable: "Player",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Participant",
                 schema: "fantasyleague",
                 columns: table => new
@@ -170,6 +199,13 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                 schema: "fantasyleague",
                 table: "Player",
                 column: "PositionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlayerStatistics_PlayerId",
+                schema: "fantasyleague",
+                table: "PlayerStatistics",
+                column: "PlayerId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -179,11 +215,19 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                 schema: "fantasyleague");
 
             migrationBuilder.DropTable(
-                name: "Player",
+                name: "PlayerStatistics",
                 schema: "fantasyleague");
 
             migrationBuilder.DropTable(
                 name: "Match",
+                schema: "fantasyleague");
+
+            migrationBuilder.DropTable(
+                name: "Player",
+                schema: "fantasyleague");
+
+            migrationBuilder.DropTable(
+                name: "Tournament",
                 schema: "fantasyleague");
 
             migrationBuilder.DropTable(
@@ -192,10 +236,6 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
             migrationBuilder.DropTable(
                 name: "Position",
-                schema: "fantasyleague");
-
-            migrationBuilder.DropTable(
-                name: "Tournament",
                 schema: "fantasyleague");
         }
     }
