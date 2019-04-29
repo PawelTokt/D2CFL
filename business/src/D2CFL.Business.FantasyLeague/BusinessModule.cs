@@ -6,7 +6,6 @@ using D2CFL.Business.FantasyLeague.Contract.Match;
 using D2CFL.Business.FantasyLeague.Contract.Organization;
 using D2CFL.Business.FantasyLeague.Contract.Participant;
 using D2CFL.Business.FantasyLeague.Contract.Player;
-using D2CFL.Business.FantasyLeague.Contract.PlayerStats;
 using D2CFL.Business.FantasyLeague.Contract.Position;
 using D2CFL.Business.FantasyLeague.Contract.Tournament;
 using D2CFL.Data.FantasyLeague;
@@ -42,7 +41,6 @@ namespace D2CFL.Business.FantasyLeague
             builder.RegisterType<OrganizationService>().As<IOrganizationService>().InstancePerLifetimeScope();
             builder.RegisterType<ParticipantService>().As<IParticipantService>().InstancePerLifetimeScope();
             builder.RegisterType<PlayerService>().As<IPlayerService>().InstancePerLifetimeScope();
-            builder.RegisterType<PlayerStatsService>().As<IPlayerStatsService>().InstancePerLifetimeScope();
             builder.RegisterType<PositionService>().As<IPositionService>().InstancePerLifetimeScope();
             builder.RegisterType<TournamentService>().As<ITournamentService>().InstancePerLifetimeScope();
         }

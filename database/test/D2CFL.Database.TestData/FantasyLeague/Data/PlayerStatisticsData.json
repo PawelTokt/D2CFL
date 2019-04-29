@@ -1,0 +1,124 @@
+{
+  "Data": [
+    {
+      "Id": "00000000-0000-0000-0000-000000000001",
+      "MatchesPlayed": 1,
+      "TotalKills": 11,
+      "TotalAssists": 10,
+      "TotalDeaths": 3,
+      "TotalPoints": 33,
+      "AverageKills": 11,
+      "AverageAssists": 10,
+      "AverageDeaths": 3,
+      "AveragePoints": 33
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000002",
+      "MatchesPlayed": 1,
+      "TotalKills": 6,
+      "TotalAssists": 14,
+      "TotalDeaths": 2,
+      "TotalPoints": 34,
+      "AverageKills": 6,
+      "AverageAssists": 14,
+      "AverageDeaths": 2,
+      "AveragePoints": 34
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000003",
+      "MatchesPlayed": 1,
+      "TotalKills": 3,
+      "TotalAssists": 14,
+      "TotalDeaths": 0,
+      "TotalPoints": 34,
+      "AverageKills": 3,
+      "AverageAssists": 14,
+      "AverageDeaths": 0,
+      "AveragePoints": 34
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000004",
+      "MatchesPlayed": 1,
+      "TotalKills": 5,
+      "TotalAssists": 9,
+      "TotalDeaths": 9,
+      "TotalPoints": 23,
+      "AverageKills": 5,
+      "AverageAssists": 9,
+      "AverageDeaths": 9,
+      "AveragePoints": 23
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000005",
+      "MatchesPlayed": 1,
+      "TotalKills": 0,
+      "TotalAssists": 5,
+      "TotalDeaths": 13,
+      "TotalPoints": 2,
+      "AverageKills": 0,
+      "AverageAssists": 5,
+      "AverageDeaths": 13,
+      "AveragePoints": 2
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000006",
+      "MatchesPlayed": 1,
+      "TotalKills": 3,
+      "TotalAssists": 4,
+      "TotalDeaths": 3,
+      "TotalPoints": 5,
+      "AverageKills": 3,
+      "AverageAssists": 4,
+      "AverageDeaths": 3,
+      "AveragePoints": 5
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000007",
+      "MatchesPlayed": 1,
+      "TotalKills": 6,
+      "TotalAssists": 6,
+      "TotalDeaths": 7,
+      "TotalPoints": 3,
+      "AverageKills": 6,
+      "AverageAssists": 6,
+      "AverageDeaths": 7,
+      "AveragePoints": 3
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000008",
+      "MatchesPlayed": 1,
+      "TotalKills": 5,
+      "TotalAssists": 6,
+      "TotalDeaths": 5,
+      "TotalPoints": 12,
+      "AverageKills": 5,
+      "AverageAssists": 6,
+      "AverageDeaths": 5,
+      "AveragePoints": 12
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000009",
+      "MatchesPlayed": 1,
+      "TotalKills": 2,
+      "TotalAssists": 15,
+      "TotalDeaths": 4,
+      "TotalPoints": 43,
+      "AverageKills": 2,
+      "AverageAssists": 15,
+      "AverageDeaths": 4,
+      "AveragePoints": 43
+    },
+    {
+      "Id": "00000000-0000-0000-0000-000000000010",
+      "MatchesPlayed": 1,
+      "TotalKills": 1,
+      "TotalAssists": 4,
+      "TotalDeaths": 7,
+      "TotalPoints": 6,
+      "AverageKills": 1,
+      "AverageAssists": 4,
+      "AverageDeaths": 7,
+      "AveragePoints": 6
+    }
+  ]
+}

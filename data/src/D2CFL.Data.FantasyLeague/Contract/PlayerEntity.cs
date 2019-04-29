@@ -15,5 +15,6 @@ namespace D2CFL.Data.FantasyLeague.Contract
 
         public virtual OrganizationEntity Organization { get; set; }
         public virtual PositionEntity Position { get; set; }
+        public virtual PlayerStatisticsEntity PlayerStatistics { get; set; }
     }
 }

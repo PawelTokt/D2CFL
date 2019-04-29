@@ -7,18 +7,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace D2CFL.Data.FantasyLeague.EntityConfigurations
 {
-    public class PlayerStatsConfiguration : EntityTypeConfiguration<PlayerStatsEntity, Guid>
+    public class PlayerStatisticsConfigurations : EntityTypeConfiguration<PlayerStatisticsEntity, Guid>
     {
-        public PlayerStatsConfiguration(string schemaName)
+        public PlayerStatisticsConfigurations(string schemaName)
             : base(schemaName)
         {
             
         }
 
-        public override void Configure(EntityTypeBuilder<PlayerStatsEntity> builder)
+        public override void Configure(EntityTypeBuilder<PlayerStatisticsEntity> builder)
         {
             // Table
-            builder.ToTable("PlayersStats", SchemaName);
+            builder.ToTable("PlayerStatistics", SchemaName);
 
             // Primary Key
             builder.HasKey(x => x.Id);
@@ -26,14 +26,10 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
             // Properties
             builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
 
-            builder.HasOne(x => x.Match)
-                   .WithMany()
-                   .HasForeignKey(x => x.MatchId);
-
+            //Relationships
             builder.HasOne(x => x.Player)
-                   .WithMany()
-                   .HasForeignKey(x => x.PlayerId)
-                   .OnDelete(DeleteBehavior.SetNull);
+                   .WithOne(x => x.PlayerStatistics)
+                   .HasForeignKey<PlayerEntity>(x => x.Id);
         }
     }
 }

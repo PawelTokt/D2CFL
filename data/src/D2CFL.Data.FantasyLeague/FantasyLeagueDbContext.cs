@@ -21,7 +21,7 @@ namespace D2CFL.Data.FantasyLeague
             builder.ApplyConfiguration(new OrganizationConfiguration(SchemaName));
             builder.ApplyConfiguration(new ParticipantConfiguration(SchemaName));
             builder.ApplyConfiguration(new PlayerConfiguration(SchemaName));
-            //builder.ApplyConfiguration(new PlayerStatsConfiguration(SchemaName));
+            builder.ApplyConfiguration(new PlayerStatisticsConfigurations(SchemaName));
             builder.ApplyConfiguration(new PositionConfiguration(SchemaName));
             builder.ApplyConfiguration(new TournamentConfiguration(SchemaName));
         }
