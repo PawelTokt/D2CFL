@@ -9,7 +9,7 @@ namespace D2CFL.Api.Website.App.Logging
         public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddLogging(
-                builder =>
+                builder => 
                 {
                     builder.AddConfiguration(configuration.GetSection("Logging"))
                            .AddConsole()
