@@ -1,5 +1,6 @@
 ﻿//using Aurochses.Data.EntityFrameworkCore;
 
+using D2CFL.Data.FantasyLeague.Contract;
 using D2CFL.Data.FantasyLeague.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,7 @@ namespace D2CFL.Data.FantasyLeague
             builder.ApplyConfiguration(new ParticipantConfiguration(SchemaName));
             builder.ApplyConfiguration(new PlayerConfiguration(SchemaName));
             builder.ApplyConfiguration(new PlayerStatisticsConfigurations(SchemaName));
+            builder.ApplyConfiguration(new PlayerStatisticsPerMatchConfiguration(SchemaName));
             builder.ApplyConfiguration(new PositionConfiguration(SchemaName));
             builder.ApplyConfiguration(new TournamentConfiguration(SchemaName));
         }

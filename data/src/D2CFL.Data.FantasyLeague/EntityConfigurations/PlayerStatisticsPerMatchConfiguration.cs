@@ -5,32 +5,31 @@ using D2CFL.Data.FantasyLeague.Contract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace D2CFL.Data.FantasyLeague.EntityConfigurations
-{
-    public class ParticipantConfiguration : EntityTypeConfiguration<ParticipantEntity, Guid>
+namespace D2CFL.Data.FantasyLeague.EntityConfigurations {
+    public class PlayerStatisticsPerMatchConfiguration : EntityTypeConfiguration<PlayerStatisticsPerMatchEntity, Guid>
     {
-        public ParticipantConfiguration(string schemaName)
+        public PlayerStatisticsPerMatchConfiguration(string schemaName)
             : base(schemaName)
         {
-            
+
         }
 
-        public override void Configure(EntityTypeBuilder<ParticipantEntity> builder)
+        public override void Configure(EntityTypeBuilder<PlayerStatisticsPerMatchEntity> builder)
         {
             // Table
-            builder.ToTable("Participant", SchemaName);
+            builder.ToTable("PlayerStatisticsPerMatch", SchemaName);
 
             // Primary Key
             builder.HasKey(x => x.Id);
 
             // Properties
             builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
-            builder.Property(x => x.OrganizationName).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).HasDefaultValue();
+            builder.Property(x => x.PlayerName).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).HasDefaultValue();
 
             //Relationships
-            builder.HasOne(x => x.Organization)
+            builder.HasOne(x => x.Player)
                    .WithMany()
-                   .HasForeignKey(x => x.OrganizationId)
+                   .HasForeignKey(x => x.PlayerId)
                    .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(x => x.Match)

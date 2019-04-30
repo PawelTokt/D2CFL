@@ -72,7 +72,7 @@ namespace D2CFL.Business.FantasyLeague
             var participant = await _unitOfWork.ParticipantRepository.GetAsync(x => x.OrganizationId == id);
             if(participant == null) return;
 
-            participant = _mapper.Map(organization, participant);
+            participant.OrganizationName = organization.Name;
 
             _unitOfWork.ParticipantRepository.Update(participant);
         }

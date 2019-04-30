@@ -15,6 +15,7 @@ namespace D2CFL.Data.FantasyLeague
             Func<DbContext, IRepository<ParticipantEntity, Guid>> participantRepository,
             Func<DbContext, IRepository<PlayerEntity, Guid>> playerRepository,
             Func<DbContext, IRepository<PlayerStatisticsEntity, Guid>> playerStatisticsRepository,
+            Func<DbContext, IRepository<PlayerStatisticsPerMatchEntity, Guid>> playerStatisticsPerMatchRepository,
             Func<DbContext, IRepository<PositionEntity, Guid>> positionRepository,
             Func<DbContext, IRepository<TournamentEntity, Guid>> tournamentRepository,
             DbContextOptions dbContextOptions,
@@ -26,6 +27,7 @@ namespace D2CFL.Data.FantasyLeague
             RegisterRepository(participantRepository(DbContext));
             RegisterRepository(playerRepository(DbContext));
             RegisterRepository(playerStatisticsRepository(DbContext));
+            RegisterRepository(playerStatisticsPerMatchRepository(DbContext));
             RegisterRepository(positionRepository(DbContext));
             RegisterRepository(tournamentRepository(DbContext));
         }
@@ -39,6 +41,8 @@ namespace D2CFL.Data.FantasyLeague
         public IRepository<PlayerEntity, Guid> PlayerRepository => GetRepository<PlayerEntity, Guid>();
 
         public IRepository<PlayerStatisticsEntity, Guid> PlayerStatisticsRepository => GetRepository<PlayerStatisticsEntity, Guid>();
+
+        public IRepository<PlayerStatisticsPerMatchEntity, Guid> PlayerStatisticsPerMatchRepository => GetRepository<PlayerStatisticsPerMatchEntity, Guid>();
 
         public IRepository<PositionEntity, Guid> PositionRepository => GetRepository<PositionEntity, Guid>();
 

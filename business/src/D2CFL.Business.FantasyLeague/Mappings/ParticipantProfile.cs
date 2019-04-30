@@ -11,7 +11,8 @@ namespace D2CFL.Business.FantasyLeague.Mappings
             CreateMap<ParticipantEntity, ParticipantDto>()
                 .ForMember(x => x.OrganizationName, opts => opts.MapFrom(src => src.Organization.Name));
 
-            CreateMap<IParticipantDto, ParticipantEntity>();
+            CreateMap<IParticipantDto, ParticipantEntity>()
+                .ForMember(x => x.OrganizationName, opts => opts.Ignore());
         }
     }
 }
