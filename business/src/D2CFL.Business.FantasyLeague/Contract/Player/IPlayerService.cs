@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using D2CFL.Business.FantasyLeague.Contract.PlayerStatistics;
 
 namespace D2CFL.Business.FantasyLeague.Contract.Player
 {
@@ -9,6 +10,8 @@ namespace D2CFL.Business.FantasyLeague.Contract.Player
         Task<IList<PlayerDto>> GetList();
 
         Task<PlayerDto> Get(Guid id);
+
+        Task<PlayerStatisticsDto> GetStatistics(Guid id);
 
         Task<PlayerDto> Add(IPlayerDto item);
 

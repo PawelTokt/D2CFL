@@ -117,23 +117,22 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
-                    PlayerId = table.Column<Guid>(nullable: false),
-                    MatchesPlayed = table.Column<int>(nullable: false),
-                    TotalKills = table.Column<int>(nullable: false),
-                    TotalAssists = table.Column<int>(nullable: false),
-                    TotalDeaths = table.Column<int>(nullable: false),
-                    TotalPoints = table.Column<int>(nullable: false),
-                    AverageKills = table.Column<double>(nullable: false),
-                    AverageAssists = table.Column<double>(nullable: false),
-                    AverageDeaths = table.Column<double>(nullable: false),
-                    AveragePoints = table.Column<double>(nullable: false)
+                    MatchesPlayed = table.Column<int>(nullable: false, defaultValue: 0),
+                    TotalKills = table.Column<int>(nullable: false, defaultValue: 0),
+                    TotalAssists = table.Column<int>(nullable: false, defaultValue: 0),
+                    TotalDeaths = table.Column<int>(nullable: false, defaultValue: 0),
+                    TotalPoints = table.Column<int>(nullable: false, defaultValue: 0),
+                    AverageKills = table.Column<double>(nullable: false, defaultValue: 0.0),
+                    AverageAssists = table.Column<double>(nullable: false, defaultValue: 0.0),
+                    AverageDeaths = table.Column<double>(nullable: false, defaultValue: 0.0),
+                    AveragePoints = table.Column<double>(nullable: false, defaultValue: 0.0)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PlayerStatistics", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PlayerStatistics_Player_PlayerId",
-                        column: x => x.PlayerId,
+                        name: "FK_PlayerStatistics_Player_Id",
+                        column: x => x.Id,
                         principalSchema: "fantasyleague",
                         principalTable: "Player",
                         principalColumn: "Id",
@@ -199,13 +198,6 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                 schema: "fantasyleague",
                 table: "Player",
                 column: "PositionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PlayerStatistics_PlayerId",
-                schema: "fantasyleague",
-                table: "PlayerStatistics",
-                column: "PlayerId",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

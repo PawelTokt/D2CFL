@@ -40,6 +40,8 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
                    .WithMany()
                    .HasForeignKey(x => x.PositionId)
                    .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasOne(x => x.PlayerStatistics);
         }
     }
 }

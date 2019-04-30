@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using D2CFL.Api.Website.Models.FantasyLeague.Player;
+using D2CFL.Api.Website.Models.FantasyLeague.PlayerStatistics;
 using D2CFL.Business.FantasyLeague.Contract.Player;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,13 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         public async Task<IActionResult> Get(Guid id)
         {
             return Ok(_mapper.Map<PlayerModel>(await _playerService.Get(id)));
+        }
+
+        [HttpGet("{id}/statistics")]
+        [ProducesResponseType(typeof(PlayerStatisticsModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetStatistics(Guid id)
+        {
+            return Ok(_mapper.Map<PlayerStatisticsModel>(await _playerService.GetStatistics(id)));
         }
 
         [HttpPost]

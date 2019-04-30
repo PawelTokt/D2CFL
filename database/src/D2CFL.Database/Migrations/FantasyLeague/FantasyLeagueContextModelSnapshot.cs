@@ -128,33 +128,45 @@ namespace D2CFL.Database.Migrations.FantasyLeague
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("newsequentialid()");
 
-                    b.Property<double>("AverageAssists");
+                    b.Property<double>("AverageAssists")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0.0);
 
-                    b.Property<double>("AverageDeaths");
+                    b.Property<double>("AverageDeaths")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0.0);
 
-                    b.Property<double>("AverageKills");
+                    b.Property<double>("AverageKills")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0.0);
 
-                    b.Property<double>("AveragePoints");
+                    b.Property<double>("AveragePoints")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0.0);
 
-                    b.Property<int>("MatchesPlayed");
+                    b.Property<int>("MatchesPlayed")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0);
 
-                    b.Property<Guid>("PlayerId");
+                    b.Property<int>("TotalAssists")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0);
 
-                    b.Property<int>("TotalAssists");
+                    b.Property<int>("TotalDeaths")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0);
 
-                    b.Property<int>("TotalDeaths");
+                    b.Property<int>("TotalKills")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0);
 
-                    b.Property<int>("TotalKills");
-
-                    b.Property<int>("TotalPoints");
+                    b.Property<int>("TotalPoints")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PlayerId")
-                        .IsUnique();
 
                     b.ToTable("PlayerStatistics","fantasyleague");
                 });
@@ -239,7 +251,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                 {
                     b.HasOne("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", "Player")
                         .WithOne("PlayerStatistics")
-                        .HasForeignKey("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsEntity", "PlayerId")
+                        .HasForeignKey("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsEntity", "Id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

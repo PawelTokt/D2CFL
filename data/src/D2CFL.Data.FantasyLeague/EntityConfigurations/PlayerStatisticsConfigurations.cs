@@ -25,11 +25,20 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
 
             // Properties
             builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
+            builder.Property(x => x.MatchesPlayed).HasDefaultValue(0);
+            builder.Property(x => x.TotalKills).HasDefaultValue(0);
+            builder.Property(x => x.TotalAssists).HasDefaultValue(0);
+            builder.Property(x => x.TotalDeaths).HasDefaultValue(0);
+            builder.Property(x => x.TotalPoints).HasDefaultValue(0);
+            builder.Property(x => x.AverageKills).HasDefaultValue(0);
+            builder.Property(x => x.AverageAssists).HasDefaultValue(0);
+            builder.Property(x => x.AverageDeaths).HasDefaultValue(0);
+            builder.Property(x => x.AveragePoints).HasDefaultValue(0);
 
             //Relationships
             builder.HasOne(x => x.Player)
                    .WithOne(x => x.PlayerStatistics)
-                   .HasForeignKey<PlayerStatisticsEntity>(x => x.PlayerId);
+                   .HasForeignKey<PlayerStatisticsEntity>(x => x.Id);
         }
     }
 }

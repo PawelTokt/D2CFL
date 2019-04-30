@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Aurochses.Data;
 using AutoMapper;
 using D2CFL.Business.FantasyLeague.Contract.Player;
+using D2CFL.Business.FantasyLeague.Contract.PlayerStatistics;
 using D2CFL.Data.FantasyLeague.Contract;
 using D2CFL.Data.FantasyLeague.Interfaces;
 
@@ -32,13 +33,20 @@ namespace D2CFL.Business.FantasyLeague
             return await _unitOfWork.PlayerRepository.GetAsync<PlayerDto, PlayerEntity, Guid>(_dataMapper, id);
         }
 
+        public async Task<PlayerStatisticsDto> GetStatistics(Guid id)
+        {
+            return await _unitOfWork.PlayerStatisticsRepository.GetAsync<PlayerStatisticsDto, PlayerStatisticsEntity, Guid>(_dataMapper, id);
+        }
+
         public async Task<PlayerDto> Add(IPlayerDto item)
         {
-            var entity = await _unitOfWork.PlayerRepository.InsertAsync(_mapper.Map<PlayerEntity>(item));
+            var playerEntity = await _unitOfWork.PlayerRepository.InsertAsync(_mapper.Map<PlayerEntity>(item));
+
+            await _unitOfWork.PlayerStatisticsRepository.InsertAsync(new PlayerStatisticsEntity { Id = playerEntity.Id });
 
             await _unitOfWork.CommitAsync();
 
-            return _mapper.Map<PlayerDto>(entity);
+            return _mapper.Map<PlayerDto>(playerEntity);
         }
 
         public async Task<PlayerDto> Edit(Guid id, IPlayerDto item)

@@ -1,10 +1,10 @@
 ﻿using System;
-using Aurochses.Data.EntityFrameworkCore;
 
-namespace D2CFL.Data.FantasyLeague.Contract
+namespace D2CFL.Business.FantasyLeague.Contract.PlayerStatistics
 {
-    public class PlayerStatisticsEntity : EntityNoneDatabaseGeneratedIdentifier<Guid>
+    public class PlayerStatisticsDto
     {
+        public Guid Id { get; set; }
         public int MatchesPlayed { get; set; }
         public int TotalKills { get; set; }
         public int TotalAssists { get; set; }
@@ -14,7 +14,5 @@ namespace D2CFL.Data.FantasyLeague.Contract
         public double AverageAssists { get; set; }
         public double AverageDeaths { get; set; }
         public double AveragePoints { get; set; }
-
-        public virtual PlayerEntity Player { get; set; }
     }
 }
