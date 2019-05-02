@@ -59,6 +59,8 @@ namespace D2CFL.Database.TestData.FantasyLeague
                 }
             }
 
+            _context.SaveChanges();
+
             // PlayersStatistics
             foreach (var item in PlayerStatisticsData.GetList(enviromentName))
             {
@@ -71,9 +73,7 @@ namespace D2CFL.Database.TestData.FantasyLeague
                     _context.Set<PlayerStatisticsEntity>().Add(item);
                 }
             }
-
-            _context.SaveChanges();
-
+            
             _context.SaveChanges();
 
             // Tournament
@@ -120,6 +120,19 @@ namespace D2CFL.Database.TestData.FantasyLeague
             }
 
             _context.SaveChanges();
+
+            // PlayersStatisticsPerMatch
+            foreach (var item in PlayerStatisticsPerMatchData.GetList(enviromentName))
+            {
+                if (_context.Set<PlayerStatisticsPerMatchEntity>().Any(x => x.Id == item.Id))
+                {
+                    _context.Set<PlayerStatisticsPerMatchEntity>().Update(item);
+                }
+                else
+                {
+                    _context.Set<PlayerStatisticsPerMatchEntity>().Add(item);
+                }
+            }
         }
     }
 }

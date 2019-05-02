@@ -36,7 +36,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
             return Ok(_mapper.Map<PlayerModel>(await _playerService.Get(id)));
         }
 
-        [HttpGet("{id}/statistics")]
+        [HttpGet("{id}/Statistics")]
         [ProducesResponseType(typeof(PlayerStatisticsModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetStatistics(Guid id)
         {
