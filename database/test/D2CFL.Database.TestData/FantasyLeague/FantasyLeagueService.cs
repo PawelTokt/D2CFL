@@ -133,6 +133,8 @@ namespace D2CFL.Database.TestData.FantasyLeague
                     _context.Set<PlayerStatisticsPerMatchEntity>().Add(item);
                 }
             }
+
+            _context.SaveChanges();
         }
     }
 }

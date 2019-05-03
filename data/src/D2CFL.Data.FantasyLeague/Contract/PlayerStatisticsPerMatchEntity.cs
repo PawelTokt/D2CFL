@@ -11,7 +11,7 @@ namespace D2CFL.Data.FantasyLeague.Contract
         public int Assists { get; set; }
         public int Death { get; set; }
         public double Points { get; set; }
-        public string PlayerName { get; set; }
+        public string PlayerNickname { get; set; }
 
         public virtual MatchEntity Match { get; set; }
         public virtual PlayerEntity Player { get; set; }

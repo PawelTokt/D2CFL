@@ -5,9 +5,9 @@ namespace D2CFL.Business.FantasyLeague.Contract.Player
     public class PlayerDto
     {
         public Guid Id { get; set; }
-        public Guid? OrganizationId { get; set; }
+        public Guid OrganizationId { get; set; }
         public string OrganizationName { get; set; }
-        public Guid? PositionId { get; set; }
+        public Guid PositionId { get; set; }
         public string PositionName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

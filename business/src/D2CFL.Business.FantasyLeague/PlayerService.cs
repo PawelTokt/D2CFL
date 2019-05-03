@@ -65,9 +65,24 @@ namespace D2CFL.Business.FantasyLeague
 
         public async Task Delete(Guid id)
         {
+            await SetNicknameOfDeletedPlayerForMatchStatistics(id);
+
             _unitOfWork.PlayerRepository.Delete(id);
 
             await _unitOfWork.CommitAsync();
+        }
+
+        private async Task SetNicknameOfDeletedPlayerForMatchStatistics(Guid id)
+        {
+            var player = await _unitOfWork.PlayerRepository.GetAsync(id);
+            if(player == null) return;
+
+            var playerStatisticsPerMatch = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync(x => x.PlayerId == id);
+            if(playerStatisticsPerMatch == null) return;
+
+            playerStatisticsPerMatch.PlayerNickname = player.Nickname;
+
+            _unitOfWork.PlayerStatisticsPerMatchRepository.Update(playerStatisticsPerMatch);
         }
     }
 }

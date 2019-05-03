@@ -24,7 +24,7 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations {
 
             // Properties
             builder.Property(x => x.Id).HasDefaultValueSql(Functions.NewSequentialId);
-            builder.Property(x => x.PlayerName).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).HasDefaultValue();
+            builder.Property(x => x.PlayerNickname).HasColumnType(ColumnTypes.GetNVarCharWithSpecifiedLength(ColumnLengths.UniqueName)).HasDefaultValue();
 
             //Relationships
             builder.HasOne(x => x.Player)

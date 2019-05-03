@@ -72,10 +72,12 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.Property<Guid>("MatchId");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<Guid?>("OrganizationId");
+
+                    b.Property<string>("OrganizationName")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(50)")
+                        .HasDefaultValue(null);
 
                     b.Property<int>("Score");
 
@@ -162,13 +164,45 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(0);
 
-                    b.Property<int>("TotalPoints")
+                    b.Property<double>("TotalPoints")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
+                        .HasDefaultValue(0.0);
 
                     b.HasKey("Id");
 
                     b.ToTable("PlayerStatistics","fantasyleague");
+                });
+
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsPerMatchEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("newsequentialid()");
+
+                    b.Property<int>("Assists");
+
+                    b.Property<int>("Death");
+
+                    b.Property<int>("Kills");
+
+                    b.Property<Guid>("MatchId");
+
+                    b.Property<Guid?>("PlayerId");
+
+                    b.Property<string>("PlayerNickname")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(50)")
+                        .HasDefaultValue(null);
+
+                    b.Property<double>("Points");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MatchId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("PlayerStatisticsPerMatch","fantasyleague");
                 });
 
             modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PositionEntity", b =>
@@ -253,6 +287,19 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                         .WithOne("PlayerStatistics")
                         .HasForeignKey("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsEntity", "Id")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("D2CFL.Data.FantasyLeague.Contract.PlayerStatisticsPerMatchEntity", b =>
+                {
+                    b.HasOne("D2CFL.Data.FantasyLeague.Contract.MatchEntity", "Match")
+                        .WithMany()
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("D2CFL.Data.FantasyLeague.Contract.PlayerEntity", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 #pragma warning restore 612, 618
         }

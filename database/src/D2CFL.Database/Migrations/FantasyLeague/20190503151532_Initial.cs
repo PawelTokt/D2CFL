@@ -121,7 +121,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                     TotalKills = table.Column<int>(nullable: false, defaultValue: 0),
                     TotalAssists = table.Column<int>(nullable: false, defaultValue: 0),
                     TotalDeaths = table.Column<int>(nullable: false, defaultValue: 0),
-                    TotalPoints = table.Column<int>(nullable: false, defaultValue: 0),
+                    TotalPoints = table.Column<double>(nullable: false, defaultValue: 0.0),
                     AverageKills = table.Column<double>(nullable: false, defaultValue: 0.0),
                     AverageAssists = table.Column<double>(nullable: false, defaultValue: 0.0),
                     AverageDeaths = table.Column<double>(nullable: false, defaultValue: 0.0),
@@ -148,7 +148,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                     OrganizationId = table.Column<Guid>(nullable: true),
                     MatchId = table.Column<Guid>(nullable: false),
                     Score = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(50)", nullable: true)
+                    OrganizationName = table.Column<string>(type: "nvarchar(50)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -165,6 +165,39 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                         column: x => x.OrganizationId,
                         principalSchema: "fantasyleague",
                         principalTable: "Organization",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PlayerStatisticsPerMatch",
+                schema: "fantasyleague",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "newsequentialid()"),
+                    MatchId = table.Column<Guid>(nullable: false),
+                    PlayerId = table.Column<Guid>(nullable: true),
+                    Kills = table.Column<int>(nullable: false),
+                    Assists = table.Column<int>(nullable: false),
+                    Death = table.Column<int>(nullable: false),
+                    Points = table.Column<double>(nullable: false),
+                    PlayerNickname = table.Column<string>(type: "nvarchar(50)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlayerStatisticsPerMatch", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PlayerStatisticsPerMatch_Match_MatchId",
+                        column: x => x.MatchId,
+                        principalSchema: "fantasyleague",
+                        principalTable: "Match",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PlayerStatisticsPerMatch_Player_PlayerId",
+                        column: x => x.PlayerId,
+                        principalSchema: "fantasyleague",
+                        principalTable: "Player",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.SetNull);
                 });
@@ -198,6 +231,18 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                 schema: "fantasyleague",
                 table: "Player",
                 column: "PositionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlayerStatisticsPerMatch_MatchId",
+                schema: "fantasyleague",
+                table: "PlayerStatisticsPerMatch",
+                column: "MatchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlayerStatisticsPerMatch_PlayerId",
+                schema: "fantasyleague",
+                table: "PlayerStatisticsPerMatch",
+                column: "PlayerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -208,6 +253,10 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
             migrationBuilder.DropTable(
                 name: "PlayerStatistics",
+                schema: "fantasyleague");
+
+            migrationBuilder.DropTable(
+                name: "PlayerStatisticsPerMatch",
                 schema: "fantasyleague");
 
             migrationBuilder.DropTable(
