@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace D2CFL.Business.FantasyLeague.Contract.PlayerStatisticsPerMatch
+namespace D2CFL.Api.Website.Models.FantasyLeague.PlayerStatisticsPerMatch
 {
-    public class PlayerStatisticsPerMatchDto
+    public class PlayerStatisticsPerMatchModel
     {
         public Guid Id { get; set; }
         public Guid MatchId { get; set; }

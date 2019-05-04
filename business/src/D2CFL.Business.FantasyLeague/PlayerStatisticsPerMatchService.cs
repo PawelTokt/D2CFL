@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Aurochses.Data;
 using AutoMapper;
@@ -29,11 +30,16 @@ namespace D2CFL.Business.FantasyLeague
 
         public async Task<PlayerStatisticsPerMatchDto> Get(Guid id)
         {
-            return await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync<PlayerStatisticsPerMatchDto, PlayerStatisticsPerMatchEntity, Guid>(_dataMapper, id);
+            return await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync<PlayerStatisticsPerMatchDto, PlayerStatisticsPerMatchEntity, Guid>(_dataMapper,id);
         }
 
         public async Task<PlayerStatisticsPerMatchDto> Add(IPlayerStatisticsPerMatchDto item)
         {
+            var player = await _unitOfWork.PlayerRepository.GetAsync(x => x.Id == item.PlayerId);
+            var position = await _unitOfWork.PositionRepository.GetAsync(x => x.Id == player.Id);
+
+            item.Points = position.KillCoefficient * item.Kills + position.AssistCoefficient * item.Assists - position.DeathCoefficient * item.Deaths;
+
             var playerStatisticsPerMatchEntity = await _unitOfWork.PlayerStatisticsPerMatchRepository.InsertAsync(_mapper.Map<PlayerStatisticsPerMatchEntity>(item));
 
             await UpdatePlayerStatisticsWhenAddingMatch(item);
@@ -45,22 +51,26 @@ namespace D2CFL.Business.FantasyLeague
 
         private async Task UpdatePlayerStatisticsWhenAddingMatch(IPlayerStatisticsPerMatchDto item)
         {
-            var entity = await _unitOfWork.PlayerStatisticsRepository.GetAsync(item.PlayerId);
-            if(entity == null) return;
+            var playerStatisticsEntity = await _unitOfWork.PlayerStatisticsRepository.GetAsync(item.PlayerId);
+            if(playerStatisticsEntity == null) return;
 
-            entity.MatchesPlayed++;
+            playerStatisticsEntity.MatchesPlayed++;
 
-            entity.TotalKills += item.Kills;
-            entity.TotalAssists += item.Assists;
-            entity.TotalDeaths += item.Death;
-            entity.TotalPoints += item.Points;
+            var playerStatisticsPerMatches = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetListAsync(x => x.PlayerId == item.PlayerId);
 
-            entity.AverageKills = (double)Math.Round((decimal)(entity.TotalKills / entity.MatchesPlayed), 2);
-            entity.AverageAssists = (double)Math.Round((decimal)(entity.TotalKills / entity.MatchesPlayed), 2);
-            entity.AverageDeaths = (double)Math.Round((decimal)(entity.TotalKills / entity.MatchesPlayed), 2);
-            entity.AveragePoints = (double)Math.Round((decimal)(entity.TotalKills / entity.MatchesPlayed), 2);
+            playerStatisticsEntity.TotalKills = playerStatisticsPerMatches.Sum(x => x.Kills);
+            playerStatisticsEntity.AverageKills = playerStatisticsPerMatches.Average(x => x.Kills);
 
-            _unitOfWork.PlayerStatisticsRepository.Update(entity);
+            playerStatisticsEntity.TotalAssists = playerStatisticsPerMatches.Sum(x => x.Assists);
+            playerStatisticsEntity.AverageAssists = playerStatisticsPerMatches.Average(x => x.Assists);
+
+            playerStatisticsEntity.TotalDeaths = playerStatisticsPerMatches.Sum(x => x.Deaths);
+            playerStatisticsEntity.AverageDeaths = playerStatisticsPerMatches.Average(x => x.Deaths);
+
+            playerStatisticsEntity.TotalPoints = playerStatisticsPerMatches.Sum(x => x.Points);
+            playerStatisticsEntity.AveragePoints = playerStatisticsPerMatches.Average(x => x.Points);
+
+            _unitOfWork.PlayerStatisticsRepository.Update(playerStatisticsEntity);
 
             await _unitOfWork.CommitAsync();
         }
@@ -72,38 +82,46 @@ namespace D2CFL.Business.FantasyLeague
 
             entity = _mapper.Map(item, entity);
 
-            await UpdatePlayerStatisticsWhenEditingMatch(item, entity);
-
             _unitOfWork.PlayerStatisticsPerMatchRepository.Update(entity);
+
+            await UpdatePlayerStatistics(item);
 
             await _unitOfWork.CommitAsync();
 
             return _mapper.Map<PlayerStatisticsPerMatchDto>(entity);
         }
 
-        private async Task UpdatePlayerStatisticsWhenEditingMatch(IPlayerStatisticsPerMatchDto item, PlayerStatisticsPerMatchEntity entity)
+        public async Task Delete(Guid id)
         {
-            var playerStatisticsEntity = await _unitOfWork.PlayerStatisticsRepository.GetAsync(item.PlayerId);
-            if(entity == null) return;
+            var item = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync<IPlayerStatisticsPerMatchDto, PlayerStatisticsPerMatchEntity, Guid>(_dataMapper, id);
 
-            playerStatisticsEntity.TotalKills = playerStatisticsEntity.TotalKills - entity.Kills + item.Kills;
-            playerStatisticsEntity.TotalAssists = playerStatisticsEntity.TotalAssists - entity.Kills + item.Assists;
-            playerStatisticsEntity.TotalDeaths = playerStatisticsEntity.TotalDeaths - entity.Kills + item.Death;
-            playerStatisticsEntity.TotalPoints = playerStatisticsEntity.TotalPoints - entity.Kills + item.Points;
+            _unitOfWork.PlayerStatisticsPerMatchRepository.Delete(id);
 
-            playerStatisticsEntity.AverageKills = (double)Math.Round((decimal)(playerStatisticsEntity.TotalKills / playerStatisticsEntity.MatchesPlayed), 2);
-            playerStatisticsEntity.AverageAssists = (double)Math.Round((decimal)(playerStatisticsEntity.TotalKills / playerStatisticsEntity.MatchesPlayed), 2);
-            playerStatisticsEntity.AverageDeaths = (double)Math.Round((decimal)(playerStatisticsEntity.TotalKills / playerStatisticsEntity.MatchesPlayed), 2);
-            playerStatisticsEntity.AveragePoints = (double)Math.Round((decimal)(playerStatisticsEntity.TotalKills / playerStatisticsEntity.MatchesPlayed), 2);
-
-            _unitOfWork.PlayerStatisticsRepository.Update(playerStatisticsEntity);
+            await UpdatePlayerStatistics(item);
 
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task Delete(Guid id)
+        private async Task UpdatePlayerStatistics(IPlayerStatisticsPerMatchDto item)
         {
-            _unitOfWork.PlayerStatisticsPerMatchRepository.Delete(id);
+            var playerStatisticsEntity = await _unitOfWork.PlayerStatisticsRepository.GetAsync(item.PlayerId);
+            if (playerStatisticsEntity == null) return;
+
+            var playerStatisticsPerMatches = await this._unitOfWork.PlayerStatisticsPerMatchRepository.GetListAsync(x => x.PlayerId == item.PlayerId);
+
+            playerStatisticsEntity.TotalKills = playerStatisticsPerMatches.Sum(x => x.Kills);
+            playerStatisticsEntity.AverageKills = playerStatisticsPerMatches.Average(x => x.Kills);
+
+            playerStatisticsEntity.TotalAssists = playerStatisticsPerMatches.Sum(x => x.Assists);
+            playerStatisticsEntity.AverageAssists = playerStatisticsPerMatches.Average(x => x.Assists);
+
+            playerStatisticsEntity.TotalDeaths = playerStatisticsPerMatches.Sum(x => x.Deaths);
+            playerStatisticsEntity.AverageDeaths = playerStatisticsPerMatches.Average(x => x.Deaths);
+
+            playerStatisticsEntity.TotalPoints = playerStatisticsPerMatches.Sum(x => x.Points);
+            playerStatisticsEntity.AveragePoints = playerStatisticsPerMatches.Average(x => x.Points);
+
+            _unitOfWork.PlayerStatisticsRepository.Update(playerStatisticsEntity);
 
             await _unitOfWork.CommitAsync();
         }

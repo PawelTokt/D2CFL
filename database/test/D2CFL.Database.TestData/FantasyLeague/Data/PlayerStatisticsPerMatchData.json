@@ -6,7 +6,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000001",
       "Kills": 11,
       "Assists": 10,
-      "Death": 3,
+      "Deaths": 3,
       "Points": 33,
       "PlayerName": ""
     },
@@ -16,7 +16,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000002",
       "Kills": 6,
       "Assists": 14,
-      "Death": 2,
+      "Deaths": 2,
       "Points": 34,
       "PlayerName": ""
     },
@@ -26,7 +26,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000003",
       "Kills": 3,
       "Assists": 14,
-      "Death": 0,
+      "Deaths": 0,
       "Points": 34,
       "PlayerName": ""
     },
@@ -36,7 +36,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000004",
       "Kills": 5,
       "Assists": 9,
-      "Death": 9,
+      "Deaths": 9,
       "Points": 23,
       "PlayerName": ""
     },
@@ -46,7 +46,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000005",
       "Kills": 0,
       "Assists": 0,
-      "Death": 5,
+      "Deaths": 5,
       "Points": 13,
       "PlayerName": ""
     },
@@ -56,7 +56,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000006",
       "Kills": 3,
       "Assists": 4,
-      "Death": 3,
+      "Deaths": 3,
       "Points": 5,
       "PlayerName": ""
     },
@@ -66,7 +66,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000007",
       "Kills": 6,
       "Assists": 6,
-      "Death": 7,
+      "Deaths": 7,
       "Points": 3,
       "PlayerName": ""
     },
@@ -76,7 +76,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000008",
       "Kills": 5,
       "Assists": 6,
-      "Death": 5,
+      "Deaths": 5,
       "Points": 12,
       "PlayerName": ""
     },
@@ -86,7 +86,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000009",
       "Kills": 2,
       "Assists": 15,
-      "Death": 4,
+      "Deaths": 4,
       "Points": 43,
       "PlayerName": ""
     },
@@ -96,7 +96,7 @@
       "PlayerId": "00000000-0000-0000-0000-000000000010",
       "Kills": 1,
       "Assists": 4,
-      "Death": 7,
+      "Deaths": 7,
       "Points": 6,
       "PlayerName": ""
     }

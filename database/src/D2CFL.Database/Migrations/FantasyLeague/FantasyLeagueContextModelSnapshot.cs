@@ -181,7 +181,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
 
                     b.Property<int>("Assists");
 
-                    b.Property<int>("Death");
+                    b.Property<int>("Deaths");
 
                     b.Property<int>("Kills");
 

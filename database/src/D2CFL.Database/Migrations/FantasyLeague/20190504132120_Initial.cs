@@ -179,7 +179,7 @@ namespace D2CFL.Database.Migrations.FantasyLeague
                     PlayerId = table.Column<Guid>(nullable: true),
                     Kills = table.Column<int>(nullable: false),
                     Assists = table.Column<int>(nullable: false),
-                    Death = table.Column<int>(nullable: false),
+                    Deaths = table.Column<int>(nullable: false),
                     Points = table.Column<double>(nullable: false),
                     PlayerNickname = table.Column<string>(type: "nvarchar(50)", nullable: true)
                 },

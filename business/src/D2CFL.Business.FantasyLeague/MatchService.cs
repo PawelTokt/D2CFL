@@ -38,9 +38,7 @@ namespace D2CFL.Business.FantasyLeague
 
             await _unitOfWork.CommitAsync();
 
-            var aa = _mapper.Map<MatchDto>(entity);
-
-            return aa;
+            return _mapper.Map<MatchDto>(entity);
         }
 
         public async Task<MatchDto> Edit(Guid id, IMatchDto item)

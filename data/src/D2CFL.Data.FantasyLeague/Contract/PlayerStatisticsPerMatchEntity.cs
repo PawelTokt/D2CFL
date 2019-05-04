@@ -9,7 +9,7 @@ namespace D2CFL.Data.FantasyLeague.Contract
         public Guid? PlayerId { get; set; }
         public int Kills { get; set; }
         public int Assists { get; set; }
-        public int Death { get; set; }
+        public int Deaths { get; set; }
         public double Points { get; set; }
         public string PlayerNickname { get; set; }
 

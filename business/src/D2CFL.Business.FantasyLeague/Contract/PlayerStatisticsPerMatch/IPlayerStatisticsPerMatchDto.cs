@@ -8,7 +8,7 @@ namespace D2CFL.Business.FantasyLeague.Contract.PlayerStatisticsPerMatch
         Guid PlayerId { get; set; }
         int Kills { get; set; }
         int Assists { get; set; }
-        int Death { get; set; }
+        int Deaths { get; set; }
         double Points { get; set; }
     }
 }
