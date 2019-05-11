@@ -39,7 +39,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int)HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] PlayerStatisticsPerMatchActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _playerStatisticsPerMatchService.Add(model);
 
@@ -50,20 +50,11 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] PlayerStatisticsPerMatchActionModel model)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if(!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _playerStatisticsPerMatchService.Edit(id, model);
 
             return Ok(_mapper.Map<PlayerStatisticsPerMatchModel>(item));
-        }
-
-        [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public async Task<IActionResult> Delete(Guid id)
-        {
-            await _playerStatisticsPerMatchService.Delete(id);
-
-            return NoContent();
         }
     }
 }
