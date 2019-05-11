@@ -57,14 +57,14 @@ namespace D2CFL.Business.FantasyLeague
 
         public async Task Delete(Guid id)
         {
-            await SetNameOfDeletedOrganizationForMatchParticipant(id);
+            await SetDeletedOrganizationNameForMatchParticipant(id);
 
             _unitOfWork.OrganizationRepository.Delete(id);
 
             await _unitOfWork.CommitAsync();
         }
 
-        private async Task SetNameOfDeletedOrganizationForMatchParticipant(Guid id)
+        private async Task SetDeletedOrganizationNameForMatchParticipant(Guid id)
         {
             var organization = await _unitOfWork.OrganizationRepository.GetAsync(id);
             if(organization == null) return;

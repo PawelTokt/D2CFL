@@ -55,6 +55,22 @@ namespace D2CFL.Business.FantasyLeague
             await CountPlayerPoints(item);
 
             var entity = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync(id);
+            if(entity == null) return null;
+
+            if(entity.PlayerId != item.PlayerId)
+            {
+                var invalidItem = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync<IPlayerStatisticsPerMatchDto, PlayerStatisticsPerMatchEntity, Guid>(_dataMapper, id);
+
+                _unitOfWork.PlayerStatisticsPerMatchRepository.Delete(entity.Id);
+
+                await _unitOfWork.CommitAsync();
+
+                var invalidPlayerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(invalidItem.PlayerId);
+
+                invalidPlayerStatistics.MatchesPlayed--;
+
+                await UpdatePlayerStatistics(invalidPlayerStatistics);
+            }
 
             entity = _mapper.Map(item, entity);
 
@@ -67,21 +83,6 @@ namespace D2CFL.Business.FantasyLeague
             await UpdatePlayerStatistics(playerStatistics);
 
             return _mapper.Map<PlayerStatisticsPerMatchDto>(entity);
-        }
-
-        public async Task Delete(Guid id)
-        {
-            var item = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync<IPlayerStatisticsPerMatchDto, PlayerStatisticsPerMatchEntity, Guid>(_dataMapper, id);
-
-            _unitOfWork.PlayerStatisticsPerMatchRepository.Delete(id);
-
-            await _unitOfWork.CommitAsync();
-
-            var playerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(item.PlayerId);
-
-            playerStatistics.MatchesPlayed--;
-
-            await UpdatePlayerStatistics(playerStatistics);
         }
 
         private async Task CountPlayerPoints(IPlayerStatisticsPerMatchDto item)

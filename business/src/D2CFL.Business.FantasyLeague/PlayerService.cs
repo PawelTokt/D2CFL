@@ -65,14 +65,14 @@ namespace D2CFL.Business.FantasyLeague
 
         public async Task Delete(Guid id)
         {
-            await SetNicknameOfDeletedPlayerForMatchStatistics(id);
+            await SetDeletedPlayerNicknameForMatchStatistics(id);
 
             _unitOfWork.PlayerRepository.Delete(id);
 
             await _unitOfWork.CommitAsync();
         }
 
-        private async Task SetNicknameOfDeletedPlayerForMatchStatistics(Guid id)
+        private async Task SetDeletedPlayerNicknameForMatchStatistics(Guid id)
         {
             var player = await _unitOfWork.PlayerRepository.GetAsync(id);
             if(player == null) return;

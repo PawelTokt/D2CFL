@@ -13,7 +13,5 @@ namespace D2CFL.Business.FantasyLeague.Contract.PlayerStatisticsPerMatch
         Task<PlayerStatisticsPerMatchDto> Add(IPlayerStatisticsPerMatchDto item);
 
         Task<PlayerStatisticsPerMatchDto> Edit(Guid id, IPlayerStatisticsPerMatchDto item);
-
-        Task Delete(Guid id);
     }
 }
