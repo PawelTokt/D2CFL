@@ -59,30 +59,36 @@ namespace D2CFL.Business.FantasyLeague
 
             if(entity.PlayerId != item.PlayerId)
             {
-                var invalidItem = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync<IPlayerStatisticsPerMatchDto, PlayerStatisticsPerMatchEntity, Guid>(_dataMapper, id);
+                var invalidPlayerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(x => x.Id == entity.PlayerId);
 
-                _unitOfWork.PlayerStatisticsPerMatchRepository.Delete(entity.Id);
+                entity = _mapper.Map(item, entity);
+
+                _unitOfWork.PlayerStatisticsPerMatchRepository.Update(entity);
 
                 await _unitOfWork.CommitAsync();
 
-                var invalidPlayerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(invalidItem.PlayerId);
-
-                invalidPlayerStatistics.MatchesPlayed--;
-
                 await UpdatePlayerStatistics(invalidPlayerStatistics);
+
+                var playerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(x => x.Id == entity.PlayerId);
+
+                await UpdatePlayerStatistics(playerStatistics);
+
+                return _mapper.Map<PlayerStatisticsPerMatchDto>(entity);
             }
+            else
+            {
+                entity = _mapper.Map(item, entity);
 
-            entity = _mapper.Map(item, entity);
+                _unitOfWork.PlayerStatisticsPerMatchRepository.Update(entity);
 
-            _unitOfWork.PlayerStatisticsPerMatchRepository.Update(entity);
+                await _unitOfWork.CommitAsync();
 
-            await _unitOfWork.CommitAsync();
+                var playerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(x => x.Id == entity.PlayerId);
 
-            var playerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(item.PlayerId);
+                await UpdatePlayerStatistics(playerStatistics);
 
-            await UpdatePlayerStatistics(playerStatistics);
-
-            return _mapper.Map<PlayerStatisticsPerMatchDto>(entity);
+                return _mapper.Map<PlayerStatisticsPerMatchDto>(entity);
+            }
         }
 
         private async Task CountPlayerPoints(IPlayerStatisticsPerMatchDto item)
@@ -96,6 +102,8 @@ namespace D2CFL.Business.FantasyLeague
         private async Task UpdatePlayerStatistics(PlayerStatisticsEntity playerStatistics)
         {
             var playerStatisticsPerMatches = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetListAsync(x => x.PlayerId == playerStatistics.Id);
+
+            playerStatistics.MatchesPlayed = playerStatisticsPerMatches.Count;
 
             playerStatistics.TotalKills = playerStatisticsPerMatches.Sum(x => x.Kills);
             playerStatistics.AverageKills = playerStatisticsPerMatches.Average(x => x.Kills);
