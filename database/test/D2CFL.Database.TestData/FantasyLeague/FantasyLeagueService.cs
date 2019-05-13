@@ -62,9 +62,9 @@ namespace D2CFL.Database.TestData.FantasyLeague
             _context.SaveChanges();
 
             // PlayersStatistics
-            foreach (var item in PlayerStatisticsData.GetList(enviromentName))
+            foreach(var item in PlayerStatisticsData.GetList(enviromentName))
             {
-                if (_context.Set<PlayerStatisticsEntity>().Any(x => x.Id == item.Id))
+                if(_context.Set<PlayerStatisticsEntity>().Any(x => x.Id == item.Id))
                 {
                     _context.Set<PlayerStatisticsEntity>().Update(item);
                 }
@@ -73,7 +73,7 @@ namespace D2CFL.Database.TestData.FantasyLeague
                     _context.Set<PlayerStatisticsEntity>().Add(item);
                 }
             }
-            
+
             _context.SaveChanges();
 
             // Tournament
@@ -122,9 +122,9 @@ namespace D2CFL.Database.TestData.FantasyLeague
             _context.SaveChanges();
 
             // PlayersStatisticsPerMatch
-            foreach (var item in PlayerStatisticsPerMatchData.GetList(enviromentName))
+            foreach(var item in PlayerStatisticsPerMatchData.GetList(enviromentName))
             {
-                if (_context.Set<PlayerStatisticsPerMatchEntity>().Any(x => x.Id == item.Id))
+                if(_context.Set<PlayerStatisticsPerMatchEntity>().Any(x => x.Id == item.Id))
                 {
                     _context.Set<PlayerStatisticsPerMatchEntity>().Update(item);
                 }

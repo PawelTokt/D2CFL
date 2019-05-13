@@ -1,6 +1,5 @@
 ﻿//using Aurochses.Data.EntityFrameworkCore;
 
-using D2CFL.Data.FantasyLeague.Contract;
 using D2CFL.Data.FantasyLeague.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 

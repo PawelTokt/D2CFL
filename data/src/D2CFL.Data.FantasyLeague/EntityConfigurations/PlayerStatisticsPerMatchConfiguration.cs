@@ -5,13 +5,14 @@ using D2CFL.Data.FantasyLeague.Contract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace D2CFL.Data.FantasyLeague.EntityConfigurations {
+namespace D2CFL.Data.FantasyLeague.EntityConfigurations
+{
     public class PlayerStatisticsPerMatchConfiguration : EntityTypeConfiguration<PlayerStatisticsPerMatchEntity, Guid>
     {
         public PlayerStatisticsPerMatchConfiguration(string schemaName)
             : base(schemaName)
         {
-
+            
         }
 
         public override void Configure(EntityTypeBuilder<PlayerStatisticsPerMatchEntity> builder)
