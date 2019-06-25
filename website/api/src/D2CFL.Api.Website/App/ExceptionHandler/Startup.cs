@@ -8,7 +8,7 @@ namespace D2CFL.Api.Website.App.ExceptionHandler
     {
         public static void Configure(IApplicationBuilder app, IHostingEnvironment env, IConfiguration configuration)
         {
-            if(env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }

@@ -19,7 +19,7 @@ namespace D2CFL.Api.Website.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<Application>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IList<Application>), (int) HttpStatusCode.OK)]
         public IActionResult Get()
         {
             return Ok(_applications);

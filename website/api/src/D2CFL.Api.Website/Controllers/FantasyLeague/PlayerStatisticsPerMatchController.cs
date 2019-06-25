@@ -22,24 +22,24 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<PlayerStatisticsPerMatchModel>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IList<PlayerStatisticsPerMatchModel>), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
             return Ok(_mapper.Map<IList<PlayerStatisticsPerMatchModel>>(await _playerStatisticsPerMatchService.GetList()));
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get(Guid id)
         {
             return Ok(_mapper.Map<PlayerStatisticsPerMatchModel>(await _playerStatisticsPerMatchService.Get(id)));
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int)HttpStatusCode.Created)]
+        [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int) HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] PlayerStatisticsPerMatchActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _playerStatisticsPerMatchService.Add(model);
 
@@ -47,10 +47,10 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(PlayerStatisticsPerMatchModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] PlayerStatisticsPerMatchActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _playerStatisticsPerMatchService.Edit(id, model);
 

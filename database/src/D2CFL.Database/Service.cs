@@ -8,7 +8,6 @@ namespace D2CFL.Database
         public Service(BaseContext baseContext, FantasyLeagueContext leagueContext)
             : base(baseContext, leagueContext)
         {
-            
         }
     }
 }

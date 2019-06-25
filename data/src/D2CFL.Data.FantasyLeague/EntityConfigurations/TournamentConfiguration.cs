@@ -12,7 +12,6 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
         public TournamentConfiguration(string schemaName)
             : base(schemaName)
         {
-            
         }
 
         public override void Configure(EntityTypeBuilder<TournamentEntity> builder)

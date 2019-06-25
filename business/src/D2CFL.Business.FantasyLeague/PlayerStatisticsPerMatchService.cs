@@ -55,9 +55,9 @@ namespace D2CFL.Business.FantasyLeague
             await CountPlayerPoints(item);
 
             var entity = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync(id);
-            if(entity == null) return null;
+            if (entity == null) return null;
 
-            if(entity.PlayerId != item.PlayerId)
+            if (entity.PlayerId != item.PlayerId)
             {
                 var invalidPlayerStatistics = await _unitOfWork.PlayerStatisticsRepository.GetAsync(x => x.Id == entity.PlayerId);
 

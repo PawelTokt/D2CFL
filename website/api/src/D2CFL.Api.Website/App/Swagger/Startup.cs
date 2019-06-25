@@ -11,7 +11,7 @@ namespace D2CFL.Api.Website.App.Swagger
         {
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(
-                options => 
+                options =>
                 {
                     options.SwaggerDoc(
                         configuration.GetValue<string>("Swagger:Version"),

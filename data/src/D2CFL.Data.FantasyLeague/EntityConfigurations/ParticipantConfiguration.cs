@@ -12,7 +12,6 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
         public ParticipantConfiguration(string schemaName)
             : base(schemaName)
         {
-            
         }
 
         public override void Configure(EntityTypeBuilder<ParticipantEntity> builder)
@@ -29,14 +28,14 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
 
             //Relationships
             builder.HasOne(x => x.Organization)
-                   .WithMany()
-                   .HasForeignKey(x => x.OrganizationId)
-                   .OnDelete(DeleteBehavior.SetNull);
+                .WithMany()
+                .HasForeignKey(x => x.OrganizationId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(x => x.Match)
-                   .WithMany()
-                   .HasForeignKey(x => x.MatchId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                .WithMany()
+                .HasForeignKey(x => x.MatchId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

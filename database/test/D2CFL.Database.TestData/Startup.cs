@@ -9,7 +9,6 @@ namespace D2CFL.Database.TestData
         public Startup(IConfiguration configuration)
             : base(configuration)
         {
-            
         }
 
         public override void ConfigureServices(IServiceCollection services)

@@ -22,24 +22,24 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<OrganizationModel>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IList<OrganizationModel>), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
             return Ok(_mapper.Map<IList<OrganizationModel>>(await _organizationService.GetList()));
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(OrganizationModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(OrganizationModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get(Guid id)
         {
             return Ok(_mapper.Map<OrganizationModel>(await _organizationService.Get(id)));
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(OrganizationModel), (int)HttpStatusCode.Created)]
+        [ProducesResponseType(typeof(OrganizationModel), (int) HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] OrganizationActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _organizationService.Add(model);
 
@@ -47,10 +47,10 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(OrganizationModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(OrganizationModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] OrganizationActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _organizationService.Edit(id, model);
 
@@ -58,7 +58,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType((int) HttpStatusCode.NoContent)]
         public async Task<IActionResult> Delete(Guid id)
         {
             await _organizationService.Delete(id);

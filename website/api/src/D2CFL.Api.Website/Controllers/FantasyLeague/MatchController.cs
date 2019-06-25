@@ -22,24 +22,24 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<MatchModel>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IList<MatchModel>), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
             return Ok(_mapper.Map<IList<MatchModel>>(await _matchService.GetList()));
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(MatchModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(MatchModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get(Guid id)
         {
             return Ok(_mapper.Map<MatchModel>(await _matchService.Get(id)));
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(MatchModel), (int)HttpStatusCode.Created)]
+        [ProducesResponseType(typeof(MatchModel), (int) HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] MatchActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _matchService.Add(model);
 
@@ -47,10 +47,10 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(MatchModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(MatchModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] MatchActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _matchService.Edit(id, model);
 
@@ -58,7 +58,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType((int) HttpStatusCode.NoContent)]
         public async Task<IActionResult> Delete(Guid id)
         {
             await _matchService.Delete(id);

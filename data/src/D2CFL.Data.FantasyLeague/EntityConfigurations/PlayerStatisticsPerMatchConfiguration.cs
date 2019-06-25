@@ -12,7 +12,6 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
         public PlayerStatisticsPerMatchConfiguration(string schemaName)
             : base(schemaName)
         {
-            
         }
 
         public override void Configure(EntityTypeBuilder<PlayerStatisticsPerMatchEntity> builder)
@@ -29,14 +28,14 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
 
             //Relationships
             builder.HasOne(x => x.Player)
-                   .WithMany()
-                   .HasForeignKey(x => x.PlayerId)
-                   .OnDelete(DeleteBehavior.SetNull);
+                .WithMany()
+                .HasForeignKey(x => x.PlayerId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(x => x.Match)
-                   .WithMany()
-                   .HasForeignKey(x => x.MatchId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                .WithMany()
+                .HasForeignKey(x => x.MatchId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

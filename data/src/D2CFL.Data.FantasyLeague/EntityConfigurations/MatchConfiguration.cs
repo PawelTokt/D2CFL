@@ -12,7 +12,6 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
         public MatchConfiguration(string schemaName)
             : base(schemaName)
         {
-            
         }
 
         public override void Configure(EntityTypeBuilder<MatchEntity> builder)
@@ -30,8 +29,8 @@ namespace D2CFL.Data.FantasyLeague.EntityConfigurations
 
             //Relationships
             builder.HasOne(x => x.Tournament)
-                   .WithMany()
-                   .HasForeignKey(x => x.TournamentId);
+                .WithMany()
+                .HasForeignKey(x => x.TournamentId);
         }
     }
 }

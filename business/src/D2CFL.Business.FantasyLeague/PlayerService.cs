@@ -42,7 +42,7 @@ namespace D2CFL.Business.FantasyLeague
         {
             var playerEntity = await _unitOfWork.PlayerRepository.InsertAsync(_mapper.Map<PlayerEntity>(item));
 
-            await _unitOfWork.PlayerStatisticsRepository.InsertAsync(new PlayerStatisticsEntity { Id = playerEntity.Id });
+            await _unitOfWork.PlayerStatisticsRepository.InsertAsync(new PlayerStatisticsEntity {Id = playerEntity.Id});
 
             await _unitOfWork.CommitAsync();
 
@@ -52,7 +52,7 @@ namespace D2CFL.Business.FantasyLeague
         public async Task<PlayerDto> Edit(Guid id, IPlayerDto item)
         {
             var entity = await _unitOfWork.PlayerRepository.GetAsync(id);
-            if(entity == null) return null;
+            if (entity == null) return null;
 
             entity = _mapper.Map(item, entity);
 
@@ -75,10 +75,10 @@ namespace D2CFL.Business.FantasyLeague
         private async Task SetDeletedPlayerNicknameForMatchStatistics(Guid id)
         {
             var player = await _unitOfWork.PlayerRepository.GetAsync(id);
-            if(player == null) return;
+            if (player == null) return;
 
             var playerStatisticsPerMatch = await _unitOfWork.PlayerStatisticsPerMatchRepository.GetAsync(x => x.PlayerId == id);
-            if(playerStatisticsPerMatch == null) return;
+            if (playerStatisticsPerMatch == null) return;
 
             playerStatisticsPerMatch.PlayerNickname = player.Nickname;
 

@@ -23,31 +23,31 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<PlayerModel>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IList<PlayerModel>), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
             return Ok(_mapper.Map<IList<PlayerModel>>(await _playerService.GetList()));
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(PlayerModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(PlayerModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get(Guid id)
         {
             return Ok(_mapper.Map<PlayerModel>(await _playerService.Get(id)));
         }
 
         [HttpGet("{id}/Statistics")]
-        [ProducesResponseType(typeof(PlayerStatisticsModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(PlayerStatisticsModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> GetStatistics(Guid id)
         {
             return Ok(_mapper.Map<PlayerStatisticsModel>(await _playerService.GetStatistics(id)));
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(PlayerModel), (int)HttpStatusCode.Created)]
+        [ProducesResponseType(typeof(PlayerModel), (int) HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] PlayerActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _playerService.Add(model);
 
@@ -55,10 +55,10 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(PlayerModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(PlayerModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] PlayerActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _playerService.Edit(id, model);
 
@@ -66,7 +66,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType((int) HttpStatusCode.NoContent)]
         public async Task<IActionResult> Delete(Guid id)
         {
             await _playerService.Delete(id);

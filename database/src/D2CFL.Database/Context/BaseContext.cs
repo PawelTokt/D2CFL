@@ -7,7 +7,6 @@ namespace D2CFL.Database.Context
         public BaseContext(DbContextOptions<BaseContext> dbContextOptions)
             : base(dbContextOptions)
         {
-            
         }
     }
 }

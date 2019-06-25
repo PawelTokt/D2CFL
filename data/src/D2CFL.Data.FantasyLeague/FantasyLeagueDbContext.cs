@@ -10,7 +10,6 @@ namespace D2CFL.Data.FantasyLeague
         public FantasyLeagueDbContext(DbContextOptions dbContextOptions, string schemaName)
             : base(dbContextOptions, schemaName)
         {
-            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

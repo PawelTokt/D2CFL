@@ -10,7 +10,6 @@ namespace D2CFL.Api.Website.App.Autofac
         public FantasyLeagueModule(DbContextOptions dbContextOptions, string schemaName)
             : base(dbContextOptions, schemaName)
         {
-            
         }
 
         protected override void Load(ContainerBuilder builder)

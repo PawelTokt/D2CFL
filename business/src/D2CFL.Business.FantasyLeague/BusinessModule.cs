@@ -20,7 +20,6 @@ namespace D2CFL.Business.FantasyLeague
         public BusinessModule(DbContextOptions dbContextOptions, string schemaName)
             : base(dbContextOptions, schemaName)
         {
-            
         }
 
         protected override void Load(ContainerBuilder builder)
@@ -29,13 +28,13 @@ namespace D2CFL.Business.FantasyLeague
 
             // UnitOfWork
             builder.RegisterType<FantasyLeagueUnitOfWork>().As<IFantasyLeagueUnitOfWork>()
-                   .WithParameters(
-                       new List<Parameter>
-                       {
-                           new NamedParameter(DbContextOptionsParameter, DbContextOptions),
-                           new NamedParameter(SchemaNameParameter, SchemaName)
-                       })
-                   .InstancePerLifetimeScope();
+                .WithParameters(
+                    new List<Parameter>
+                    {
+                        new NamedParameter(DbContextOptionsParameter, DbContextOptions),
+                        new NamedParameter(SchemaNameParameter, SchemaName)
+                    })
+                .InstancePerLifetimeScope();
 
             // Services
             builder.RegisterType<MatchService>().As<IMatchService>().InstancePerLifetimeScope();

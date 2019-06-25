@@ -44,7 +44,7 @@ namespace D2CFL.Business.FantasyLeague
         public async Task<OrganizationDto> Edit(Guid id, IOrganizationDto item)
         {
             var entity = await _unitOfWork.OrganizationRepository.GetAsync(id);
-            if(entity == null) return null;
+            if (entity == null) return null;
 
             entity = _mapper.Map(item, entity);
 
@@ -67,10 +67,10 @@ namespace D2CFL.Business.FantasyLeague
         private async Task SetDeletedOrganizationNameForMatchParticipant(Guid id)
         {
             var organization = await _unitOfWork.OrganizationRepository.GetAsync(id);
-            if(organization == null) return;
+            if (organization == null) return;
 
             var participant = await _unitOfWork.ParticipantRepository.GetAsync(x => x.OrganizationId == id);
-            if(participant == null) return;
+            if (participant == null) return;
 
             participant.OrganizationName = organization.Name;
 

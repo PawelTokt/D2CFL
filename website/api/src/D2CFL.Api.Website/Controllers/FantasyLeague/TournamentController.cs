@@ -22,24 +22,24 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<TournamentModel>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IList<TournamentModel>), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
             return Ok(_mapper.Map<IList<TournamentModel>>(await _tournamentService.GetList()));
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(TournamentModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(TournamentModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Get(Guid id)
         {
             return Ok(_mapper.Map<TournamentModel>(await _tournamentService.Get(id)));
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(TournamentModel), (int)HttpStatusCode.Created)]
+        [ProducesResponseType(typeof(TournamentModel), (int) HttpStatusCode.Created)]
         public async Task<IActionResult> Post([FromBody] TournamentActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _tournamentService.Add(model);
 
@@ -47,10 +47,10 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(TournamentModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(TournamentModel), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Put(Guid id, [FromBody] TournamentActionModel model)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var item = await _tournamentService.Edit(id, model);
 
@@ -58,7 +58,7 @@ namespace D2CFL.Api.Website.Controllers.FantasyLeague
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType((int) HttpStatusCode.NoContent)]
         public async Task<IActionResult> Delete(Guid id)
         {
             await _tournamentService.Delete(id);
